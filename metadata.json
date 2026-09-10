@@ -1,0 +1,6 @@
+{
+  "name": "Visa India Expert",
+  "description": "Modern, streamlined Indian e-Visa application portal with step-by-step guidance, AI photo validator, eligibility calculator, and application tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

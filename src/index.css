@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Reset & Typography ─────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1A2332;
+    background-color: #FAF8F5;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.2;
+  }
+}
+
+/* ─── Component Layer ─────────────────────────────────────── */
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold
+           rounded-full transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           cursor-pointer select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-saffron-500 hover:bg-saffron-600 text-white
+           shadow-md hover:shadow-lg focus:ring-saffron-400
+           px-8 py-4 text-lg;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white hover:bg-ivory text-navy-500
+           border-2 border-navy-500 focus:ring-navy-300
+           px-8 py-4 text-lg;
+  }
+
+  .btn-whatsapp {
+    @apply btn bg-indiangreen-500 hover:bg-indiangreen-600 text-white
+           shadow-md hover:shadow-lg focus:ring-indiangreen-400
+           px-6 py-4 text-lg;
+  }
+
+  .btn-navy {
+    @apply btn bg-navy-500 hover:bg-navy-600 text-white
+           shadow-md hover:shadow-lg focus:ring-navy-400
+           px-6 py-4 text-lg;
+  }
+
+  .btn-sm {
+    @apply btn px-4 py-2 text-sm rounded-lg;
+  }
+
+  .btn-xs {
+    @apply btn px-3 py-1.5 text-xs rounded-md;
+  }
+
+  /* Section Structure */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-label {
+    @apply text-saffron-500 font-semibold text-sm uppercase tracking-widest
+           text-center mb-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy-500
+           text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-warmgray-600 text-lg md:text-xl text-center
+           max-w-2xl mx-auto mb-12;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-2xl border border-warmgray-200
+           p-6 transition-all duration-200
+           hover:shadow-lg hover:border-saffron-200;
+  }
+
+  .card-selected {
+    @apply border-2 border-saffron-500 shadow-md shadow-saffron-100;
+  }
+
+  /* Form */
+  .form-label {
+    @apply block text-sm font-medium text-navy-500 mb-1.5;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border border-warmgray-300
+           bg-white text-navy-500 placeholder-warmgray-400
+           focus:outline-none focus:ring-2 focus:ring-saffron-400
+           focus:border-saffron-400 transition-all duration-200
+           text-base;
+  }
+
+  .form-error {
+    @apply text-red-500 text-sm mt-1;
+  }
+
+  .form-helper {
+    @apply text-warmgray-500 text-sm mt-1;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply h-2 bg-warmgray-200 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-saffron-500 rounded-full transition-all duration-500;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  /* FAQ Accordion */
+  .faq-answer {
+    @apply overflow-hidden transition-all duration-300 ease-in-out;
+  }
+
+  /* Trust Bar */
+  .trust-item {
+    @apply flex items-center gap-2 text-sm text-warmgray-600;
+  }
+
+  /* Sticky Mobile CTA */
+  .sticky-cta {
+    @apply fixed bottom-0 left-0 right-0 z-50
+           bg-white/95 backdrop-blur-md border-t border-warmgray-200
+           px-4 py-3 shadow-lg;
+  }
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4D1C8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B0ADA2;
+}
+
+/* ─── Selection ───────────────────────────────────────────── */
+
+::selection {
+  background: #FFECD9;
+  color: #1A2332;
+}
+
+/* ─── Mobile-Specific Fixes ──────────────────────────────── */
+
+@layer utilities {
+  /* Prevent iOS zoom on input focus */
+  @supports (-webkit-touch-callout: none) {
+    .form-input {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Safe area for notched phones */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
