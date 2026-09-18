@@ -83,7 +83,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: '3',
     question: 'How much does your service cost?',
-    answer: 'Our service fees range from €199 to €499 depending on visa type and complexity. This is an all-inclusive fee covering application preparation, submission assistance, and ongoing support. Government visa fees are separate.',
+    answer: 'Our service fees range from $199 to $399 depending on visa type and complexity. This is an all-inclusive fee covering application preparation, submission assistance, and ongoing support. Government visa fees are separate and paid directly to the Indian government.',
   },
   {
     id: '4',
@@ -98,7 +98,12 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: '6',
     question: 'How do I pay?',
-    answer: 'We accept payments via Wise for secure international transfers. After submitting your application, you will receive an invoice with a direct payment link. Payment is required before we begin processing your visa application.',
+    answer: 'You pay a 70% advance to start your application, and the remaining 30% is due only after your application is successfully processed. Payment is made by secure bank transfer to our Wise account — your invoice page shows the exact amount, the invoice reference, and the full bank details (IBAN and SWIFT/BIC) with one-tap copy buttons. After submitting your transfer, simply confirm it on the payment page.',
+  },
+  {
+    id: '11',
+    question: 'Why do you ask for a 70% advance payment?',
+    answer: 'The 70% advance reserves your case with our team and covers the initial work: reviewing your eligibility, preparing the application, and filing it with the authorities. The remaining 30% is only due after your application is successfully processed. This keeps the process transparent and protects both sides — you can track every stage before the final payment.',
   },
   {
     id: '7',
@@ -183,6 +188,28 @@ export const BENEFITS = [
   },
 ];
 
+// ─── Payment Structure (70% advance / 30% balance) ───────────
+// 70% of the service fee is paid upfront to start the application.
+// The remaining 30% is due only after the application is successfully processed.
+export const ADVANCE_PERCENT = 0.70;
+export const BALANCE_PERCENT = 0.30;
+
+// ─── Wise Account (Bank Transfer) ────────────────────────────
+// Payments are received as a bank transfer into the Wise account below.
+// If you also create a real Wise payment link in the Wise dashboard,
+// paste it in WISE_PAYMENT_LINK — the payment page will show a direct
+// "Pay with Wise" button. Leave empty to show bank-transfer details only.
+export const WISE_ACCOUNT = {
+  accountName: 'ENERGY STOCK ALLIANCE Limited -THE-',
+  iban: 'BE73905633425060',
+  swift: 'TRWIBEB1XXX',
+  bankName: 'Wise',
+  bankAddress: 'Rue du Trône 100, 3rd floor, Brussels, 1050, Belgium',
+  currencyNote: 'Transfers in USD (or EUR/GBP — Wise converts at the mid-market rate).',
+};
+
+export const WISE_PAYMENT_LINK = ''; // e.g. 'https://wise.com/pay/xxxx' — optional
+
 // ─── Company Info ────────────────────────────────────────────
 export const COMPANY = {
   name: 'Visa India Expert',
@@ -190,6 +217,6 @@ export const COMPANY = {
   phone: '+63 949 649 1061',
   whatsapp: '+639496491061', // without spaces for URL
   whatsappLink: 'https://wa.me/639496491061',
-  currency: '€',
-  currencyCode: 'EUR',
+  currency: '$',
+  currencyCode: 'USD',
 };

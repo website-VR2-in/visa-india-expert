@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useFormStore } from '../store';
 import { FORM_STEPS, VISA_OPTIONS, NATIONALITIES, COMPANY } from '../data/config';
-import { generateInvoiceId, validateEmail, validatePhone, validateRequired } from '../lib/utils';
+import { generateInvoiceId, validateEmail, validatePhone, validateRequired, splitPayment, formatMoney } from '../lib/utils';
+import { api } from '../lib/api';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ export const ApplicationForm: React.FC = () => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [invoiceId, setInvoiceId] = useState<string>('');
+  const [busy, setBusy] = useState(false);
 
   const visible = isFormVisible || isSubmitted;
 
@@ -67,34 +69,62 @@ export const ApplicationForm: React.FC = () => {
       toast.error('Please review and fix any errors.');
       return;
     }
+    setBusy(true);
 
-    const newInvoiceId = generateInvoiceId();
+    const total = VISA_OPTIONS.find((v) => v.id === formData.visaType)?.defaultPrice || 199;
+    const { advance, balance } = splitPayment(total);
+
+    // 1) Submit to the backend (source of truth when available — the server
+    //    validates the data, computes the price and generates the invoice id,
+    //    so the application is visible to the admin from any device).
+    let newInvoiceId = '';
+    let fromServer = false;
+    try {
+      const res = await api.createApplication({ formData, source: 'web' });
+      newInvoiceId = res.invoiceId;
+      fromServer = true;
+    } catch {
+      // 2) Backend unreachable (offline / local dev without server) →
+      //    generate the invoice locally and keep the localStorage flow.
+      newInvoiceId = generateInvoiceId();
+    }
     setInvoiceId(newInvoiceId);
 
-    // Store application in localStorage (backend will sync later)
+    // 3) Mirror to the localStorage cache (payment page + admin fallback).
     const application = {
       id: newInvoiceId,
       invoiceId: newInvoiceId,
       formData,
       status: 'new' as const,
       paymentStatus: 'awaiting_payment' as const,
-      amount: VISA_OPTIONS.find((v) => v.id === formData.visaType)?.defaultPrice || 199,
-      currency: 'EUR',
+      amount: total,
+      advanceAmount: advance,
+      balanceAmount: balance,
+      currency: COMPANY.currencyCode,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       notes: '',
       documents: [],
     };
-
-    // Save to local storage
-    const existing = JSON.parse(localStorage.getItem('visa_applications') || '[]');
-    existing.unshift(application);
-    localStorage.setItem('visa_applications', JSON.stringify(existing));
+    try {
+      const existing: unknown[] = JSON.parse(localStorage.getItem('visa_applications') || '[]');
+      if (!existing.some((a) => (a as { invoiceId?: string }).invoiceId === newInvoiceId)) {
+        existing.unshift(application);
+        localStorage.setItem('visa_applications', JSON.stringify(existing));
+      }
+    } catch {
+      // storage unavailable — non-fatal
+    }
 
     // Update store
     useFormStore.getState().submitForm(newInvoiceId, newInvoiceId);
 
-    toast.success('Application submitted! Redirecting to payment...');
+    toast.success(
+      fromServer
+        ? 'Application submitted! Redirecting to payment...'
+        : 'Application submitted (offline mode). Redirecting to payment...'
+    );
+    setBusy(false);
     navigate(`/payment/${newInvoiceId}`);
   };
 
@@ -312,7 +342,7 @@ export const ApplicationForm: React.FC = () => {
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-bold text-navy-500">Invoice Summary</span>
                     <span className="text-2xl font-bold text-saffron-500">
-                      {COMPANY.currency}{price}
+                      {formatMoney(price)}
                     </span>
                   </div>
                   <div className="text-sm text-warmgray-600 space-y-1">
@@ -323,8 +353,35 @@ export const ApplicationForm: React.FC = () => {
                     <p><span className="font-medium">Travel From:</span> {formData.travelDateFrom}</p>
                   </div>
                 </div>
+
+                {/* Payment Breakdown */}
+                <div className="bg-white border border-warmgray-200 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold text-navy-500 text-sm">Payment Plan</span>
+                    <span className="badge bg-indiangreen-50 text-indiangreen-800">2 simple steps</span>
+                  </div>
+                  <div className="space-y-2 text-sm mt-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-warmgray-600">
+                        70% advance — <span className="text-warmgray-400">due now to start</span>
+                      </span>
+                      <span className="font-bold text-navy-500">{formatMoney(splitPayment(price).advance)}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-warmgray-600">
+                        30% balance — <span className="text-warmgray-400">after successful application</span>
+                      </span>
+                      <span className="font-bold text-navy-500">{formatMoney(splitPayment(price).balance)}</span>
+                    </div>
+                    <div className="border-t border-warmgray-200 pt-2 flex justify-between items-center">
+                      <span className="font-semibold text-navy-500">Total service fee</span>
+                      <span className="font-bold text-saffron-500">{formatMoney(price)}</span>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="text-sm text-warmgray-500">
-                  <p>By submitting, you agree to our Terms of Service and Privacy Policy. Your information is securely stored and only used for your visa application.</p>
+                  <p>By submitting, you agree to our Terms of Service and Privacy Policy. Your information is securely stored and only used for your visa application. Payment of the 70% advance is made on the next step via secure bank transfer to our Wise account.</p>
                 </div>
               </div>
             )}
@@ -347,10 +404,10 @@ export const ApplicationForm: React.FC = () => {
               ) : (
                 <button
                   onClick={handleSubmit}
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || busy}
                   className="btn btn-primary !py-3 !px-6 !text-sm disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit & Pay'}
+                  {isSubmitting || busy ? 'Submitting...' : 'Submit & Pay 70% Advance'}
                 </button>
               )}
             </div>

@@ -9,7 +9,12 @@ export const StickyCTA: React.FC = () => {
     <div className="sticky-cta safe-bottom">
       <div className="max-w-7xl mx-auto flex items-center gap-3">
         <button
-          onClick={() => { showForm(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          onClick={() => {
+            showForm();
+            setTimeout(() => {
+              document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          }}
           className="btn btn-primary !flex-1 !px-4 !py-3 !text-sm !rounded-xl"
         >
           Start My Visa

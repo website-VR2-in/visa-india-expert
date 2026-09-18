@@ -10,7 +10,7 @@ const lessons = [
 
 export const FounderStory: React.FC = () => {
   return (
-    <section className="section bg-navy-500 text-white">
+    <section id="about" className="section bg-navy-500 text-white">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center">
           <div className="section-label text-saffron-400">Our Story</div>

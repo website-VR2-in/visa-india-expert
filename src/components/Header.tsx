@@ -1,10 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
-import { useUIStore } from '../store';
+import { useUIStore, useFormStore } from '../store';
 
 export const Header: React.FC = () => {
   const { mobileMenuOpen, toggleMobileMenu } = useUIStore();
+  const showForm = useFormStore((s) => s.showForm);
+
+  const handleApply = () => {
+    showForm();
+    toggleMobileMenu();
+    setTimeout(() => {
+      document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
@@ -21,9 +30,9 @@ export const Header: React.FC = () => {
             <a href="#how-it-works" className="text-sm font-medium text-slate-600 hover:text-navy transition-colors">Process</a>
             <a href="#about" className="text-sm font-medium text-slate-600 hover:text-navy transition-colors">About</a>
             <a href="#faq" className="text-sm font-medium text-slate-600 hover:text-navy transition-colors">FAQ</a>
-            <a href="#apply" className="btn-primary">
+            <button onClick={handleApply} className="btn-primary !px-6 !py-2.5 !text-sm">
               Apply Now
-            </a>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -50,9 +59,9 @@ export const Header: React.FC = () => {
             <a href="#how-it-works" onClick={toggleMobileMenu} className="block text-sm font-medium text-slate-600 hover:text-navy py-2">Process</a>
             <a href="#about" onClick={toggleMobileMenu} className="block text-sm font-medium text-slate-600 hover:text-navy py-2">About</a>
             <a href="#faq" onClick={toggleMobileMenu} className="block text-sm font-medium text-slate-600 hover:text-navy py-2">FAQ</a>
-            <a href="#apply" onClick={toggleMobileMenu} className="btn-primary block text-center">
+            <button onClick={handleApply} className="btn-primary w-full text-center">
               Apply Now
-            </a>
+            </button>
           </div>
         )}
       </div>

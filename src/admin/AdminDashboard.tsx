@@ -1,28 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminStore } from '../store';
 import { Application, ApplicationStatus, PaymentStatus } from '../types';
 import { STATUS_LABELS, PAYMENT_LABELS, getStatusColor, getPaymentColor, formatDateTime } from '../lib/utils';
 import { COMPANY, VISA_OPTIONS } from '../data/config';
+import { api, getAdminToken } from '../lib/api';
 import { toast } from 'react-hot-toast';
 
 export const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
   const isAuthenticated = localStorage.getItem('admin_auth') === 'true';
-  const { applications, addApplication, updateStatus, updatePaymentStatus, filter, setFilter, searchQuery, setSearchQuery, filterApplications } = useAdminStore();
+  const { applications, addApplication, updateStatus, updatePaymentStatus, updateApplication, filter, setFilter, searchQuery, setSearchQuery, filterApplications } = useAdminStore();
   const [selectedApp, setSelectedApp] = useState<Application | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [apiMode, setApiMode] = useState(false);
+  const notesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Load applications from localStorage on mount
+  const loadFromLocal = () => {
+    try {
+      const stored = JSON.parse(localStorage.getItem('visa_applications') || '[]');
+      if (stored.length > 0) {
+        useAdminStore.getState().setApplications(stored);
+      }
+    } catch {
+      // ignore malformed storage
+    }
+  };
+
+  // Load applications: primary source is the backend (all devices);
+  // falls back to the local cache when the API is unreachable.
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/admin');
       return;
     }
-    const stored = JSON.parse(localStorage.getItem('visa_applications') || '[]');
-    if (stored.length > 0) {
-      useAdminStore.getState().setApplications(stored);
+    let cancelled = false;
+    const token = getAdminToken();
+    if (token) {
+      api
+        .listApplications(token)
+        .then((res) => {
+          if (cancelled) return;
+          setApiMode(true);
+          useAdminStore.getState().setApplications(res.applications);
+        })
+        .catch(() => {
+          if (!cancelled) {
+            setApiMode(false);
+            loadFromLocal();
+          }
+        });
+    } else {
+      // Offline login (no backend token) — use the local cache.
+      loadFromLocal();
     }
+    return () => {
+      cancelled = true;
+    };
   }, [isAuthenticated, navigate]);
 
   useEffect(() => {
@@ -37,31 +71,70 @@ export const AdminDashboard: React.FC = () => {
   const today = new Date().toISOString().split('T')[0];
   const todayApps = applications.filter(a => a.createdAt.startsWith(today));
   const pendingPayments = applications.filter(a => a.paymentStatus === 'awaiting_payment').length;
+  const advancePaidApps = applications.filter(a => a.paymentStatus === 'advance_paid').length;
   const paidApps = applications.filter(a => a.paymentStatus === 'paid').length;
   const newLeads = applications.filter(a => a.status === 'new').length;
-  const totalRevenue = applications.reduce((sum, a) => sum + (a.paymentStatus === 'paid' ? a.amount : 0), 0);
+  // Revenue = full fee for fully-paid apps + the 70% advance for advance-paid apps
+  const totalRevenue = applications.reduce((sum, a) => {
+    if (a.paymentStatus === 'paid') return sum + a.amount;
+    if (a.paymentStatus === 'advance_paid') return sum + (a.advanceAmount ?? a.amount * 0.7);
+    return sum;
+  }, 0);
 
   const stats = [
     { label: "Today's Applications", value: todayApps.length, color: 'bg-blue-50 text-blue-800' },
-    { label: 'Pending Payments', value: pendingPayments, color: 'bg-orange-50 text-orange-800' },
-    { label: 'Paid Applications', value: paidApps, color: 'bg-green-50 text-green-800' },
-    { label: 'New Leads', value: newLeads, color: 'bg-purple-50 text-purple-800' },
-    { label: 'Total Revenue', value: `€${totalRevenue.toFixed(2)}`, color: 'bg-indiangreen-50 text-indiangreen-800' },
+    { label: 'Pending Advances', value: pendingPayments, color: 'bg-orange-50 text-orange-800' },
+    { label: 'Advance Paid (70%)', value: advancePaidApps, color: 'bg-indiangreen-50 text-indiangreen-800' },
+    { label: 'Fully Paid', value: paidApps, color: 'bg-green-50 text-green-800' },
+    { label: 'Revenue Received', value: `${COMPANY.currency}${totalRevenue.toFixed(2)}`, color: 'bg-saffron-50 text-saffron-700' },
   ];
 
-  const handleStatusChange = (id: string, status: ApplicationStatus) => {
+  const handleStatusChange = async (id: string, status: ApplicationStatus) => {
     updateStatus(id, status);
+    if (apiMode) {
+      try {
+        await api.updateApplication(id, { status }, getAdminToken());
+      } catch {
+        toast.error('Cloud sync failed — saved locally', { icon: '⚠️' });
+        return;
+      }
+    }
     toast.success(`Status updated to ${STATUS_LABELS[status]}`);
   };
 
-  const handlePaymentStatusChange = (id: string, status: PaymentStatus) => {
+  const handlePaymentStatusChange = async (id: string, status: PaymentStatus) => {
     updatePaymentStatus(id, status);
+    if (apiMode) {
+      try {
+        await api.updateApplication(id, { paymentStatus: status }, getAdminToken());
+      } catch {
+        toast.error('Cloud sync failed — saved locally', { icon: '⚠️' });
+        return;
+      }
+    }
     toast.success(`Payment status updated to ${PAYMENT_LABELS[status]}`);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('admin_auth');
+    localStorage.removeItem('admin_token');
+    useAdminStore.getState().setApplications([]);
     navigate('/');
+    toast.success('Logged out');
+  };
+
+  const handleNotesChange = (value: string) => {
+    if (!selectedApp) return;
+    setSelectedApp({ ...selectedApp, notes: value });
+    updateApplication(selectedApp.id, { notes: value });
+    if (apiMode) {
+      if (notesTimer.current) clearTimeout(notesTimer.current);
+      notesTimer.current = setTimeout(() => {
+        api.updateApplication(selectedApp.id, { notes: value }, getAdminToken()).catch(() => {
+          // best-effort sync; the local copy is already saved
+        });
+      }, 800);
+    }
   };
 
   const openAppDetails = (app: Application) => {
@@ -78,7 +151,23 @@ export const AdminDashboard: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold">Admin Dashboard</h1>
-            <p className="text-warmgray-300 text-sm">{COMPANY.name}</p>
+            <p className="text-warmgray-300 text-sm flex items-center gap-2">
+              {COMPANY.name}
+              <span
+                className={`badge ${
+                  apiMode
+                    ? 'bg-indiangreen-500/30 text-indiangreen-200'
+                    : 'bg-white/10 text-warmgray-300'
+                }`}
+                title={
+                  apiMode
+                    ? 'Live data from the server — applications from all devices'
+                    : 'Offline mode — only applications stored on this device'
+                }
+              >
+                {apiMode ? '● Cloud' : '○ Local'}
+              </span>
+            </p>
           </div>
           <button onClick={handleLogout} className="btn btn-secondary !py-2 !px-4 !text-sm">
             Logout
@@ -128,7 +217,9 @@ export const AdminDashboard: React.FC = () => {
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Customer</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Visa</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Date</th>
-                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Amount</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Total</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Advance (70%)</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Balance (30%)</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Payment</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Status</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Actions</th>
@@ -144,7 +235,13 @@ export const AdminDashboard: React.FC = () => {
                     </td>
                     <td className="px-4 py-3 text-sm">{VISA_OPTIONS.find(v => v.id === app.formData.visaType)?.label || app.formData.visaType}</td>
                     <td className="px-4 py-3 text-sm">{formatDateTime(app.createdAt)}</td>
-                    <td className="px-4 py-3 font-semibold">€{app.amount}</td>
+                    <td className="px-4 py-3 font-semibold">{COMPANY.currency}{app.amount}</td>
+                    <td className="px-4 py-3 text-sm">
+                      {COMPANY.currency}{(app.advanceAmount ?? app.amount * 0.7).toFixed(2)}
+                    </td>
+                    <td className="px-4 py-3 text-sm">
+                      {COMPANY.currency}{(app.balanceAmount ?? app.amount * 0.3).toFixed(2)}
+                    </td>
                     <td className="px-4 py-3">
                       <span className={`badge ${getPaymentColor(app.paymentStatus)}`}>
                         {PAYMENT_LABELS[app.paymentStatus]}
@@ -202,6 +299,27 @@ export const AdminDashboard: React.FC = () => {
                     <div><span className="text-warmgray-500">Travel From:</span> <span className="font-medium">{selectedApp.formData.travelDateFrom}</span></div>
                   </div>
                 </div>
+                {/* Payment Details */}
+                <div className="card">
+                  <h3 className="font-bold text-navy-500 mb-3">Payment Plan (70% / 30%)</h3>
+                  <div className="grid grid-cols-3 gap-3 text-sm">
+                    <div className="bg-saffron-50 border border-saffron-200 rounded-lg px-3 py-2">
+                      <p className="text-warmgray-500 text-xs">Total fee</p>
+                      <p className="font-bold text-navy-500">{COMPANY.currency}{selectedApp.amount}</p>
+                    </div>
+                    <div className="bg-indiangreen-50 border border-indiangreen-200 rounded-lg px-3 py-2">
+                      <p className="text-warmgray-500 text-xs">Advance (70%)</p>
+                      <p className="font-bold text-navy-500">{COMPANY.currency}{(selectedApp.advanceAmount ?? selectedApp.amount * 0.7).toFixed(2)}</p>
+                    </div>
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg px-3 py-2">
+                      <p className="text-warmgray-500 text-xs">Balance (30%)</p>
+                      <p className="font-bold text-navy-500">{COMPANY.currency}{(selectedApp.balanceAmount ?? selectedApp.amount * 0.3).toFixed(2)}</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-warmgray-500 mt-3">
+                    The advance is due upfront; the balance is only due after the application is successfully processed.
+                  </p>
+                </div>
                 {/* Status Controls */}
                 <div className="card">
                   <h3 className="font-bold text-navy-500 mb-3">Update Status</h3>
@@ -238,10 +356,7 @@ export const AdminDashboard: React.FC = () => {
                   <textarea
                     className="form-input min-h-[80px]"
                     value={selectedApp.notes}
-                    onChange={(e) => {
-                      const updated = { ...selectedApp, notes: e.target.value };
-                      setSelectedApp(updated);
-                    }}
+                    onChange={(e) => handleNotesChange(e.target.value)}
                     placeholder="Add notes about this application..."
                   />
                 </div>

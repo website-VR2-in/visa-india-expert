@@ -26,6 +26,7 @@ export type ApplicationStatus =
 export type PaymentStatus =
   | 'awaiting_payment'
   | 'payment_initiated'
+  | 'advance_paid'
   | 'paid'
   | 'payment_failed'
   | 'payment_under_review'
@@ -54,7 +55,9 @@ export interface Invoice {
   customerPhone: string;
   visaType: string;
   serviceDescription: string;
-  amount: number;
+  amount: number; // total service fee
+  advanceAmount: number; // 70% due upfront
+  balanceAmount: number; // 30% due after successful application
   currency: string;
   status: PaymentStatus;
   createdAt: string;
@@ -67,10 +70,14 @@ export interface Application {
   formData: ApplicationFormData;
   status: ApplicationStatus;
   paymentStatus: PaymentStatus;
-  amount: number;
+  amount: number; // total service fee
+  advanceAmount?: number; // 70% due upfront
+  balanceAmount?: number; // 30% due after successful application
   currency: string;
   createdAt: string;
   updatedAt: string;
+  advancePaidAt?: string; // when the applicant confirmed the 70% advance transfer
+  paidAt?: string; // when the 30% balance was received
   notes: string;
   documents: DocumentFile[];
 }

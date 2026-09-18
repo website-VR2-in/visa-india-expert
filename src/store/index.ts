@@ -55,7 +55,7 @@ export const useFormStore = create<FormState>()(
       setFormData: (data) => set((state) => ({ formData: { ...state.formData, ...data } })),
       setField: (key, value) => set((state) => ({ formData: { ...state.formData, [key]: value } })),
       setSelectedVisa: (visa) => set({ selectedVisa: visa }),
-      showForm: () => set({ isFormVisible: true, currentStep: 1 }),
+      showForm: () => set({ isFormVisible: true, currentStep: 1, isSubmitting: false }),
       hideForm: () => set({ isFormVisible: false }),
       resetForm: () => set({ currentStep: 1, formData: defaultFormData, selectedVisa: null, isFormVisible: false, isSubmitting: false, isSubmitted: false, applicationId: null, invoiceId: null }),
       submitForm: (applicationId, invoiceId) => set({ isSubmitting: true, isSubmitted: true, applicationId, invoiceId }),
@@ -65,6 +65,17 @@ export const useFormStore = create<FormState>()(
 );
 
 // ─── Applications Store (Admin) ──────────────────────────────
+
+const APPLICATIONS_KEY = 'visa_applications';
+
+/** Persist the applications list to localStorage so admin edits survive refresh. */
+function persistApplications(applications: Application[]): void {
+  try {
+    localStorage.setItem(APPLICATIONS_KEY, JSON.stringify(applications));
+  } catch {
+    // storage full / unavailable — non-fatal
+  }
+}
 
 interface AdminState {
   applications: Application[];
@@ -90,20 +101,34 @@ export const useAdminStore = create<AdminState>()(
       filter: 'all',
       searchQuery: '',
 
-      setApplications: (apps) => set({ applications: apps }),
-      addApplication: (app) => set((state) => ({ applications: [app, ...state.applications] })),
+      setApplications: (apps) => {
+        set({ applications: apps });
+        persistApplications(apps);
+      },
+      addApplication: (app) =>
+        set((state) => {
+          const applications = [app, ...state.applications];
+          persistApplications(applications);
+          return { applications };
+        }),
       updateApplication: (id, updates) =>
-        set((state) => ({
-          applications: state.applications.map((a) => (a.id === id ? { ...a, ...updates, updatedAt: new Date().toISOString() } : a)),
-        })),
+        set((state) => {
+          const applications = state.applications.map((a) => (a.id === id ? { ...a, ...updates, updatedAt: new Date().toISOString() } : a));
+          persistApplications(applications);
+          return { applications };
+        }),
       updateStatus: (id, status) =>
-        set((state) => ({
-          applications: state.applications.map((a) => (a.id === id ? { ...a, status, updatedAt: new Date().toISOString() } : a)),
-        })),
+        set((state) => {
+          const applications = state.applications.map((a) => (a.id === id ? { ...a, status, updatedAt: new Date().toISOString() } : a));
+          persistApplications(applications);
+          return { applications };
+        }),
       updatePaymentStatus: (id, status) =>
-        set((state) => ({
-          applications: state.applications.map((a) => (a.id === id ? { ...a, paymentStatus: status, updatedAt: new Date().toISOString() } : a)),
-        })),
+        set((state) => {
+          const applications = state.applications.map((a) => (a.id === id ? { ...a, paymentStatus: status, updatedAt: new Date().toISOString() } : a));
+          persistApplications(applications);
+          return { applications };
+        }),
       setFilter: (filter) => set({ filter }),
       setSearchQuery: (query) => set({ searchQuery: query }),
       filterApplications: () => {

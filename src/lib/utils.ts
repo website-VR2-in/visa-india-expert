@@ -1,3 +1,5 @@
+import { COMPANY } from '../data/config';
+
 // ─── Invoice / Application ID Generator ──────────────────────
 
 /**
@@ -17,6 +19,25 @@ export function generateInvoiceId(): string {
   const suffix = Math.random().toString(36).substring(2, 6).toUpperCase();
 
   return `INV-${dateStr}${monthStr}${dayStr}-${hourStr}${minStr}${secStr}-${suffix}`;
+}
+
+// ─── Payment Split (70% advance / 30% balance) ───────────────
+
+/**
+ * Split a total service fee into a 70% advance (due upfront) and a
+ * 30% balance (due after the application is successfully processed).
+ * Both values are rounded to 2 decimals and always sum to the total.
+ */
+export function splitPayment(total: number): { advance: number; balance: number } {
+  const round2 = (n: number) => Math.round(n * 100) / 100;
+  const advance = round2(total * 0.7);
+  const balance = round2(total - advance);
+  return { advance, balance };
+}
+
+/** Format an amount with the company currency symbol, e.g. 139.3 → $139.30 */
+export function formatMoney(amount: number): string {
+  return `${COMPANY.currency}${amount.toFixed(2)}`;
 }
 
 // ─── Form Validation ─────────────────────────────────────────
@@ -93,9 +114,10 @@ export const STATUS_LABELS: Record<string, string> = {
 };
 
 export const PAYMENT_LABELS: Record<string, string> = {
-  awaiting_payment: 'Awaiting Payment',
+  awaiting_payment: 'Awaiting Advance',
   payment_initiated: 'Payment Initiated',
-  paid: 'Paid',
+  advance_paid: 'Advance Paid (70%)',
+  paid: 'Fully Paid (100%)',
   payment_failed: 'Payment Failed',
   payment_under_review: 'Under Review',
   refunded: 'Refunded',
@@ -119,6 +141,7 @@ export function getPaymentColor(status: string): string {
   const colors: Record<string, string> = {
     awaiting_payment: 'bg-orange-100 text-orange-800',
     payment_initiated: 'bg-blue-100 text-blue-800',
+    advance_paid: 'bg-indiangreen-50 text-indiangreen-800',
     paid: 'bg-green-100 text-green-800',
     payment_failed: 'bg-red-100 text-red-800',
     payment_under_review: 'bg-yellow-100 text-yellow-800',
