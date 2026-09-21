@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { COMPANY, VISA_OPTIONS } from '../data/config';
-import { buildWhatsAppLink, splitPayment, formatMoney } from '../lib/utils';
+import { buildWhatsAppLink, formatMoney } from '../lib/utils';
 import { api } from '../lib/api';
 import { useFormStore } from '../store';
 import type { Application } from '../types';
@@ -34,16 +34,15 @@ export const ConfirmationPage: React.FC = () => {
   const name = app?.formData?.fullName || formData.fullName;
   const visaType = app?.formData?.visaType || formData.visaType;
   const visaOption = VISA_OPTIONS.find((v) => v.id === visaType);
-  const total = app?.amount || visaOption?.defaultPrice || 199;
-  const { advance, balance } = app
-    ? { advance: app.advanceAmount ?? splitPayment(total).advance, balance: app.balanceAmount ?? splitPayment(total).balance }
-    : splitPayment(total);
+  const total = app?.amount || (visaOption ? visaOption.kickoff + visaOption.successFee : 299);
+  const kickoff = app?.kickoffAmount ?? visaOption?.kickoff ?? 199;
+  const successFee = app?.successAmount ?? visaOption?.successFee ?? (total - kickoff);
 
   const whatsappLink = buildWhatsAppLink(
     name || 'Applicant',
     invoiceId || 'N/A',
     visaOption?.label || visaType || 'N/A',
-    `I have sent the 70% advance payment of ${formatMoney(advance)} for invoice ${invoiceId || 'N/A'}. Please confirm receipt and let me know the next steps.`
+    `I have sent the kickoff payment of ${formatMoney(kickoff)} for invoice ${invoiceId || 'N/A'}. Please confirm receipt and let me know the next steps.`
   );
 
   return (
@@ -59,7 +58,7 @@ export const ConfirmationPage: React.FC = () => {
 
           <h1 className="text-3xl font-bold text-navy-500 mb-2">Application Received</h1>
           <p className="text-warmgray-500 mb-8">
-            Thank you, {name?.split(' ')[0] || 'there'}. Your 70% advance payment has been recorded and your application is now in our queue.
+            Thank you, {name?.split(' ')[0] || 'there'}. Your kickoff payment has been recorded and your application is now in our queue.
           </p>
 
           {/* Details */}
@@ -74,11 +73,11 @@ export const ConfirmationPage: React.FC = () => {
                 <span className="font-mono font-semibold text-navy-500">{invoiceId}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-warmgray-600">70% advance ({formatMoney(advance)})</span>
+                <span className="text-warmgray-600">Kickoff fee ({formatMoney(kickoff)})</span>
                 <span className="badge bg-indiangreen-50 text-indiangreen-800 border border-indiangreen-200">Paid — verifying</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-warmgray-600">30% balance ({formatMoney(balance)})</span>
+                <span className="text-warmgray-600">Success fee ({formatMoney(successFee)})</span>
                 <span className="badge bg-orange-100 text-orange-800">Due after successful application</span>
               </div>
             </div>
@@ -90,7 +89,7 @@ export const ConfirmationPage: React.FC = () => {
             <ol className="space-y-2 text-sm text-warmgray-600">
               <li className="flex items-start gap-2">
                 <span className="text-saffron-500 font-bold">1.</span>
-                We verify your advance transfer and review your application.
+                We verify your kickoff transfer and review your application.
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-saffron-500 font-bold">2.</span>
@@ -102,7 +101,7 @@ export const ConfirmationPage: React.FC = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-saffron-500 font-bold">4.</span>
-                Once your application is successfully processed, you pay the remaining 30% balance.
+                Once your application is successfully processed, you pay the success fee.
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-saffron-500 font-bold">5.</span>

@@ -15,8 +15,8 @@ const steps = [
   },
   {
     num: '03',
-    title: 'Pay 70% Advance',
-    description: 'You receive your invoice and pay the 70% advance via secure bank transfer to our Wise account. Your application begins immediately after payment.',
+    title: 'Pay Your Kickoff Fee',
+    description: 'You receive your invoice and pay the kickoff fee via secure bank transfer to our Wise account. Your application begins immediately after payment.',
     icon: '💳',
   },
   {
@@ -28,7 +28,7 @@ const steps = [
   {
     num: '05',
     title: 'Visa Approved',
-    description: 'Your application is successfully processed and you receive your visa. The remaining 30% balance is then due — and we are still here if you need anything.',
+    description: 'Your application is successfully processed and you receive your visa. The success fee is then due — and we are still here if you need anything.',
     icon: '✅',
   },
 ];

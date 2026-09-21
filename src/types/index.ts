@@ -2,13 +2,27 @@
 
 export type VisaType = 'tourist' | 'business' | 'medical' | 'e-1' | 'b-1' | 'spouse' | 'student' | 'journalist' | 'other';
 
+export interface VisaFact {
+  label: string;
+  value: string;
+}
+
 export interface VisaOption {
   id: VisaType;
   label: string;
   description: string;
   icon: string;
-  defaultPrice: number;
   category: string;
+  /** Fee paid upfront to start the application (USD). */
+  kickoff: number;
+  /** Fee due only after the application is successfully processed (USD). */
+  successFee: number;
+  // ── Dedicated-page content ──
+  tagline: string;
+  whoFor: string[];
+  facts: VisaFact[];
+  pitfalls: string[];
+  documents: string[];
 }
 
 // ─── Application / Invoice ───────────────────────────────────
@@ -25,11 +39,8 @@ export type ApplicationStatus =
 
 export type PaymentStatus =
   | 'awaiting_payment'
-  | 'payment_initiated'
-  | 'advance_paid'
+  | 'kickoff_paid'
   | 'paid'
-  | 'payment_failed'
-  | 'payment_under_review'
   | 'refunded';
 
 export interface ApplicationFormData {
@@ -48,19 +59,20 @@ export interface ApplicationFormData {
 }
 
 export interface Invoice {
-  id: string; // INV-YYYYMMDD-HHMMSS
+  id: string; // INV-YYYYMMDD-HHMMSS-XXXX
   applicationId: string;
   customerName: string;
   customerEmail: string;
   customerPhone: string;
   visaType: string;
   serviceDescription: string;
-  amount: number; // total service fee
-  advanceAmount: number; // 70% due upfront
-  balanceAmount: number; // 30% due after successful application
+  amount: number; // total service fee (kickoff + success fee)
+  kickoffAmount: number; // due upfront
+  successAmount: number; // due after successful application
   currency: string;
   status: PaymentStatus;
   createdAt: string;
+  kickoffPaidAt?: string;
   paidAt?: string;
 }
 
@@ -70,14 +82,14 @@ export interface Application {
   formData: ApplicationFormData;
   status: ApplicationStatus;
   paymentStatus: PaymentStatus;
-  amount: number; // total service fee
-  advanceAmount?: number; // 70% due upfront
-  balanceAmount?: number; // 30% due after successful application
+  amount: number; // total service fee (kickoff + success fee)
+  kickoffAmount?: number; // due upfront
+  successAmount?: number; // due after successful application
   currency: string;
   createdAt: string;
   updatedAt: string;
-  advancePaidAt?: string; // when the applicant confirmed the 70% advance transfer
-  paidAt?: string; // when the 30% balance was received
+  kickoffPaidAt?: string; // when the applicant confirmed the kickoff transfer
+  paidAt?: string; // when the success fee was received
   notes: string;
   documents: DocumentFile[];
 }

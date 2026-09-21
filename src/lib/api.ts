@@ -71,7 +71,7 @@ export const api = {
 
   /**
    * Update an application.
-   *  - without token: paymentStatus / advancePaidAt / paidAt only
+   *  - without token: paymentStatus / kickoffPaidAt / paidAt only
    *  - with token:    also status / notes
    */
   updateApplication: (invoiceId: string, patch: Record<string, unknown>, token?: string | null) =>

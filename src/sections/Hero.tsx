@@ -1,9 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { COMPANY, TRUST_SIGNALS } from '../data/config';
-import { useFormStore } from '../store';
 
 export const Hero: React.FC = () => {
-  const showForm = useFormStore((s) => s.showForm);
+  const navigate = useNavigate();
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-12">
             <button
-              onClick={() => { showForm(); document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' }); }}
+              onClick={() => navigate('/apply')}
               className="btn btn-primary w-full sm:w-auto"
             >
               Start My Visa Application

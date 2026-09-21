@@ -1,9 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { COMPANY } from '../data/config';
-import { useFormStore } from '../store';
 
 export const FinalCTA: React.FC = () => {
-  const showForm = useFormStore((s) => s.showForm);
+  const navigate = useNavigate();
 
   return (
     <section className="section bg-gradient-to-br from-navy-500 to-navy-700 text-white">
@@ -13,11 +13,11 @@ export const FinalCTA: React.FC = () => {
             Ready to Start Your India Visa Application?
           </h2>
           <p className="text-warmgray-300 text-lg mb-8">
-            Get professional assistance from start to finish. One dedicated consultant, clear pricing, and a simple process.
+            Get professional assistance from start to finish. One dedicated consultant, clear kickoff + success pricing, and a simple process.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <button
-              onClick={() => { showForm(); document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' }); }}
+              onClick={() => navigate('/apply')}
               className="btn btn-primary w-full sm:w-auto"
             >
               Start My Application

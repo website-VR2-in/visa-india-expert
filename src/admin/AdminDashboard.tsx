@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminStore } from '../store';
 import { Application, ApplicationStatus, PaymentStatus } from '../types';
-import { STATUS_LABELS, PAYMENT_LABELS, getStatusColor, getPaymentColor, formatDateTime } from '../lib/utils';
+import { STATUS_LABELS, PAYMENT_LABELS, getStatusColor, getPaymentColor, formatDateTime, formatMoney } from '../lib/utils';
 import { COMPANY, VISA_OPTIONS } from '../data/config';
 import { api, getAdminToken } from '../lib/api';
 import { toast } from 'react-hot-toast';
@@ -71,20 +71,20 @@ export const AdminDashboard: React.FC = () => {
   const today = new Date().toISOString().split('T')[0];
   const todayApps = applications.filter(a => a.createdAt.startsWith(today));
   const pendingPayments = applications.filter(a => a.paymentStatus === 'awaiting_payment').length;
-  const advancePaidApps = applications.filter(a => a.paymentStatus === 'advance_paid').length;
+  const kickoffPaidApps = applications.filter(a => a.paymentStatus === 'kickoff_paid').length;
   const paidApps = applications.filter(a => a.paymentStatus === 'paid').length;
   const newLeads = applications.filter(a => a.status === 'new').length;
-  // Revenue = full fee for fully-paid apps + the 70% advance for advance-paid apps
+  // Revenue = full fee for fully-paid apps + the kickoff fee for kickoff-paid apps
   const totalRevenue = applications.reduce((sum, a) => {
     if (a.paymentStatus === 'paid') return sum + a.amount;
-    if (a.paymentStatus === 'advance_paid') return sum + (a.advanceAmount ?? a.amount * 0.7);
+    if (a.paymentStatus === 'kickoff_paid') return sum + (a.kickoffAmount ?? 0);
     return sum;
   }, 0);
 
   const stats = [
     { label: "Today's Applications", value: todayApps.length, color: 'bg-blue-50 text-blue-800' },
-    { label: 'Pending Advances', value: pendingPayments, color: 'bg-orange-50 text-orange-800' },
-    { label: 'Advance Paid (70%)', value: advancePaidApps, color: 'bg-indiangreen-50 text-indiangreen-800' },
+    { label: 'Kickoffs Due', value: pendingPayments, color: 'bg-orange-50 text-orange-800' },
+    { label: 'Kickoff Paid', value: kickoffPaidApps, color: 'bg-indiangreen-50 text-indiangreen-800' },
     { label: 'Fully Paid', value: paidApps, color: 'bg-green-50 text-green-800' },
     { label: 'Revenue Received', value: `${COMPANY.currency}${totalRevenue.toFixed(2)}`, color: 'bg-saffron-50 text-saffron-700' },
   ];
@@ -218,8 +218,8 @@ export const AdminDashboard: React.FC = () => {
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Visa</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Date</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Total</th>
-                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Advance (70%)</th>
-                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Balance (30%)</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Kickoff</th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Success Fee</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Payment</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Status</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-navy-500/70 uppercase">Actions</th>
@@ -235,12 +235,12 @@ export const AdminDashboard: React.FC = () => {
                     </td>
                     <td className="px-4 py-3 text-sm">{VISA_OPTIONS.find(v => v.id === app.formData.visaType)?.label || app.formData.visaType}</td>
                     <td className="px-4 py-3 text-sm">{formatDateTime(app.createdAt)}</td>
-                    <td className="px-4 py-3 font-semibold">{COMPANY.currency}{app.amount}</td>
+                    <td className="px-4 py-3 font-semibold">{formatMoney(app.amount)}</td>
                     <td className="px-4 py-3 text-sm">
-                      {COMPANY.currency}{(app.advanceAmount ?? app.amount * 0.7).toFixed(2)}
+                      {COMPANY.currency}{(app.kickoffAmount ?? 0).toFixed(2)}
                     </td>
                     <td className="px-4 py-3 text-sm">
-                      {COMPANY.currency}{(app.balanceAmount ?? app.amount * 0.3).toFixed(2)}
+                      {COMPANY.currency}{(app.successAmount ?? 0).toFixed(2)}
                     </td>
                     <td className="px-4 py-3">
                       <span className={`badge ${getPaymentColor(app.paymentStatus)}`}>
@@ -301,23 +301,23 @@ export const AdminDashboard: React.FC = () => {
                 </div>
                 {/* Payment Details */}
                 <div className="card">
-                  <h3 className="font-bold text-navy-500 mb-3">Payment Plan (70% / 30%)</h3>
+                  <h3 className="font-bold text-navy-500 mb-3">Payment Plan (Kickoff + Success)</h3>
                   <div className="grid grid-cols-3 gap-3 text-sm">
                     <div className="bg-saffron-50 border border-saffron-200 rounded-lg px-3 py-2">
                       <p className="text-warmgray-500 text-xs">Total fee</p>
-                      <p className="font-bold text-navy-500">{COMPANY.currency}{selectedApp.amount}</p>
+                      <p className="font-bold text-navy-500">{formatMoney(selectedApp.amount)}</p>
                     </div>
                     <div className="bg-indiangreen-50 border border-indiangreen-200 rounded-lg px-3 py-2">
-                      <p className="text-warmgray-500 text-xs">Advance (70%)</p>
-                      <p className="font-bold text-navy-500">{COMPANY.currency}{(selectedApp.advanceAmount ?? selectedApp.amount * 0.7).toFixed(2)}</p>
+                      <p className="text-warmgray-500 text-xs">Kickoff fee</p>
+                      <p className="font-bold text-navy-500">{COMPANY.currency}{(selectedApp.kickoffAmount ?? 0).toFixed(2)}</p>
                     </div>
                     <div className="bg-orange-50 border border-orange-200 rounded-lg px-3 py-2">
-                      <p className="text-warmgray-500 text-xs">Balance (30%)</p>
-                      <p className="font-bold text-navy-500">{COMPANY.currency}{(selectedApp.balanceAmount ?? selectedApp.amount * 0.3).toFixed(2)}</p>
+                      <p className="text-warmgray-500 text-xs">Success fee</p>
+                      <p className="font-bold text-navy-500">{COMPANY.currency}{(selectedApp.successAmount ?? 0).toFixed(2)}</p>
                     </div>
                   </div>
                   <p className="text-xs text-warmgray-500 mt-3">
-                    The advance is due upfront; the balance is only due after the application is successfully processed.
+                    The kickoff fee is paid upfront; the success fee is only due after the application is successfully processed.
                   </p>
                 </div>
                 {/* Status Controls */}

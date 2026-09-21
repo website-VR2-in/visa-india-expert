@@ -1,19 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { COMPANY } from '../data/config';
+import { COMPANY, VISA_OPTIONS } from '../data/config';
 import { Logo } from '../components/Logo';
 
 export const Footer: React.FC = () => {
   return (
     <footer id="contact" className="bg-navy-500 text-warmgray-300">
       <div className="container-custom py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
             <Logo size="md" />
             <p className="text-sm mt-4 max-w-xs">
               Professional India visa assistance. From application to approval — expert help when you need it.
             </p>
+          </div>
+          {/* Visas */}
+          <div>
+            <h4 className="text-white font-bold mb-4">Visas</h4>
+            <ul className="space-y-2 text-sm">
+              {VISA_OPTIONS.map((v) => (
+                <li key={v.id}>
+                  <Link to={`/visa/${v.id}`} className="hover:text-white transition-colors">
+                    {v.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           {/* Contact */}
           <div>

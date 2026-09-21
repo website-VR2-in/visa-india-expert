@@ -1,20 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { COMPANY } from '../data/config';
-import { useFormStore } from '../store';
 
 export const StickyCTA: React.FC = () => {
-  const showForm = useFormStore((s) => s.showForm);
+  const navigate = useNavigate();
 
   return (
     <div className="sticky-cta safe-bottom">
       <div className="max-w-7xl mx-auto flex items-center gap-3">
         <button
-          onClick={() => {
-            showForm();
-            setTimeout(() => {
-              document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-          }}
+          onClick={() => navigate('/apply')}
           className="btn btn-primary !flex-1 !px-4 !py-3 !text-sm !rounded-xl"
         >
           Start My Visa

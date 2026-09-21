@@ -21,21 +21,9 @@ export function generateInvoiceId(): string {
   return `INV-${dateStr}${monthStr}${dayStr}-${hourStr}${minStr}${secStr}-${suffix}`;
 }
 
-// ─── Payment Split (70% advance / 30% balance) ───────────────
+// ─── Money ───────────────────────────────────────────────────
 
-/**
- * Split a total service fee into a 70% advance (due upfront) and a
- * 30% balance (due after the application is successfully processed).
- * Both values are rounded to 2 decimals and always sum to the total.
- */
-export function splitPayment(total: number): { advance: number; balance: number } {
-  const round2 = (n: number) => Math.round(n * 100) / 100;
-  const advance = round2(total * 0.7);
-  const balance = round2(total - advance);
-  return { advance, balance };
-}
-
-/** Format an amount with the company currency symbol, e.g. 139.3 → $139.30 */
+/** Format an amount with the company currency symbol, e.g. 199 → $199.00 */
 export function formatMoney(amount: number): string {
   return `${COMPANY.currency}${amount.toFixed(2)}`;
 }
@@ -114,12 +102,9 @@ export const STATUS_LABELS: Record<string, string> = {
 };
 
 export const PAYMENT_LABELS: Record<string, string> = {
-  awaiting_payment: 'Awaiting Advance',
-  payment_initiated: 'Payment Initiated',
-  advance_paid: 'Advance Paid (70%)',
-  paid: 'Fully Paid (100%)',
-  payment_failed: 'Payment Failed',
-  payment_under_review: 'Under Review',
+  awaiting_payment: 'Kickoff Due',
+  kickoff_paid: 'Kickoff Paid',
+  paid: 'Fully Paid',
   refunded: 'Refunded',
 };
 
@@ -140,11 +125,8 @@ export function getStatusColor(status: string): string {
 export function getPaymentColor(status: string): string {
   const colors: Record<string, string> = {
     awaiting_payment: 'bg-orange-100 text-orange-800',
-    payment_initiated: 'bg-blue-100 text-blue-800',
-    advance_paid: 'bg-indiangreen-50 text-indiangreen-800',
+    kickoff_paid: 'bg-indiangreen-50 text-indiangreen-800',
     paid: 'bg-green-100 text-green-800',
-    payment_failed: 'bg-red-100 text-red-800',
-    payment_under_review: 'bg-yellow-100 text-yellow-800',
     refunded: 'bg-gray-100 text-gray-800',
   };
   return colors[status] || 'bg-gray-100 text-gray-800';

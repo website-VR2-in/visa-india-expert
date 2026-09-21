@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormStore } from '../store';
 import { FORM_STEPS, VISA_OPTIONS, NATIONALITIES, COMPANY } from '../data/config';
-import { generateInvoiceId, validateEmail, validatePhone, validateRequired, splitPayment, formatMoney } from '../lib/utils';
+import { generateInvoiceId, validateEmail, validatePhone, validateRequired, formatMoney } from '../lib/utils';
 import { api } from '../lib/api';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import type { VisaType } from '../types';
 
-export const ApplicationForm: React.FC = () => {
+interface ApplicationFormProps {
+  /** Pre-select this visa type (e.g. from /apply/:visaId). */
+  visaId?: VisaType;
+  /** Always render the form (dedicated /apply page) instead of toggling. */
+  alwaysVisible?: boolean;
+}
+
+export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, alwaysVisible = false }) => {
   const navigate = useNavigate();
   const {
     currentStep, setCurrentStep, formData, setField,
@@ -17,7 +25,15 @@ export const ApplicationForm: React.FC = () => {
   const [invoiceId, setInvoiceId] = useState<string>('');
   const [busy, setBusy] = useState(false);
 
-  const visible = isFormVisible || isSubmitted;
+  const visible = alwaysVisible || isFormVisible || isSubmitted;
+
+  // Pre-select the visa when arriving from a visa page (e.g. /apply/tourist).
+  useEffect(() => {
+    if (visaId && VISA_OPTIONS.some((v) => v.id === visaId) && formData.visaType !== visaId) {
+      setField('visaType', visaId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visaId]);
 
   const stepKeys: Record<number, string[]> = {
     1: ['visaType'],
@@ -64,15 +80,25 @@ export const ApplicationForm: React.FC = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
+  const handleCancel = () => {
+    if (alwaysVisible) {
+      navigate(visaId ? `/visa/${visaId}` : '/');
+      return;
+    }
+    hideForm();
+  };
+
+  const visaOption = VISA_OPTIONS.find((v) => v.id === formData.visaType);
+  const kickoff = visaOption?.kickoff ?? 199;
+  const successFee = visaOption?.successFee ?? 100;
+  const total = kickoff + successFee;
+
   const handleSubmit = async () => {
     if (!validateStep(currentStep)) {
       toast.error('Please review and fix any errors.');
       return;
     }
     setBusy(true);
-
-    const total = VISA_OPTIONS.find((v) => v.id === formData.visaType)?.defaultPrice || 199;
-    const { advance, balance } = splitPayment(total);
 
     // 1) Submit to the backend (source of truth when available — the server
     //    validates the data, computes the price and generates the invoice id,
@@ -98,8 +124,8 @@ export const ApplicationForm: React.FC = () => {
       status: 'new' as const,
       paymentStatus: 'awaiting_payment' as const,
       amount: total,
-      advanceAmount: advance,
-      balanceAmount: balance,
+      kickoffAmount: kickoff,
+      successAmount: successFee,
       currency: COMPANY.currencyCode,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -131,9 +157,6 @@ export const ApplicationForm: React.FC = () => {
   if (!visible) return null;
 
   const progress = (currentStep / 6) * 100;
-
-  const visaOption = VISA_OPTIONS.find((v) => v.id === formData.visaType);
-  const price = visaOption?.defaultPrice || 199;
 
   return (
     <div id="application-form" className="section bg-ivory">
@@ -342,7 +365,7 @@ export const ApplicationForm: React.FC = () => {
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-bold text-navy-500">Invoice Summary</span>
                     <span className="text-2xl font-bold text-saffron-500">
-                      {formatMoney(price)}
+                      {formatMoney(total)}
                     </span>
                   </div>
                   <div className="text-sm text-warmgray-600 space-y-1">
@@ -363,25 +386,25 @@ export const ApplicationForm: React.FC = () => {
                   <div className="space-y-2 text-sm mt-3">
                     <div className="flex justify-between items-center">
                       <span className="text-warmgray-600">
-                        70% advance — <span className="text-warmgray-400">due now to start</span>
+                        Kickoff fee — <span className="text-warmgray-400">due now to start</span>
                       </span>
-                      <span className="font-bold text-navy-500">{formatMoney(splitPayment(price).advance)}</span>
+                      <span className="font-bold text-navy-500">{formatMoney(kickoff)}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-warmgray-600">
-                        30% balance — <span className="text-warmgray-400">after successful application</span>
+                        Success fee — <span className="text-warmgray-400">after successful application</span>
                       </span>
-                      <span className="font-bold text-navy-500">{formatMoney(splitPayment(price).balance)}</span>
+                      <span className="font-bold text-navy-500">{formatMoney(successFee)}</span>
                     </div>
                     <div className="border-t border-warmgray-200 pt-2 flex justify-between items-center">
                       <span className="font-semibold text-navy-500">Total service fee</span>
-                      <span className="font-bold text-saffron-500">{formatMoney(price)}</span>
+                      <span className="font-bold text-saffron-500">{formatMoney(total)}</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-sm text-warmgray-500">
-                  <p>By submitting, you agree to our Terms of Service and Privacy Policy. Your information is securely stored and only used for your visa application. Payment of the 70% advance is made on the next step via secure bank transfer to our Wise account.</p>
+                  <p>By submitting, you agree to our Terms of Service and Privacy Policy. Your information is securely stored and only used for your visa application. The kickoff fee is paid on the next step via secure bank transfer to our Wise account. The success fee is due only after your application is successfully processed.</p>
                 </div>
               </div>
             )}
@@ -393,7 +416,7 @@ export const ApplicationForm: React.FC = () => {
                   ← Back
                 </button>
               ) : (
-                <button onClick={hideForm} className="btn btn-secondary !py-3 !px-6 !text-sm">
+                <button onClick={handleCancel} className="btn btn-secondary !py-3 !px-6 !text-sm">
                   Cancel
                 </button>
               )}
@@ -407,7 +430,7 @@ export const ApplicationForm: React.FC = () => {
                   disabled={isSubmitting || busy}
                   className="btn btn-primary !py-3 !px-6 !text-sm disabled:opacity-50"
                 >
-                  {isSubmitting || busy ? 'Submitting...' : 'Submit & Pay 70% Advance'}
+                  {isSubmitting || busy ? 'Submitting...' : 'Submit & Pay Kickoff Fee'}
                 </button>
               )}
             </div>

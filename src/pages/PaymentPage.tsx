@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { COMPANY, VISA_OPTIONS, WISE_ACCOUNT, WISE_PAYMENT_LINK } from '../data/config';
 import { useFormStore, useAdminStore } from '../store';
-import { splitPayment, formatMoney, buildWhatsAppLink } from '../lib/utils';
+import { formatMoney, buildWhatsAppLink } from '../lib/utils';
 import { api } from '../lib/api';
 import type { Application, PaymentStatus } from '../types';
 import { toast } from 'react-hot-toast';
@@ -37,8 +37,8 @@ export const PaymentPage: React.FC = () => {
     visaType: string;
     customerName: string;
     amount: number;
-    advanceAmount?: number;
-    balanceAmount?: number;
+    kickoffAmount?: number;
+    successAmount?: number;
   } | null>(null);
 
   useEffect(() => {
@@ -52,10 +52,10 @@ export const PaymentPage: React.FC = () => {
             visaType: found.formData?.visaType || formData.visaType,
             customerName: found.formData?.fullName || formData.fullName,
             amount: found.amount,
-            advanceAmount: found.advanceAmount,
-            balanceAmount: found.balanceAmount,
+            kickoffAmount: found.kickoffAmount,
+            successAmount: found.successAmount,
           });
-          if (found.paymentStatus === 'advance_paid') setConfirmed(true);
+          if (found.paymentStatus === 'kickoff_paid') setConfirmed(true);
           return true;
         }
       } catch {
@@ -73,10 +73,10 @@ export const PaymentPage: React.FC = () => {
           visaType: a.formData?.visaType || formData.visaType,
           customerName: a.formData?.fullName || formData.fullName,
           amount: a.amount,
-          advanceAmount: a.advanceAmount,
-          balanceAmount: a.balanceAmount,
+          kickoffAmount: a.kickoffAmount,
+          successAmount: a.successAmount,
         });
-        if (a.paymentStatus === 'advance_paid') setConfirmed(true);
+        if (a.paymentStatus === 'kickoff_paid') setConfirmed(true);
       } catch {
         if (!cancelled) fromLocal();
       }
@@ -87,35 +87,34 @@ export const PaymentPage: React.FC = () => {
   }, [invoiceId, formData.visaType, formData.fullName]);
 
   const visaOption = VISA_OPTIONS.find((v) => v.id === (app?.visaType || formData.visaType));
-  const total = app?.amount || visaOption?.defaultPrice || 199;
-  const split = splitPayment(total);
-  const advance = app?.advanceAmount ?? split.advance;
-  const balance = app?.balanceAmount ?? split.balance;
+  const total = app?.amount || (visaOption ? visaOption.kickoff + visaOption.successFee : 299);
+  const kickoff = app?.kickoffAmount ?? visaOption?.kickoff ?? Math.round(total * 0.67);
+  const successFee = app?.successAmount ?? visaOption?.successFee ?? (total - kickoff);
   const customerName = app?.customerName || formData.fullName || 'Applicant';
 
-  const handleConfirmAdvance = async () => {
-    // 1) Record the advance on the backend (works across devices).
+  const handleConfirmKickoff = async () => {
+    // 1) Record the kickoff on the backend (works across devices).
     //    Best-effort: the local cache below is always updated so the flow
     //    completes even if the request fails (offline).
     if (invoiceId) {
       try {
         await api.updateApplication(invoiceId, {
-          paymentStatus: 'advance_paid',
-          advancePaidAt: new Date().toISOString(),
+          paymentStatus: 'kickoff_paid',
+          kickoffPaidAt: new Date().toISOString(),
         });
       } catch {
         // backend unreachable — local cache still records it
       }
     }
-    // 2) Mark the advance as paid in the local application cache
+    // 2) Mark the kickoff as paid in the local application cache
     try {
       const stored: Application[] = JSON.parse(localStorage.getItem('visa_applications') || '[]');
       const idx = stored.findIndex((a) => a.invoiceId === invoiceId);
       if (idx !== -1) {
         stored[idx] = {
           ...stored[idx],
-          paymentStatus: 'advance_paid',
-          advancePaidAt: new Date().toISOString(),
+          paymentStatus: 'kickoff_paid',
+          kickoffPaidAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         };
         localStorage.setItem('visa_applications', JSON.stringify(stored));
@@ -128,12 +127,12 @@ export const PaymentPage: React.FC = () => {
       const admin = useAdminStore.getState();
       const existing = admin.applications.find((a) => a.invoiceId === invoiceId);
       if (existing) {
-        admin.updatePaymentStatus(invoiceId, 'advance_paid');
+        admin.updatePaymentStatus(invoiceId, 'kickoff_paid');
       }
     }
 
     setConfirmed(true);
-    toast.success('Advance payment recorded. You are all set!');
+    toast.success('Kickoff payment recorded. You are all set!');
   };
 
   return (
@@ -149,7 +148,7 @@ export const PaymentPage: React.FC = () => {
               <div>
                 <h1 className="text-xl font-bold">Complete Your Payment</h1>
                 <p className="text-warmgray-300 text-sm">
-                  Pay the 70% advance via bank transfer to our Wise account
+                  Pay the kickoff fee via bank transfer to our Wise account
                 </p>
               </div>
             </div>
@@ -181,12 +180,12 @@ export const PaymentPage: React.FC = () => {
                     <span className="text-navy-500">{formatMoney(total)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-warmgray-600">30% balance (after successful application)</span>
-                    <span className="text-warmgray-500">{formatMoney(balance)}</span>
+                    <span className="text-warmgray-600">Success fee (after successful application)</span>
+                    <span className="text-warmgray-500">{formatMoney(successFee)}</span>
                   </div>
                   <div className="flex justify-between items-center bg-white rounded-lg px-3 py-2 border border-saffron-200">
-                    <span className="font-bold text-navy-500">70% advance — due now</span>
-                    <span className="text-xl font-bold text-saffron-500">{formatMoney(advance)}</span>
+                    <span className="font-bold text-navy-500">Kickoff fee — due now</span>
+                    <span className="text-xl font-bold text-saffron-500">{formatMoney(kickoff)}</span>
                   </div>
                 </div>
               </div>
@@ -197,7 +196,7 @@ export const PaymentPage: React.FC = () => {
               <h2 className="font-bold text-navy-500 text-lg mb-3">How to pay</h2>
               <ol className="space-y-2 text-sm text-warmgray-600 list-decimal list-inside">
                 <li>
-                  Transfer exactly <span className="font-semibold text-navy-500">{formatMoney(advance)}</span> to the Wise account below using your online bank or mobile banking app.
+                  Transfer exactly <span className="font-semibold text-navy-500">{formatMoney(kickoff)}</span> to the Wise account below using your online bank or mobile banking app.
                 </li>
                 <li>
                   Add <span className="font-mono font-semibold text-navy-500 bg-saffron-50 px-1.5 py-0.5 rounded">{invoiceId}</span> as the transfer reference so we can match it instantly.
@@ -283,10 +282,10 @@ export const PaymentPage: React.FC = () => {
             {/* Confirmation Button */}
             {!confirmed ? (
               <button
-                onClick={handleConfirmAdvance}
+                onClick={handleConfirmKickoff}
                 className="btn btn-primary w-full !py-4 text-lg"
               >
-                I Have Sent the {formatMoney(advance)} Advance
+                I Have Sent the {formatMoney(kickoff)} Kickoff
               </button>
             ) : (
               <div className="text-center mb-4">
@@ -295,7 +294,7 @@ export const PaymentPage: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-navy-500 mb-1">Advance recorded</h3>
+                <h3 className="text-lg font-bold text-navy-500 mb-1">Kickoff payment recorded</h3>
                 <p className="text-sm text-warmgray-500 mb-4">
                   We will verify your transfer and contact you shortly.
                 </p>

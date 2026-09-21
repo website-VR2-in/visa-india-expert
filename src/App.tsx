@@ -6,6 +6,8 @@ import { Header } from './components/Header';
 import { StickyCTA } from './components/StickyCTA';
 import { Footer } from './sections/Footer';
 import { HomePage } from './pages/HomePage';
+import { VisaPage } from './pages/VisaPage';
+import { ApplyPage } from './pages/ApplyPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { ConfirmationPage } from './pages/ConfirmationPage';
 import { AdminLoginPage } from './admin/AdminLoginPage';
@@ -37,6 +39,9 @@ const App: React.FC = () => {
               {stickyCTAVisible && <StickyCTA />}
             </>
           } />
+          <Route path="/visa/:visaId" element={<VisaPage />} />
+          <Route path="/apply" element={<ApplyPage />} />
+          <Route path="/apply/:visaId" element={<ApplyPage />} />
           <Route path="/payment/:invoiceId" element={<PaymentPage />} />
           <Route path="/confirmation/:invoiceId" element={<ConfirmationPage />} />
           <Route path="/admin" element={<AdminLoginPage />} />

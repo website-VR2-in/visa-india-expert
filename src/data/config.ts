@@ -1,70 +1,285 @@
 import { VisaOption, FAQItem, FormStep } from '../types';
 
 // ─── Visa Options (Fully Configurable) ───────────────────────
+// Pricing model (matches visaindiaexpert.com): each visa has a
+// KICKOFF fee (paid upfront to start) and a SUCCESS FEE (paid only
+// after the application is successfully processed).
+//
+// ⚠️ Keep kickoff/success in sync with VISA_PRICES in lib/server/prices.js.
 export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'tourist',
     label: 'Tourist Visa',
     description: 'Short-term visit for tourism and leisure travel to India.',
     icon: '🏛️',
-    defaultPrice: 199,
     category: 'Travel',
+    kickoff: 199,
+    successFee: 100,
+    tagline: 'Explore India with a visa handled end to end.',
+    whoFor: [
+      'Holiday travelers and leisure visitors',
+      'Family visitors (visiting friends & relatives)',
+      'Short business sightseeing trips',
+      'Transit travelers needing a proper visa',
+    ],
+    facts: [
+      { label: 'Typical validity', value: '30–120 days' },
+      { label: 'Processing time', value: '3–7 business days' },
+      { label: 'Max stay', value: '90 days per entry' },
+    ],
+    pitfalls: [
+      'Wrong visa category chosen for the trip purpose',
+      'Passport validity under 6 months — instant rejection',
+      'Inconsistent travel dates across forms',
+      'Photos not meeting Indian embassy specs',
+    ],
+    documents: [
+      'Passport (6+ months validity, 2 blank pages)',
+      'Passport-sized photographs (white background)',
+      'Confirmed flight itinerary or bookings',
+      'Proof of accommodation in India',
+      'Bank statements (last 3 months)',
+      'Completed application form',
+    ],
   },
   {
     id: 'business',
     label: 'Business Visa',
     description: 'For business meetings, conferences, and commercial activities.',
     icon: '💼',
-    defaultPrice: 249,
     category: 'Business',
+    kickoff: 349,
+    successFee: 150,
+    tagline: 'Do business in India — meetings, deals, and expansion.',
+    whoFor: [
+      'Company executives attending meetings',
+      'Contract signers and investors',
+      'Trade fair and conference attendees',
+      'Business developers scouting the market',
+    ],
+    facts: [
+      { label: 'Typical validity', value: '1–5 years (multiple)' },
+      { label: 'Processing time', value: '1–3 weeks' },
+      { label: 'Max stay', value: '180 days per visit' },
+    ],
+    pitfalls: [
+      'Sponsor letter missing required company details',
+      'No proof of commercial relationship with the Indian company',
+      'Applying from the wrong jurisdiction',
+      'Saying "employment" in the purpose field',
+    ],
+    documents: [
+      'Passport (6+ months validity)',
+      'Passport-sized photographs',
+      'Invitation letter from the Indian company',
+      'Letter from your employer (on letterhead)',
+      'Proof of business relationship (contracts, invoices)',
+      'Company registration documents',
+    ],
   },
   {
     id: 'medical',
     label: 'Medical Visa',
     description: 'For medical treatment and healthcare in India.',
     icon: '🏥',
-    defaultPrice: 229,
     category: 'Health',
+    kickoff: 199,
+    successFee: 100,
+    tagline: 'World-class treatment in India — without visa stress.',
+    whoFor: [
+      'Patients seeking treatment at Indian hospitals',
+      'Attendants of medical visa holders (up to 2)',
+      'Patients referred by an Indian hospital',
+    ],
+    facts: [
+      { label: 'Typical validity', value: 'Matched to treatment' },
+      { label: 'Processing time', value: '3–10 business days' },
+      { label: 'Attendants allowed', value: 'Up to 2 per patient' },
+    ],
+    pitfalls: [
+      'No formal hospital letter/estimate from the Indian hospital',
+      'Attendant applications submitted without the patient file',
+      'Treatment timeline not reflected in travel dates',
+      'Missing proof of funds for treatment costs',
+    ],
+    documents: [
+      'Passport (6+ months validity)',
+      'Passport-sized photographs',
+      'Letter from the Indian hospital (treatment plan + cost estimate)',
+      'Medical reports and diagnosis',
+      'Proof of funds (bank statements)',
+      'Attendant details (if applicable)',
+    ],
   },
   {
     id: 'e-1',
     label: 'E-1 Business Visa',
     description: 'For entrepreneurs, directors & company owners establishing business in India.',
     icon: '🏢',
-    defaultPrice: 399,
     category: 'Residency',
+    kickoff: 499,
+    successFee: 200,
+    tagline: 'Our flagship case — we built this process the hard way.',
+    whoFor: [
+      'Foreigners who own or establish an Indian company',
+      'Directors and key decision-makers',
+      'Entrepreneurs moving their operations to India',
+    ],
+    facts: [
+      { label: 'Typical validity', value: '1–5 years' },
+      { label: 'Processing time', value: '2–6 months (varies greatly)' },
+      { label: 'FRRO registration', value: 'Required on arrival' },
+    ],
+    pitfalls: [
+      'Company documents not apostilled or in the wrong format',
+      'Minimum capital requirements misunderstood',
+      'Sponsor letter language rejected without explanation',
+      'FRRO registration treated like a tourist entry',
+      'Choosing E-1 when B-1 (or vice versa) fits better',
+    ],
+    documents: [
+      'Passport (6+ months validity)',
+      'Company incorporation documents (MCA certified)',
+      'Apostilled company resolutions & board records',
+      'Proof of capital / investment',
+      'Sponsor letter (we draft it in approved language)',
+      'Audited financial statements (if available)',
+    ],
   },
   {
     id: 'b-1',
     label: 'B-1 Employment Visa',
     description: 'For foreign nationals employed by an Indian company.',
     icon: '👔',
-    defaultPrice: 399,
     category: 'Residency',
+    kickoff: 499,
+    successFee: 200,
+    tagline: 'Get hired in India with the right visa from day one.',
+    whoFor: [
+      'Foreign nationals with a formal Indian employment offer',
+      'Contract workers with Indian employers',
+      'Professionals transferring into an Indian role',
+    ],
+    facts: [
+      { label: 'Typical validity', value: 'Up to 5 years / contract' },
+      { label: 'Processing time', value: '4–12 weeks' },
+      { label: 'FRRO registration', value: 'Required on arrival' },
+    ],
+    pitfalls: [
+      'Salary thresholds not met — application quietly rejected',
+      'Employment contract missing MoU requirements',
+      'Agents confusing B-1 requirements with E-1 rules',
+      'FRRO registration timeline missed after arrival',
+    ],
+    documents: [
+      'Passport (6+ months validity)',
+      'Formal employment contract (signed)',
+      'Letter from the Indian employer (on letterhead)',
+      'Company registration & license documents',
+      'CV and professional qualifications',
+      'Police clearance certificate',
+    ],
   },
   {
     id: 'spouse',
     label: 'Spouse / Dependent Visa',
     description: 'For spouses and dependent children of visa holders.',
     icon: '👨‍👩‍👧',
-    defaultPrice: 349,
     category: 'Family',
+    kickoff: 349,
+    successFee: 150,
+    tagline: 'Bring your family — we run the parallel process for you.',
+    whoFor: [
+      'Spouses of E-1 / B-1 / other long-stay visa holders',
+      'Dependent children of visa holders',
+      'Families relocating to India together',
+    ],
+    facts: [
+      { label: 'Typical validity', value: 'Matched to main visa' },
+      { label: 'Processing time', value: '3–8 weeks (parallel track)' },
+      { label: 'Max dependents', value: 'Spouse + children' },
+    ],
+    pitfalls: [
+      'Marriage certificate not apostilled / not translated',
+      'Applying before the main visa is confirmed',
+      'Children\'s birth certificates missing parent details',
+      'Address proof not matching the main applicant',
+    ],
+    documents: [
+      'Passports of all dependents',
+      'Apostilled marriage certificate (+ certified translation)',
+      'Children\'s birth certificates',
+      'Main applicant\'s visa copy',
+      'Proof of relationship and shared address',
+      'Photographs of each applicant',
+    ],
   },
   {
     id: 'student',
     label: 'Student Visa',
     description: 'For enrollment in Indian educational institutions.',
     icon: '🎓',
-    defaultPrice: 229,
     category: 'Education',
+    kickoff: 349,
+    successFee: 150,
+    tagline: 'Study in India with a clean, complete file.',
+    whoFor: [
+      'Undergraduate and postgraduate applicants',
+      'Research and exchange students',
+      'Students admitted to recognized Indian institutions',
+    ],
+    facts: [
+      { label: 'Typical validity', value: 'Course duration' },
+      { label: 'Processing time', value: '2–6 weeks' },
+      { label: 'Key requirement', value: 'University admission letter' },
+    ],
+    pitfalls: [
+      'Admission letter from an unrecognized institution',
+      'Proof of funds below the required threshold',
+      'No intent-to-return documentation',
+      'Gaps between admission and visa issue dates unexplained',
+    ],
+    documents: [
+      'Passport (6+ months validity)',
+      'University admission / enrollment letter',
+      'Proof of funds (bank statements + sponsor letter)',
+      'Academic transcripts and certificates',
+      'Statement of purpose (we help draft it)',
+      'Photographs',
+    ],
   },
   {
     id: 'other',
     label: 'Other Visa Type',
     description: 'Not sure which visa you need? We will help determine the right category.',
     icon: '📋',
-    defaultPrice: 199,
     category: 'Other',
+    kickoff: 199,
+    successFee: 100,
+    tagline: 'Tell us your situation — we\'ll find the right category.',
+    whoFor: [
+      'Applicants unsure of the correct visa category',
+      'Special cases (journalism, research, conferences)',
+      'Re-applicants after a rejection',
+      'Anyone with a complicated history',
+    ],
+    facts: [
+      { label: 'First step', value: 'Free 15-minute case review' },
+      { label: 'Processing time', value: 'Case by case' },
+      { label: 'Outcome', value: 'A clear category + plan' },
+    ],
+    pitfalls: [
+      'Applying for a category that doesn\'t fit your situation',
+      'Not disclosing previous refusals or overstays',
+      'Following generic internet advice for a specific case',
+      'Switching categories mid-process without guidance',
+    ],
+    documents: [
+      'Passport (6+ months validity)',
+      'A short summary of your situation (WhatsApp is fine)',
+      'Any previous visa applications or refusals',
+      'Supporting documents for your specific case',
+    ],
   },
 ];
 
@@ -78,12 +293,12 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: '2',
     question: 'What documents do I need?',
-    answer: 'Required documents depend on your visa type. Generally, you will need a valid passport (6+ months validity), passport-sized photographs, proof of travel itinerary, and financial documentation. We provide a customized checklist tailored to your specific visa category.',
+    answer: 'Required documents depend on your visa type. Generally, you will need a valid passport (6+ months validity), passport-sized photographs, proof of travel itinerary, and financial documentation. Each visa page on this site lists the exact checklist for that category — and we send you a customized one after your kickoff payment.',
   },
   {
     id: '3',
     question: 'How much does your service cost?',
-    answer: 'Our service fees range from $199 to $399 depending on visa type and complexity. This is an all-inclusive fee covering application preparation, submission assistance, and ongoing support. Government visa fees are separate and paid directly to the Indian government.',
+    answer: 'Every visa has a fixed, all-inclusive price shown on its own page: a kickoff fee you pay upfront to start, plus a success fee that is due only after your application is successfully processed. For example, a Tourist Visa is $199 kickoff + $100 success fee ($299 total). Government visa fees are separate and paid directly to the Indian government.',
   },
   {
     id: '4',
@@ -98,12 +313,12 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: '6',
     question: 'How do I pay?',
-    answer: 'You pay a 70% advance to start your application, and the remaining 30% is due only after your application is successfully processed. Payment is made by secure bank transfer to our Wise account — your invoice page shows the exact amount, the invoice reference, and the full bank details (IBAN and SWIFT/BIC) with one-tap copy buttons. After submitting your transfer, simply confirm it on the payment page.',
+    answer: 'You pay the kickoff fee (shown on your invoice) to start your application, and the success fee is due only after your application is successfully processed. Payment is made by secure bank transfer to our Wise account — your invoice page shows the exact amount, the invoice reference, and the full bank details (IBAN and SWIFT/BIC) with one-tap copy buttons. After submitting your transfer, simply confirm it on the payment page.',
   },
   {
     id: '11',
-    question: 'Why do you ask for a 70% advance payment?',
-    answer: 'The 70% advance reserves your case with our team and covers the initial work: reviewing your eligibility, preparing the application, and filing it with the authorities. The remaining 30% is only due after your application is successfully processed. This keeps the process transparent and protects both sides — you can track every stage before the final payment.',
+    question: 'Why do you ask for a kickoff payment?',
+    answer: 'The kickoff fee reserves your case with our team and covers the initial work: reviewing your eligibility, preparing the application, and filing it with the authorities. The success fee is only due after your application is successfully processed. This keeps the process transparent and protects both sides — you can track every stage before the final payment.',
   },
   {
     id: '7',
@@ -183,16 +398,17 @@ export const BENEFITS = [
   },
   {
     icon: '💰',
-    title: 'Clear Pricing',
-    description: 'No hidden fees. No surprise charges. You know the cost before you start.',
+    title: 'Kickoff + Success Pricing',
+    description: 'You pay a kickoff fee to start and a success fee only after your application succeeds. No hidden costs.',
   },
 ];
 
-// ─── Payment Structure (70% advance / 30% balance) ───────────
-// 70% of the service fee is paid upfront to start the application.
-// The remaining 30% is due only after the application is successfully processed.
-export const ADVANCE_PERCENT = 0.70;
-export const BALANCE_PERCENT = 0.30;
+// ─── Payment Structure (kickoff + success fee) ──────────────
+// The kickoff fee is paid upfront to start the application.
+// The success fee is due only after the application is successfully processed.
+// Per-visa amounts live in VISA_OPTIONS above (and lib/server/prices.js).
+export const MIN_KICKOFF = Math.min(...VISA_OPTIONS.map((v) => v.kickoff));
+export const MIN_SUCCESS_FEE = Math.min(...VISA_OPTIONS.map((v) => v.successFee));
 
 // ─── Wise Account (Bank Transfer) ────────────────────────────
 // Payments are received as a bank transfer into the Wise account below.
