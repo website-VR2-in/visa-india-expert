@@ -29,6 +29,7 @@ export const PaymentPage: React.FC = () => {
   const navigate = useNavigate();
   const formData = useFormStore((s) => s.formData);
   const [confirmed, setConfirmed] = useState(false);
+  const [confirming, setConfirming] = useState(false);
 
   // Resolve the application for this invoice.
   // Primary source: the backend (works from any device / browser).
@@ -93,6 +94,18 @@ export const PaymentPage: React.FC = () => {
   const customerName = app?.customerName || formData.fullName || 'Applicant';
 
   const handleConfirmKickoff = async () => {
+    if (confirming) return; // no double-submits
+    setConfirming(true);
+    try {
+      await recordKickoff();
+    } finally {
+      setConfirming(false); // button re-enables even on unexpected errors
+    }
+    setConfirmed(true);
+    toast.success('Kickoff payment recorded. You are all set!');
+  };
+
+  const recordKickoff = async () => {
     // 1) Record the kickoff on the backend (works across devices).
     //    Best-effort: the local cache below is always updated so the flow
     //    completes even if the request fails (offline).
@@ -130,9 +143,6 @@ export const PaymentPage: React.FC = () => {
         admin.updatePaymentStatus(invoiceId, 'kickoff_paid');
       }
     }
-
-    setConfirmed(true);
-    toast.success('Kickoff payment recorded. You are all set!');
   };
 
   return (
@@ -283,9 +293,10 @@ export const PaymentPage: React.FC = () => {
             {!confirmed ? (
               <button
                 onClick={handleConfirmKickoff}
-                className="btn btn-primary w-full !py-4 text-lg"
+                disabled={confirming}
+                className="btn btn-primary w-full !py-4 text-lg disabled:opacity-70 disabled:cursor-wait"
               >
-                I Have Sent the {formatMoney(kickoff)} Kickoff
+                {confirming ? 'Recording…' : `I Have Sent the ${formatMoney(kickoff)} Kickoff`}
               </button>
             ) : (
               <div className="text-center mb-4">

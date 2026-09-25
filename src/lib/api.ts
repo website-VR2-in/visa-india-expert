@@ -16,18 +16,30 @@ export class ApiError extends Error {
   }
 }
 
+const REQUEST_TIMEOUT_MS = 15000; // never let a UI request hang forever
+
 async function request<T>(
   path: string,
   opts: { method?: string; body?: unknown; token?: string | null } = {}
 ): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, {
-    method: opts.method ?? 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(opts.token ? { Authorization: `Bearer ${opts.token}` } : {}),
-    },
-    body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
-  });
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}${path}`, {
+      method: opts.method ?? 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(opts.token ? { Authorization: `Bearer ${opts.token}` } : {}),
+      },
+      body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
+      signal: controller.signal,
+    });
+  } catch (e: any) {
+    throw new ApiError(0, e?.name === 'AbortError' ? 'Request timed out' : 'Network error');
+  } finally {
+    clearTimeout(timer);
+  }
 
   if (!res.ok) {
     let message = `Request failed (${res.status})`;

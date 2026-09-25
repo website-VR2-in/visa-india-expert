@@ -99,7 +99,16 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
       return;
     }
     setBusy(true);
+    // try/finally guarantees the button re-enables even if something below
+    // throws unexpectedly — the UI can never get stuck on "Submitting...".
+    try {
+      await submitApplication();
+    } finally {
+      setBusy(false);
+    }
+  };
 
+  const submitApplication = async () => {
     // 1) Submit to the backend (source of truth when available — the server
     //    validates the data, computes the price and generates the invoice id,
     //    so the application is visible to the admin from any device).
@@ -150,7 +159,6 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
         ? 'Application submitted! Redirecting to payment...'
         : 'Application submitted (offline mode). Redirecting to payment...'
     );
-    setBusy(false);
     navigate(`/payment/${newInvoiceId}`);
   };
 
