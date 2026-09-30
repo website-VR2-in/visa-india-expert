@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useUIStore } from './store';
 import { Header } from './components/Header';
 import { StickyCTA } from './components/StickyCTA';
@@ -49,6 +50,7 @@ const App: React.FC = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Toaster position="top-center" />
+        <SpeedInsights />
       </div>
     </Router>
   );
