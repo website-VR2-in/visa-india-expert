@@ -4,6 +4,7 @@ import { COMPANY, VISA_OPTIONS, WISE_ACCOUNT, WISE_PAYMENT_LINK } from '../data/
 import { useFormStore, useAdminStore } from '../store';
 import { formatMoney, buildWhatsAppLink } from '../lib/utils';
 import { api } from '../lib/api';
+import { trackEvent } from '../lib/track';
 import type { Application, PaymentStatus } from '../types';
 import { toast } from 'react-hot-toast';
 
@@ -102,6 +103,14 @@ export const PaymentPage: React.FC = () => {
       setConfirming(false); // button re-enables even on unexpected errors
     }
     setConfirmed(true);
+
+    // Analytics: kickoff payment confirmed (primary conversion event in GA4)
+    trackEvent('kickoff_payment_confirmed', {
+      visa_type: visaOption?.id,
+      kickoff_amount: kickoff,
+      currency: 'USD',
+    });
+
     toast.success('Kickoff payment recorded. You are all set!');
   };
 

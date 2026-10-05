@@ -3,6 +3,7 @@ import { useFormStore } from '../store';
 import { FORM_STEPS, VISA_OPTIONS, NATIONALITIES, COMPANY } from '../data/config';
 import { generateInvoiceId, validateEmail, validatePhone, validateRequired, formatMoney } from '../lib/utils';
 import { api } from '../lib/api';
+import { trackEvent } from '../lib/track';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import type { VisaType } from '../types';

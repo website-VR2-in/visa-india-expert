@@ -1,18 +1,29 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { VISA_OPTIONS, COMPANY } from '../data/config';
+import { VISAS_SEO, PageSeo } from '../data/seo';
 import { formatMoney } from '../lib/utils';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { Header } from '../components/Header';
 import { Footer } from '../sections/Footer';
+
+const FALLBACK_SEO: PageSeo = {
+  title: 'India Visa | Visa India Expert',
+  description: 'Expert India visa assistance from application to approval.',
+};
 
 export const VisaPage: React.FC = () => {
   const { visaId } = useParams<{ visaId: string }>();
   const visa = VISA_OPTIONS.find((v) => v.id === visaId);
+  const seo = visaId ? VISAS_SEO[visaId] : undefined;
 
   // Scroll to top on visa change
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [visaId]);
+
+  // SEO meta — called unconditionally (Rules of Hooks), before any early return.
+  usePageMeta(seo ?? FALLBACK_SEO, `/visa/${visaId ?? ''}`);
 
   if (!visa) return <Navigate to="/" replace />;
 
@@ -47,7 +58,7 @@ export const VisaPage: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs font-bold text-saffron-500 uppercase tracking-wide">{visa.category} Visa</div>
-                  <h1 className="text-3xl md:text-4xl font-bold text-navy-500 leading-tight">{visa.label}</h1>
+                  <h1 className="text-3xl md:text-4xl font-bold text-navy-500 leading-tight">{seo?.h1 ?? visa.label}</h1>
                 </div>
               </div>
               <p className="text-lg text-navy-500/80 font-medium mb-3">{visa.tagline}</p>

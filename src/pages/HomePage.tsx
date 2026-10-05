@@ -1,4 +1,6 @@
 import React from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
+import { HOME_SEO } from '../data/seo';
 import { Hero } from '../sections/Hero';
 import { Benefits } from '../sections/Benefits';
 import { VisaGrid } from '../sections/VisaGrid';
@@ -9,6 +11,8 @@ import { FAQ } from '../sections/FAQ';
 import { FinalCTA } from '../sections/FinalCTA';
 
 export const HomePage: React.FC = () => {
+  usePageMeta(HOME_SEO, '/');
+
   return (
     <>
       <Hero />
