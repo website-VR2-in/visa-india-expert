@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
   return (
     <footer id="contact" className="bg-navy-500 text-warmgray-300">
       <div className="container-custom py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-5 gap-8 mb-8">
           {/* Brand */}
           <div>
             <Logo size="md" />
@@ -26,6 +26,16 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+          {/* Company */}
+          <div>
+            <h4 className="text-white font-bold mb-4">Company</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/about" className="hover:text-white transition-colors">About us</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition-colors">India visa guides</Link></li>
+              <li><Link to="/press" className="hover:text-white transition-colors">Press & media kit</Link></li>
+              <li><Link to="/visa/other" className="hover:text-white transition-colors">Free case review</Link></li>
             </ul>
           </div>
           {/* Contact */}

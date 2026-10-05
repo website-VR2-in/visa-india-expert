@@ -11,6 +11,10 @@ import { VisaPage } from './pages/VisaPage';
 import { ApplyPage } from './pages/ApplyPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { ConfirmationPage } from './pages/ConfirmationPage';
+import { AboutPage } from './pages/AboutPage';
+import { PressPage } from './pages/PressPage';
+import { BlogPage } from './pages/BlogPage';
+import { BlogPostPage } from './pages/BlogPostPage';
 import { AdminLoginPage } from './admin/AdminLoginPage';
 import { AdminDashboard } from './admin/AdminDashboard';
 
@@ -45,6 +49,10 @@ const App: React.FC = () => {
           <Route path="/apply/:visaId" element={<ApplyPage />} />
           <Route path="/payment/:invoiceId" element={<PaymentPage />} />
           <Route path="/confirmation/:invoiceId" element={<ConfirmationPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/press" element={<PressPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/admin" element={<AdminLoginPage />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { VISA_OPTIONS, COMPANY } from '../data/config';
-import { VISAS_SEO, PageSeo } from '../data/seo';
+import { VISAS_SEO, PageSeo, SITE_URL } from '../data/seo';
 import { formatMoney } from '../lib/utils';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { Header } from '../components/Header';
@@ -29,10 +29,65 @@ export const VisaPage: React.FC = () => {
 
   const total = visa.kickoff + visa.successFee;
   const otherVisas = VISA_OPTIONS.filter((v) => v.id !== visa.id);
+  const h1 = seo?.h1 ?? visa.label;
 
+  // JSON-LD: Service + FAQPage + BreadcrumbList (Step 9 structured data).
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'Service',
+                name: h1,
+                serviceType: 'Visa application assistance',
+                description: visa.description,
+                provider: { '@type': 'Organization', name: COMPANY.name, url: SITE_URL, email: COMPANY.email, telephone: COMPANY.phone },
+                areaServed: 'IN',
+                offers: { '@type': 'Offer', price: total, priceCurrency: 'USD', description: `$${visa.kickoff} kickoff + $${visa.successFee} success fee` },
+              },
+              {
+                '@type': 'FAQPage',
+                mainEntity: [
+                  {
+                    '@type': 'Question',
+                    name: `How much does ${h1} assistance cost?`,
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: `Our ${visa.label} service is priced at $${visa.kickoff} kickoff + $${visa.successFee} success fee ($${total} total). The success fee is due only after your application is successfully processed.`,
+                    },
+                  },
+                  ...visa.facts.map((fact) => ({
+                    '@type': 'Question',
+                    name: `What is the ${fact.label.toLowerCase()} for a ${visa.label.toLowerCase()} application?`,
+                    acceptedAnswer: { '@type': 'Answer', text: fact.value },
+                  })),
+                  {
+                    '@type': 'Question',
+                    name: `What are the most common mistakes with a ${visa.label.toLowerCase()} application?`,
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: visa.pitfalls.map((p) => `• ${p}`).join('\n'),
+                    },
+                  },
+                ],
+              },
+              {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+                  { '@type': 'ListItem', position: 2, name: 'Visas', item: `${SITE_URL}/#services` },
+                  { '@type': 'ListItem', position: 3, name: visa.label, item: `${SITE_URL}/visa/${visa.id}` },
+                ],
+              },
+            ],
+          }),
+        }}
+      />
       <div className="flex-1">
       {/* Breadcrumb */}
       <div className="bg-white border-b border-warmgray-200">
