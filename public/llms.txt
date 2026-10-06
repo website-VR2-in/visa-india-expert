@@ -2,6 +2,8 @@
 
 > Specialist India visa assistance service (founded 2026). We prepare, review and manage Indian visa applications from start to approval. One dedicated consultant per case, published kickoff + success fee pricing, WhatsApp-first support. Website: https://visaindiaexpert.com
 
+Full fact-dense reference (services, pricing, process, policies, FAQ): [llms-full.txt](https://visaindiaexpert.com/llms-full.txt)
+
 ## Services (8 visa categories)
 
 - [India Tourist Visa](https://visaindiaexpert.com/visa/tourist): Tourist visa assistance — 30-day to 5-year multiple entry. $199 kickoff + $100 success fee.

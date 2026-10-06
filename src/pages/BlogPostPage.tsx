@@ -21,7 +21,8 @@ export const BlogPostPage: React.FC = () => {
   }, [slug]);
 
   // Called unconditionally (Rules of Hooks), before the early return.
-  usePageMeta(post ? { title: post.title, description: post.description } : FALLBACK_SEO, `/blog/${slug ?? ''}`);
+  // Meta/OG title uses the short metaTitle (<60 chars); H1 + JSON-LD headline keep the full title.
+  usePageMeta(post ? { title: post.metaTitle, description: post.description } : FALLBACK_SEO, `/blog/${slug ?? ''}`);
 
   if (!post) return <Navigate to="/blog" replace />;
 

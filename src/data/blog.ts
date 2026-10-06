@@ -11,6 +11,8 @@ export interface BlogSection {
 export interface BlogPost {
   slug: string;
   title: string;
+  /** Short meta/OG title (<60 chars) for <title> and social cards. */
+  metaTitle: string;
   description: string;
   /** ISO date. */
   date: string;
@@ -28,6 +30,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'india-tourist-visa-requirements',
     title: 'India Tourist Visa Requirements 2026: The Complete Checklist',
+    metaTitle: 'India Tourist Visa Requirements 2026: Checklist',
     description:
       'Every document, photo spec and form field for the India tourist visa in 2026. Plus the four mistakes that cause the most rejections.',
     date: '2026-10-05',
@@ -85,6 +88,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'india-visa-processing-times-2026',
     title: 'How Long Does an India Visa Take in 2026? Processing Times by Category',
+    metaTitle: 'India Visa Processing Times 2026: How Long It Takes',
     description:
       'Realistic 2026 processing times for every India visa category — tourist, business, medical, E-1, B-1, spouse, student — and what slows each one down.',
     date: '2026-10-05',
@@ -148,6 +152,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'e-1-vs-b-1-visa-india',
     title: 'E-1 vs B-1 Visa in India: Which One Do You Actually Need?',
+    metaTitle: 'E-1 vs B-1 Visa in India: Which Do You Need?',
     description:
       'The E-1 and B-1 are the two big business visas for India — and picking the wrong one can cost you months. Here is how to tell them apart.',
     date: '2026-10-05',
@@ -197,6 +202,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'india-visa-rejection-reasons',
     title: '7 Reasons India Visas Get Rejected (and How to Fix Each One)',
+    metaTitle: '7 Reasons India Visas Get Rejected (and Fixes)',
     description:
       'The seven rejection reasons behind most refused India visas — and the specific fix for each one, before you pay the fee again.',
     date: '2026-10-05',
