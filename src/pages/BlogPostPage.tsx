@@ -11,6 +11,34 @@ const FALLBACK_SEO: PageSeo = {
   description: 'Practical India visa guides written by practitioners.',
 };
 
+/**
+ * Renders a paragraph with inline [text](/internal/path) links for
+ * contextual internal linking (step 9). Only internal paths are linked;
+ * anything else stays plain text.
+ */
+function renderRich(text: string): React.ReactNode {
+  const re = /\[([^\]]+)\]\((\/[^)\s]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  let k = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    parts.push(
+      <Link
+        key={k++}
+        to={m[2]}
+        className="font-semibold text-saffron-700 underline decoration-saffron-400 underline-offset-2 hover:text-saffron-600"
+      >
+        {m[1]}
+      </Link>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts.length ? parts : text;
+}
+
 /** Single blog post with Article JSON-LD and a CTA to the related visa page. */
 export const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -73,7 +101,7 @@ export const BlogPostPage: React.FC = () => {
                   <section key={i}>
                     {section.heading && <h2 className="text-xl font-bold text-navy-500 mb-3">{section.heading}</h2>}
                     {section.paragraphs.map((p, j) => (
-                      <p key={j} className="text-warmgray-700 leading-relaxed mb-4">{p}</p>
+                      <p key={j} className="text-warmgray-700 leading-relaxed mb-4">{renderRich(p)}</p>
                     ))}
                   </section>
                 ))}

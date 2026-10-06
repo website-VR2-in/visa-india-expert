@@ -43,7 +43,7 @@ export const BLOG_POSTS: BlogPost[] = [
     sections: [
       {
         paragraphs: [
-          'The Indian tourist visa allows short-term visits for tourism, leisure, sightseeing, and visiting friends or relatives. In 2026 the standard categories are a 30-day single-entry visa, a 30-day or 1-year multiple-entry visa, and a 5-year multiple-entry visa for eligible nationalities. Processing through the official online portal (Indian e-Visa or embassy application) typically takes 3–7 business days once a complete, correct file is submitted.',
+          'The [Indian tourist visa](/visa/tourist) allows short-term visits for tourism, leisure, sightseeing, and visiting friends or relatives. In 2026 the standard categories are a 30-day single-entry visa, a 30-day or 1-year multiple-entry visa, and a 5-year multiple-entry visa for eligible nationalities. Processing through the official online portal (Indian e-Visa or embassy application) typically takes 3–7 business days once a complete, correct file is submitted.',
           'Most tourist visa rejections are not caused by the applicant — they are caused by the file. This guide lists exactly what the mission checks, in the order it checks them.',
         ],
       },
@@ -80,7 +80,7 @@ export const BLOG_POSTS: BlogPost[] = [
           '2. Passport validity under 6 months — instant rejection, no discretion.',
           '3. Inconsistent travel dates across forms — the application form, flight itinerary, and accommodation proof must all tell the same story.',
           '4. Photos not meeting embassy specs — the most common "fixable" rejection cause.',
-          'Every one of these is checkable before you pay the government fee. A 30-minute pre-submission review of your file eliminates the vast majority of tourist visa rejections — which is exactly what our $199 kickoff service covers for the tourist visa.',
+          'Every one of these is checkable before you pay the government fee. A 30-minute pre-submission review of your file eliminates the vast majority of tourist visa rejections — which is exactly what our [$199 kickoff service](/apply/tourist) covers for the tourist visa.',
         ],
       },
     ],
@@ -101,7 +101,7 @@ export const BLOG_POSTS: BlogPost[] = [
     sections: [
       {
         paragraphs: [
-          '"How long does an India visa take?" is the most common question we receive — and the honest answer depends entirely on the visa category. A tourist visa and an E-1 treaty business visa go through completely different review paths, and their timelines differ by months, not days.',
+          '"How long does an India visa take?" is the most common question we receive — and the honest answer depends entirely on the visa category. A [tourist visa](/visa/tourist) and an [E-1 treaty business visa](/visa/e-1) go through completely different review paths, and their timelines differ by months, not days.',
           'Below are the realistic 2026 processing ranges based on current mission workloads and the document chains each category requires. "Processing time" here means from a complete, correct submission to visa issuance.',
         ],
       },
@@ -144,7 +144,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: 'What you can control',
         paragraphs: [
-          'In every category, the biggest delay factor is an incomplete first submission. Each clarification round adds days to weeks. A complete, consistent, correctly-categorised file submitted once is consistently faster than a good file submitted three times. If you are unsure which category you need — or your situation is a re-application after a rejection — the free case review is where to start.',
+          'In every category, the biggest delay factor is an incomplete first submission. Each clarification round adds days to weeks. A complete, consistent, correctly-categorised file submitted once is consistently faster than a good file submitted three times. If you are unsure which category you need — or your situation is a re-application after a rejection — the [free case review](/apply) is where to start.',
         ],
       },
     ],
@@ -172,14 +172,14 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: 'What the E-1 is for',
         paragraphs: [
-          'The E-1 visa is for people who will establish or manage a business interest in India as principals — investors, founders, and directors of their own Indian entity (or treaty-eligible structure). The legal anchor is your ownership or management role: board seats, shareholding, MCA (Ministry of Corporate Affairs) registrations, sponsor letters from the Indian entity. If the business is yours, the E-1 is usually the right category.',
+          'The [E-1 visa](/visa/e-1) is for people who will establish or manage a business interest in India as principals — investors, founders, and directors of their own Indian entity (or treaty-eligible structure). The legal anchor is your ownership or management role: board seats, shareholding, MCA (Ministry of Corporate Affairs) registrations, sponsor letters from the Indian entity. If the business is yours, the E-1 is usually the right category.',
           'The E-1 file is documentation-heavy: apostilled board resolutions, MCA filings, and a sponsor letter that matches your actual role. Getting the business side right before the visa application is what separates a 4-week process from an 8-month one.',
         ],
       },
       {
         heading: 'What the B-1 is for',
         paragraphs: [
-          'The B-1 employment visa is for people working in India under a contract with an Indian employer — the visa follows the employment relationship. The anchor documents are a signed employment contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. If you are being hired (or transferred) by an Indian company, the B-1 is the category.',
+          'The [B-1 employment visa](/visa/b-1) is for people working in India under a contract with an Indian employer — the visa follows the employment relationship. The anchor documents are a signed employment contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. If you are being hired (or transferred) by an Indian company, the B-1 is the category.',
           'A critical B-1 detail: after the visa, FRRO registration in India is required within 14 days of arrival, with its own document list. Employers who skip this step create post-arrival problems that are expensive to fix.',
         ],
       },
@@ -221,7 +221,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: '1. Wrong visa category',
         paragraphs: [
-          'The stated purpose does not match the actual purpose of the trip — a business trip on a tourist visa, work on a business visa, investment on an employment visa. Missions cross-check the purpose field against the itinerary, employer letters, and (for business categories) the Indian counterparty. Fix: re-state the true purpose and apply in the matching category. For mixed situations (investor + employee), design the structure to match reality before applying.',
+          'The stated purpose does not match the actual purpose of the trip — a business trip on a [tourist visa](/visa/tourist), work on a [business visa](/visa/business), investment on an employment visa. Missions cross-check the purpose field against the itinerary, employer letters, and (for business categories) the Indian counterparty. Fix: re-state the true purpose and apply in the matching category. For mixed situations (investor + employee), design the structure to match reality before applying.',
         ],
       },
       {
@@ -257,7 +257,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: '7. Previous overstays or violations in India',
         paragraphs: [
-          'A prior overstay or FRRO violation is checked and can trigger refusal or additional scrutiny. This is the one reason that is not a simple document fix — it needs a case-specific strategy: a clear explanation, evidence of the correction, and sometimes a different entry point. This is the situation our "not sure which visa" case review is built for — re-applicants with complex histories get a free 15-minute review before any money is spent.',
+          'A prior overstay or FRRO violation is checked and can trigger refusal or additional scrutiny. This is the one reason that is not a simple document fix — it needs a case-specific strategy: a clear explanation, evidence of the correction, and sometimes a different entry point. This is the situation our "not sure which visa" case review is built for — re-applicants with complex histories get a [free 15-minute review](/apply) before any money is spent.',
         ],
       },
       {
