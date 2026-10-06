@@ -13,7 +13,7 @@ export const ApplyPage: React.FC = () => {
   const { visaId } = useParams<{ visaId: string }>();
   const visa = VISA_OPTIONS.find((v) => v.id === visaId);
 
-  usePageMeta(APPLY_SEO, visaId ? `/apply/${visaId}` : '/apply');
+  usePageMeta(APPLY_SEO, visaId ? `/apply/${visaId}` : '/apply', { noindex: true });
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
