@@ -155,7 +155,7 @@ export const PaymentPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-ivory py-10 md:py-16 px-4">
+    <main className="min-h-screen bg-ivory py-10 md:py-16 px-4">
       <div className="max-w-2xl w-full mx-auto">
         <div className="bg-white rounded-2xl border border-warmgray-200 shadow-lg overflow-hidden">
           {/* Header */}
@@ -347,6 +347,6 @@ export const PaymentPage: React.FC = () => {
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 };

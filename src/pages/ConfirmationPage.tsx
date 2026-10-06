@@ -46,7 +46,7 @@ export const ConfirmationPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-ivory flex items-center justify-center py-20 px-4">
+    <main className="min-h-screen bg-ivory flex items-center justify-center py-20 px-4">
       <div className="max-w-lg w-full">
         <div className="bg-white rounded-2xl border border-warmgray-200 shadow-lg p-8 text-center">
           {/* Success Animation */}
@@ -129,6 +129,6 @@ export const ConfirmationPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };

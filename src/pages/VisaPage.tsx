@@ -88,7 +88,7 @@ export const VisaPage: React.FC = () => {
           }),
         }}
       />
-      <div className="flex-1">
+      <main className="flex-1">
       {/* Breadcrumb */}
       <div className="bg-white border-b border-warmgray-200">
         <div className="container-custom py-3">
@@ -273,7 +273,7 @@ export const VisaPage: React.FC = () => {
           </div>
         </div>
       </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );
