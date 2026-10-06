@@ -9,7 +9,7 @@ import { Footer } from '../sections/Footer';
 const BLOG_SEO = {
   title: 'India Visa Guides & Updates | Visa India Expert',
   description:
-    'Practical India visa guides: processing times by category, rejection causes and fixes, E-1 vs B-1 differences, and tourist visa requirements — written by practitioners.',
+    'Practical India visa guides: processing times by category, rejection causes and fixes, E-1 vs B-1 differences and tourist visa requirements — by practitioners.',
   h1: 'India Visa Guides',
 } as const;
 

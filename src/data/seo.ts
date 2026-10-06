@@ -19,7 +19,7 @@ export const OG_IMAGE = `${SITE_URL}/og-image.png`;
 export const HOME_SEO: PageSeo = {
   title: 'India Visa Assistance & Services | Visa India Expert',
   description:
-    'Expert India visa assistance from application to approval. Tourist, business, E-1, B-1, spouse & student visas with transparent kickoff + success fees. Start today.',
+    'Expert India visa assistance from application to approval. Tourist, business, E-1, B-1, spouse & student visas with transparent kickoff + success fees.',
   keywords: [
     'india visa assistance',
     'india visa consultant',
@@ -39,14 +39,14 @@ export const VISAS_SEO: Record<string, PageSeo> = {
   business: {
     title: 'India Business Visa — Expert Help | Visa India Expert',
     description:
-      'Get an India business visa with expert help. Meetings, conferences and investment trips covered. $349 kickoff + $150 success fee, 1–5 year multiple-entry options.',
+      'Get an India business visa with expert help. Meetings, conferences and investment trips covered. $349 kickoff + $150 success fee, 1–5 year multiple-entry visas.',
     h1: 'India Business Visa',
     keywords: ['india business visa', 'india business visa requirements', 'business visa to india', 'india conference visa'],
   },
   medical: {
     title: 'India Medical Visa — Treatment Help | Visa India Expert',
     description:
-      'Travel to India for medical treatment with a properly prepared medical visa. Hospital letters, proof of funds and attendant visas handled end to end.',
+      'Travel to India for medical treatment with a properly prepared medical visa. Hospital letters, proof of funds and attendant visas handled end to end for you.',
     h1: 'India Medical Visa',
     keywords: ['india medical visa', 'medical visa to india', 'india medical treatment visa', 'india visa for medical treatment'],
   },
@@ -90,21 +90,21 @@ export const VISAS_SEO: Record<string, PageSeo> = {
 export const ABOUT_SEO: PageSeo = {
   title: 'About Visa India Expert — Who We Are',
   description:
-    'Visa India Expert is a specialist India visa assistance service. One dedicated consultant, transparent kickoff + success pricing, and real-world experience with E-1 and B-1 cases.',
+    'Specialist India visa assistance service with one dedicated consultant per case, transparent kickoff + success pricing, and deep E-1 and B-1 case experience.',
   keywords: ['about visa india expert', 'india visa service company'],
 };
 
 export const PRESS_SEO: PageSeo = {
   title: 'Visa India Expert — Press & Media Kit',
   description:
-    'Facts, brand assets and contact details for journalists and partners. Visa India Expert: specialist India visa assistance with transparent kickoff + success pricing.',
+    'Facts, brand assets and contact details for journalists. Visa India Expert: specialist India visa assistance with transparent kickoff + success pricing.',
   keywords: ['visa india expert press', 'visa india expert media kit'],
 };
 
 export const APPLY_SEO: PageSeo = {
   title: 'Apply for an India Visa — Start Your Application',
   description:
-    'Start your India visa application in minutes. Tell us about your trip or project, review the fixed kickoff + success fee, and get a dedicated consultant assigned.',
+    'Start your India visa application in minutes. Tell us about your trip or project, review the fixed kickoff + success fee, and get a dedicated consultant.',
   keywords: ['apply for india visa online', 'start india visa application', 'india visa application form'],
 };
 
@@ -132,6 +132,6 @@ export const REFUND_SEO: PageSeo = {
 export const DISCLAIMER_SEO: PageSeo = {
   title: 'Visa Disclaimer | Visa India Expert',
   description:
-    'Visa India Expert is a private assistance service, not a government agency. Visa approval is solely at the discretion of the Government of India. Read the full disclaimer.',
+    'Private assistance service, not a government agency. Visa approval rests solely with Indian missions and immigration authorities. Read the full disclaimer.',
   keywords: ['india visa service disclaimer', 'visa assistance disclaimer'],
 };
