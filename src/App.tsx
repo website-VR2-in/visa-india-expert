@@ -15,6 +15,7 @@ import { AboutPage } from './pages/AboutPage';
 import { PressPage } from './pages/PressPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogPostPage } from './pages/BlogPostPage';
+import { LegalPage } from './pages/LegalPage';
 import { AdminLoginPage } from './admin/AdminLoginPage';
 import { AdminDashboard } from './admin/AdminDashboard';
 
@@ -53,6 +54,10 @@ const App: React.FC = () => {
           <Route path="/press" element={<PressPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/privacy" element={<LegalPage kind="privacy" />} />
+          <Route path="/terms" element={<LegalPage kind="terms" />} />
+          <Route path="/refund" element={<LegalPage kind="refund" />} />
+          <Route path="/disclaimer" element={<LegalPage kind="disclaimer" />} />
           <Route path="/admin" element={<AdminLoginPage />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="*" element={<Navigate to="/" replace />} />

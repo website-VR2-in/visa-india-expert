@@ -100,3 +100,38 @@ export const PRESS_SEO: PageSeo = {
     'Facts, brand assets and contact details for journalists and partners. Visa India Expert: specialist India visa assistance with transparent kickoff + success pricing.',
   keywords: ['visa india expert press', 'visa india expert media kit'],
 };
+
+export const APPLY_SEO: PageSeo = {
+  title: 'Apply for an India Visa — Start Your Application',
+  description:
+    'Start your India visa application in minutes. Tell us about your trip or project, review the fixed kickoff + success fee, and get a dedicated consultant assigned.',
+  keywords: ['apply for india visa online', 'start india visa application', 'india visa application form'],
+};
+
+export const PRIVACY_SEO: PageSeo = {
+  title: 'Privacy Policy | Visa India Expert',
+  description:
+    'How Visa India Expert collects, stores and uses your application data. No cookies, no data sales — your documents are used only to prepare your India visa file.',
+  keywords: ['visa india expert privacy policy', 'visa application data privacy'],
+};
+
+export const TERMS_SEO: PageSeo = {
+  title: 'Terms & Conditions | Visa India Expert',
+  description:
+    'The terms that govern India visa assistance services by Visa India Expert: scope of service, fees, payment, client responsibilities and liability limits.',
+  keywords: ['visa india expert terms', 'visa service terms and conditions'],
+};
+
+export const REFUND_SEO: PageSeo = {
+  title: 'Refund Policy | Visa India Expert',
+  description:
+    'Clear refund rules for Visa India Expert services: 48-hour kickoff refund before work starts, success fee due only on success, government fees non-refundable.',
+  keywords: ['visa india expert refund policy', 'visa service refund'],
+};
+
+export const DISCLAIMER_SEO: PageSeo = {
+  title: 'Visa Disclaimer | Visa India Expert',
+  description:
+    'Visa India Expert is a private assistance service, not a government agency. Visa approval is solely at the discretion of the Government of India. Read the full disclaimer.',
+  keywords: ['india visa service disclaimer', 'visa assistance disclaimer'],
+};

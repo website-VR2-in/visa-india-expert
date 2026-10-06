@@ -16,11 +16,24 @@ function setMeta(attr: 'name' | 'property', key: string, content: string): void 
  * Twitter card tags for the current page (SPA-safe — updates on every
  * route change, no server render needed).
  */
-export function usePageMeta(seo: PageSeo, path: string): void {
+export function usePageMeta(seo: PageSeo, path: string, opts?: { noindex?: boolean }): void {
   useEffect(() => {
     document.title = seo.title;
 
     setMeta('name', 'description', seo.description);
+
+    // Transactional pages (payment, confirmation) should not be indexed
+    let robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (opts?.noindex) {
+      if (!robots) {
+        robots = document.createElement('meta');
+        robots.setAttribute('name', 'robots');
+        document.head.appendChild(robots);
+      }
+      robots.setAttribute('content', 'noindex, nofollow');
+    } else if (robots) {
+      robots.remove();
+    }
 
     // Open Graph
     setMeta('property', 'og:title', seo.title);
@@ -46,5 +59,5 @@ export function usePageMeta(seo: PageSeo, path: string): void {
       document.head.appendChild(link);
     }
     link.href = SITE_URL + path;
-  }, [seo, path]);
+  }, [seo, path, opts?.noindex]);
 }

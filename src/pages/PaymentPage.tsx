@@ -5,6 +5,7 @@ import { useFormStore, useAdminStore } from '../store';
 import { formatMoney, buildWhatsAppLink } from '../lib/utils';
 import { api } from '../lib/api';
 import { trackEvent } from '../lib/track';
+import { usePageMeta } from '../hooks/usePageMeta';
 import type { Application, PaymentStatus } from '../types';
 import { toast } from 'react-hot-toast';
 
@@ -31,6 +32,16 @@ export const PaymentPage: React.FC = () => {
   const formData = useFormStore((s) => s.formData);
   const [confirmed, setConfirmed] = useState(false);
   const [confirming, setConfirming] = useState(false);
+
+  // Transactional page — keep it out of search indexes
+  usePageMeta(
+    {
+      title: `Payment — Invoice ${invoiceId ?? ''} | Visa India Expert`,
+      description: 'Complete your Wise bank transfer for your India visa application. Invoice details and next steps.',
+    },
+    `/payment/${invoiceId ?? ''}`,
+    { noindex: true },
+  );
 
   // Resolve the application for this invoice.
   // Primary source: the backend (works from any device / browser).

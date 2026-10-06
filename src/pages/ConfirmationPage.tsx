@@ -4,12 +4,23 @@ import { COMPANY, VISA_OPTIONS } from '../data/config';
 import { buildWhatsAppLink, formatMoney } from '../lib/utils';
 import { api } from '../lib/api';
 import { useFormStore } from '../store';
+import { usePageMeta } from '../hooks/usePageMeta';
 import type { Application } from '../types';
 
 export const ConfirmationPage: React.FC = () => {
   const { invoiceId } = useParams<{ invoiceId: string }>();
   const navigate = useNavigate();
   const formData = useFormStore((s) => s.formData);
+
+  // Transactional page — keep it out of search indexes
+  usePageMeta(
+    {
+      title: 'Application Submitted | Visa India Expert',
+      description: 'Your India visa application has been submitted. Next steps and how we will keep you updated.',
+    },
+    `/confirmation/${invoiceId ?? ''}`,
+    { noindex: true },
+  );
 
   // Load the application from the backend so this page is accurate even
   // when opened from a different device/browser than the one that submitted.

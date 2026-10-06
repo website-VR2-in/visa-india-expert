@@ -5,11 +5,15 @@ import { Footer } from '../sections/Footer';
 import { ApplicationForm } from '../sections/ApplicationForm';
 import { VISA_OPTIONS, COMPANY } from '../data/config';
 import { formatMoney } from '../lib/utils';
+import { usePageMeta } from '../hooks/usePageMeta';
+import { APPLY_SEO } from '../data/seo';
 import type { VisaType } from '../types';
 
 export const ApplyPage: React.FC = () => {
   const { visaId } = useParams<{ visaId: string }>();
   const visa = VISA_OPTIONS.find((v) => v.id === visaId);
+
+  usePageMeta(APPLY_SEO, visaId ? `/apply/${visaId}` : '/apply');
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
