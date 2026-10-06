@@ -155,6 +155,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
     // Update store
     useFormStore.getState().submitForm(newInvoiceId, newInvoiceId);
 
+    // Analytics: application submitted (conversion event in GA4)
+    trackEvent('application_submitted', {
+      visa_type: visaOption?.id,
+      total_amount: total,
+      currency: 'USD',
+      source: fromServer ? 'web' : 'offline',
+    });
+
     toast.success(
       fromServer
         ? 'Application submitted! Redirecting to payment...'
