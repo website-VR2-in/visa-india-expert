@@ -7,3 +7,7 @@ coverage/
 .env*
 !.env.example
 e2e/
+lh-*.json
+lh-r4-home
+lh-*.html
+*.lighthouse.json
