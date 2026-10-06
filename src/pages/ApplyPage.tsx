@@ -22,7 +22,7 @@ export const ApplyPage: React.FC = () => {
         {/* Breadcrumb + summary bar */}
         <div className="bg-white border-b border-warmgray-200">
           <div className="container-custom py-4">
-            <nav className="text-xs text-warmgray-500 flex items-center gap-2 flex-wrap mb-3">
+            <nav className="text-xs text-warmgray-600 flex items-center gap-2 flex-wrap mb-3">
               <Link to="/" className="hover:text-saffron-500 font-medium">Home</Link>
               <span>/</span>
               <Link to="/#services" className="hover:text-saffron-500 font-medium">Visas</Link>
@@ -52,7 +52,7 @@ export const ApplyPage: React.FC = () => {
                     <span className="mx-2">·</span>
                     <span className="font-bold text-navy-500">{formatMoney(visa.successFee)}</span> success
                     <span className="mx-2">·</span>
-                    <span className="font-bold text-saffron-500">{formatMoney(visa.kickoff + visa.successFee)}</span> total
+                    <span className="font-bold text-saffron-700">{formatMoney(visa.kickoff + visa.successFee)}</span> total
                   </span>
                 </div>
               )}

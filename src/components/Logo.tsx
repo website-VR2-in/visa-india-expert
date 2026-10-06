@@ -3,9 +3,14 @@ import React from 'react';
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
+  /** Accent color for the "Expert" word. Default suits dark backgrounds;
+   *  on light backgrounds pass 'text-saffron-700' for WCAG AA contrast. */
+  accentClass?: string;
+  /** Color for the "Visa India" base word (default navy; pass 'text-white' on dark backgrounds). */
+  textClass?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
+export const Logo: React.FC<LogoProps> = ({ size = 'md', className = '', accentClass = 'text-saffron-500', textClass = 'text-navy-500' }) => {
   const sizes = {
     sm: { icon: 20, text: 'text-sm' },
     md: { icon: 32, text: 'text-lg' },
@@ -32,8 +37,8 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
         <circle cx="12" cy="12" r="1.5" fill="#2D7D46" />
         <circle cx="28" cy="12" r="1.5" fill="#2D7D46" />
       </svg>
-      <span className={`font-bold ${sizes[size].text} text-navy-500`}>
-        Visa India<span className="text-saffron-500"> Expert</span>
+      <span className={`font-bold ${sizes[size].text} ${textClass}`}>
+        Visa India<span className={accentClass}> Expert</span>
       </span>
     </div>
   );

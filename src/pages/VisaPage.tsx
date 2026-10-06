@@ -92,7 +92,7 @@ export const VisaPage: React.FC = () => {
       {/* Breadcrumb */}
       <div className="bg-white border-b border-warmgray-200">
         <div className="container-custom py-3">
-          <nav className="text-xs text-warmgray-500 flex items-center gap-2 flex-wrap">
+          <nav className="text-xs text-warmgray-600 flex items-center gap-2 flex-wrap">
             <Link to="/" className="hover:text-saffron-500 font-medium">Home</Link>
             <span>/</span>
             <Link to="/#services" className="hover:text-saffron-500 font-medium">Visas</Link>
@@ -112,7 +112,7 @@ export const VisaPage: React.FC = () => {
                   {visa.icon}
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-saffron-500 uppercase tracking-wide">{visa.category} Visa</div>
+                  <div className="text-xs font-bold text-saffron-700 uppercase tracking-wide">{visa.category} Visa</div>
                   <h1 className="text-3xl md:text-4xl font-bold text-navy-500 leading-tight">{seo?.h1 ?? visa.label}</h1>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export const VisaPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {visa.facts.map((fact) => (
                   <div key={fact.label} className="bg-white border border-warmgray-200 rounded-xl px-4 py-3">
-                    <p className="text-xs text-warmgray-500 uppercase tracking-wide">{fact.label}</p>
+                    <p className="text-xs text-warmgray-600 uppercase tracking-wide">{fact.label}</p>
                     <p className="font-bold text-navy-500 text-sm mt-0.5">{fact.value}</p>
                   </div>
                 ))}
@@ -146,12 +146,12 @@ export const VisaPage: React.FC = () => {
                       <span className="text-warmgray-600">Kickoff fee</span>
                       <span className="font-bold text-navy-500">{formatMoney(visa.kickoff)}</span>
                     </div>
-                    <div className="text-xs text-warmgray-400 -mt-1">due now to start</div>
+                    <div className="text-xs text-warmgray-600 -mt-1">due now to start</div>
                     <div className="flex justify-between">
                       <span className="text-warmgray-600">Success fee</span>
                       <span className="font-bold text-navy-500">{formatMoney(visa.successFee)}</span>
                     </div>
-                    <div className="text-xs text-warmgray-400 -mt-1">due after successful application</div>
+                    <div className="text-xs text-warmgray-600 -mt-1">due after successful application</div>
                   </div>
                   <Link
                     to={`/apply/${visa.id}`}
@@ -167,7 +167,7 @@ export const VisaPage: React.FC = () => {
                   >
                     Ask a Question
                   </a>
-                  <p className="text-[11px] text-warmgray-400 text-center mt-4">
+                  <p className="text-[11px] text-warmgray-600 text-center mt-4">
                     Government visa fees are separate and paid directly to the Indian government.
                   </p>
                 </div>
@@ -201,7 +201,7 @@ export const VisaPage: React.FC = () => {
             <ul className="space-y-3">
               {visa.pitfalls.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-warmgray-600">
-                  <span className="w-5 h-5 bg-saffron-50 text-saffron-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">
+                  <span className="w-5 h-5 bg-saffron-50 text-saffron-700 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">
                     !
                   </span>
                   {item}
@@ -216,12 +216,12 @@ export const VisaPage: React.FC = () => {
             <div className="grid sm:grid-cols-2 gap-3">
               {visa.documents.map((doc) => (
                 <div key={doc} className="flex items-start gap-3 bg-ivory border border-warmgray-200 rounded-xl px-4 py-3 text-sm text-warmgray-600">
-                  <span className="text-saffron-500 font-bold">📄</span>
+                  <span className="text-saffron-700 font-bold">📄</span>
                   {doc}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-warmgray-400 mt-4">
+            <p className="text-xs text-warmgray-600 mt-4">
               Exact checklist depends on your nationality and case — your consultant confirms it after the kickoff payment.
             </p>
           </section>
@@ -241,7 +241,7 @@ export const VisaPage: React.FC = () => {
                   <span className="text-2xl">{v.icon}</span>
                   <div className="min-w-0">
                     <p className="font-bold text-navy-500 text-sm truncate group-hover:text-saffron-500 transition-colors">{v.label}</p>
-                    <p className="text-xs text-warmgray-500">
+                    <p className="text-xs text-warmgray-600">
                       {formatMoney(v.kickoff)} + {formatMoney(v.successFee)}
                     </p>
                   </div>

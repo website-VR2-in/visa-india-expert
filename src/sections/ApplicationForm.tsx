@@ -177,7 +177,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
               <span className="text-sm font-medium text-navy-500/70">
                 Step {currentStep} of {FORM_STEPS.length}
               </span>
-              <span className="text-sm font-medium text-saffron-500">
+              <span className="text-sm font-medium text-saffron-700">
                 {Math.round(progress)}% Complete
               </span>
             </div>
@@ -191,7 +191,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
             <h2 className="text-2xl md:text-3xl font-bold text-navy-500 mb-2">
               {FORM_STEPS[currentStep - 1]?.title}
             </h2>
-            <p className="text-warmgray-500">
+            <p className="text-warmgray-600">
               {FORM_STEPS[currentStep - 1]?.description}
             </p>
           </div>
@@ -215,7 +215,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
                       <span className="text-2xl">{visa.icon}</span>
                       <div>
                         <p className="font-semibold text-navy-500">{visa.label}</p>
-                        <p className="text-sm text-warmgray-500">{visa.description}</p>
+                        <p className="text-sm text-warmgray-600">{visa.description}</p>
                       </div>
                     </div>
                   </button>
@@ -395,24 +395,24 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
                   <div className="space-y-2 text-sm mt-3">
                     <div className="flex justify-between items-center">
                       <span className="text-warmgray-600">
-                        Kickoff fee — <span className="text-warmgray-400">due now to start</span>
+                        Kickoff fee — <span className="text-warmgray-600">due now to start</span>
                       </span>
                       <span className="font-bold text-navy-500">{formatMoney(kickoff)}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-warmgray-600">
-                        Success fee — <span className="text-warmgray-400">after successful application</span>
+                        Success fee — <span className="text-warmgray-600">after successful application</span>
                       </span>
                       <span className="font-bold text-navy-500">{formatMoney(successFee)}</span>
                     </div>
                     <div className="border-t border-warmgray-200 pt-2 flex justify-between items-center">
                       <span className="font-semibold text-navy-500">Total service fee</span>
-                      <span className="font-bold text-saffron-500">{formatMoney(total)}</span>
+                      <span className="font-bold text-saffron-700">{formatMoney(total)}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-sm text-warmgray-500">
+                <div className="text-sm text-warmgray-600">
                   <p>By submitting, you agree to our Terms of Service and Privacy Policy. Your information is securely stored and only used for your visa application. The kickoff fee is paid on the next step via secure bank transfer to our Wise account. The success fee is due only after your application is successfully processed.</p>
                 </div>
               </div>

@@ -8,7 +8,7 @@ export const PaymentModel: React.FC = () => {
     <section id="pricing" className="section bg-ivory">
       <div className="container-custom">
         <div className="section-label">Transparent Pricing</div>
-        <div className="section-title">Kickoff + Success Fee</div>
+        <h2 className="section-title">Kickoff + Success Fee</h2>
         <div className="section-subtitle">
           Fixed, all-inclusive pricing per visa. You pay a kickoff fee to start — and the success fee only after your
           application is successfully processed.
@@ -21,7 +21,7 @@ export const PaymentModel: React.FC = () => {
               🚀
             </div>
             <div>
-              <div className="text-xs font-bold text-saffron-500 mb-1">STEP 1 — KICKOFF FEE</div>
+              <div className="text-xs font-bold text-saffron-700 mb-1">STEP 1 — KICKOFF FEE</div>
               <h3 className="text-lg font-bold text-navy-500 mb-1">Paid upfront to start</h3>
               <p className="text-sm text-warmgray-600">
                 Reserves your case with our team and covers the initial work: reviewing your eligibility, preparing
@@ -54,7 +54,7 @@ export const PaymentModel: React.FC = () => {
                   <th className="px-5 py-3 font-semibold text-right">Kickoff</th>
                   <th className="px-5 py-3 font-semibold text-right">Success Fee</th>
                   <th className="px-5 py-3 font-semibold text-right">Total</th>
-                  <th className="px-5 py-3 font-semibold text-right"></th>
+                  <th className="px-5 py-3 font-semibold text-right"><span className="sr-only">Details</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -66,13 +66,13 @@ export const PaymentModel: React.FC = () => {
                     </td>
                     <td className="px-5 py-3 text-right font-semibold text-navy-500">{formatMoney(visa.kickoff)}</td>
                     <td className="px-5 py-3 text-right font-semibold text-navy-500">{formatMoney(visa.successFee)}</td>
-                    <td className="px-5 py-3 text-right font-bold text-saffron-500">
+                    <td className="px-5 py-3 text-right font-bold text-saffron-700">
                       {formatMoney(visa.kickoff + visa.successFee)}
                     </td>
                     <td className="px-5 py-3 text-right">
                       <Link
                         to={`/visa/${visa.id}`}
-                        className="text-xs font-bold text-saffron-500 hover:text-saffron-600 whitespace-nowrap"
+                        className="text-xs font-bold text-saffron-700 hover:text-saffron-600 whitespace-nowrap"
                       >
                         Details →
                       </Link>
@@ -84,7 +84,7 @@ export const PaymentModel: React.FC = () => {
           </div>
         </div>
 
-        <p className="text-center text-sm text-warmgray-500 mt-6">
+        <p className="text-center text-sm text-warmgray-600 mt-6">
           * Government visa fees are separate and paid directly to the Indian government. Kickoff fees start from{' '}
           {formatMoney(Math.min(...VISA_OPTIONS.map((v) => v.kickoff)))}.
         </p>

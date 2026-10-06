@@ -65,7 +65,7 @@ export const BlogPage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {BLOG_POSTS.map((post) => (
                 <article key={post.slug} className="bg-white rounded-xl border border-navy-100 p-6 hover:border-saffron-400 transition-colors flex flex-col">
-                  <time dateTime={post.date} className="text-xs font-bold text-saffron-600 uppercase tracking-wide">
+                  <time dateTime={post.date} className="text-xs font-bold text-saffron-700 uppercase tracking-wide">
                     {new Date(post.date + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} · {post.readTime}
                   </time>
                   <h2 className="text-lg font-bold text-navy-500 mt-3 leading-snug">

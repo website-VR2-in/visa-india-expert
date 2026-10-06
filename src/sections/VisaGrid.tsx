@@ -7,7 +7,7 @@ export const VisaGrid: React.FC = () => {
     <section id="services" className="section bg-white">
       <div className="container-custom">
         <div className="section-label">Our Services</div>
-        <div className="section-title">What Visa Do You Need?</div>
+        <h2 className="section-title">What Visa Do You Need?</h2>
         <div className="section-subtitle">
           Each visa has its own page with full details — requirements, common pitfalls, and exact pricing.
         </div>
@@ -22,17 +22,17 @@ export const VisaGrid: React.FC = () => {
                 <div className="text-3xl">{visa.icon}</div>
                 <span className="badge bg-saffron-50 text-saffron-700 border border-saffron-200">{visa.category}</span>
               </div>
-              <h3 className="text-lg font-bold text-navy-500 mb-1 group-hover:text-saffron-500 transition-colors">
+              <h3 className="text-lg font-bold text-navy-500 mb-1 group-hover:text-saffron-600 transition-colors">
                 {visa.label}
               </h3>
-              <p className="text-sm text-warmgray-500 mb-4 min-h-[40px]">{visa.description}</p>
+              <p className="text-sm text-warmgray-600 mb-4 min-h-[40px]">{visa.description}</p>
               <div className="flex items-center justify-between border-t border-warmgray-200 pt-3">
-                <div className="text-xs text-warmgray-500">
+                <div className="text-xs text-warmgray-600">
                   <span className="font-semibold text-navy-500">{COMPANY.currency}{visa.kickoff}</span> kickoff
                   <span className="mx-1">·</span>
                   <span className="font-semibold text-navy-500">{COMPANY.currency}{visa.successFee}</span> success
                 </div>
-                <span className="text-xs font-bold text-saffron-500 group-hover:translate-x-0.5 transition-transform">
+                <span className="text-xs font-bold text-saffron-700 group-hover:translate-x-0.5 transition-transform">
                   View →
                 </span>
               </div>

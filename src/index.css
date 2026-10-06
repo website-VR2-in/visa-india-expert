@@ -1,3 +1,20 @@
+/* ─── Self-hosted fonts (no render-blocking third-party CSS) ── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/inter.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/playfairdisplay-700.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,7 +63,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-saffron-500 hover:bg-saffron-600 text-white
+    @apply btn bg-saffron-600 hover:bg-saffron-700 text-white
            shadow-md hover:shadow-lg focus:ring-saffron-400
            px-8 py-4 text-lg;
   }
@@ -83,7 +100,7 @@
   }
 
   .section-label {
-    @apply text-saffron-500 font-semibold text-sm uppercase tracking-widest
+    @apply text-saffron-700 font-semibold text-sm uppercase tracking-widest
            text-center mb-3;
   }
 

@@ -200,7 +200,7 @@ export const PaymentPage: React.FC = () => {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-warmgray-600">Success fee (after successful application)</span>
-                    <span className="text-warmgray-500">{formatMoney(successFee)}</span>
+                    <span className="text-warmgray-600">{formatMoney(successFee)}</span>
                   </div>
                   <div className="flex justify-between items-center bg-white rounded-lg px-3 py-2 border border-saffron-200">
                     <span className="font-bold text-navy-500">Kickoff fee — due now</span>
@@ -230,14 +230,14 @@ export const PaymentPage: React.FC = () => {
                 <span className="w-8 h-8 rounded-full bg-indiangreen-500 text-white flex items-center justify-center text-sm font-bold">W</span>
                 <div>
                   <h2 className="font-bold text-navy-500 leading-tight">Wise Account Details</h2>
-                  <p className="text-xs text-warmgray-500">International bank transfer — no card needed</p>
+                  <p className="text-xs text-warmgray-600">International bank transfer — no card needed</p>
                 </div>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="bg-white rounded-lg border border-warmgray-200 px-4 py-3">
                   <div className="flex items-center justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="text-xs text-warmgray-500 uppercase tracking-wide mb-0.5">Account Name</p>
+                      <p className="text-xs text-warmgray-600 uppercase tracking-wide mb-0.5">Account Name</p>
                       <p className="font-semibold text-navy-500 truncate">{WISE_ACCOUNT.accountName}</p>
                     </div>
                     <button
@@ -251,7 +251,7 @@ export const PaymentPage: React.FC = () => {
                 <div className="bg-white rounded-lg border border-warmgray-200 px-4 py-3">
                   <div className="flex items-center justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="text-xs text-warmgray-500 uppercase tracking-wide mb-0.5">IBAN</p>
+                      <p className="text-xs text-warmgray-600 uppercase tracking-wide mb-0.5">IBAN</p>
                       <p className="font-mono font-semibold text-navy-500 break-all">{WISE_ACCOUNT.iban}</p>
                     </div>
                     <button
@@ -265,7 +265,7 @@ export const PaymentPage: React.FC = () => {
                 <div className="bg-white rounded-lg border border-warmgray-200 px-4 py-3">
                   <div className="flex items-center justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="text-xs text-warmgray-500 uppercase tracking-wide mb-0.5">SWIFT / BIC</p>
+                      <p className="text-xs text-warmgray-600 uppercase tracking-wide mb-0.5">SWIFT / BIC</p>
                       <p className="font-mono font-semibold text-navy-500">{WISE_ACCOUNT.swift}</p>
                     </div>
                     <button
@@ -277,12 +277,12 @@ export const PaymentPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="bg-white rounded-lg border border-warmgray-200 px-4 py-3">
-                  <p className="text-xs text-warmgray-500 uppercase tracking-wide mb-0.5">Bank & Address</p>
+                  <p className="text-xs text-warmgray-600 uppercase tracking-wide mb-0.5">Bank & Address</p>
                   <p className="font-medium text-navy-500">
                     {WISE_ACCOUNT.bankName}, {WISE_ACCOUNT.bankAddress}
                   </p>
                 </div>
-                <p className="text-xs text-warmgray-500">{WISE_ACCOUNT.currencyNote}</p>
+                <p className="text-xs text-warmgray-600">{WISE_ACCOUNT.currencyNote}</p>
               </div>
             </div>
 
@@ -315,7 +315,7 @@ export const PaymentPage: React.FC = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-bold text-navy-500 mb-1">Kickoff payment recorded</h3>
-                <p className="text-sm text-warmgray-500 mb-4">
+                <p className="text-sm text-warmgray-600 mb-4">
                   We will verify your transfer and contact you shortly.
                 </p>
                 <button
@@ -329,7 +329,7 @@ export const PaymentPage: React.FC = () => {
 
             {/* Security note */}
             <div className="mt-6 pt-6 border-t border-warmgray-200">
-              <p className="text-xs text-warmgray-400 text-center">
+              <p className="text-xs text-warmgray-600 text-center">
                 🔒 Bank transfers through Wise are protected by bank-grade security. Double-check the IBAN
                 and account name before sending, and always reference your invoice number.
               </p>
@@ -341,7 +341,7 @@ export const PaymentPage: React.FC = () => {
         <div className="text-center mt-6">
           <button
             onClick={() => navigate('/')}
-            className="text-sm text-warmgray-500 hover:text-navy-500 transition-colors"
+            className="text-sm text-warmgray-600 hover:text-navy-500 transition-colors"
           >
             ← Back to Home
           </button>

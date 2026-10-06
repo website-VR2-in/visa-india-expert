@@ -14,7 +14,7 @@ export const FounderStory: React.FC = () => {
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center">
           <div className="section-label text-saffron-400">Our Story</div>
-          <div className="section-title text-white">Built on Real Experience</div>
+          <h2 className="section-title text-white">Built on Real Experience</h2>
           <div className="section-subtitle text-warmgray-300">
             Our founder navigated the Indian visa system the hard way — so you don't have to.
           </div>

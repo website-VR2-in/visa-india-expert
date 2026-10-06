@@ -38,7 +38,7 @@ export const HowItWorks: React.FC = () => {
     <section id="how-it-works" className="section bg-white">
       <div className="container-custom">
         <div className="section-label">How It Works</div>
-        <div className="section-title">Simple Process, Expert Results</div>
+        <h2 className="section-title">Simple Process, Expert Results</h2>
         <div className="section-subtitle">
           From first contact to visa approval — here is exactly what happens.
         </div>
@@ -54,7 +54,7 @@ export const HowItWorks: React.FC = () => {
                 )}
               </div>
               <div className="pb-8">
-                <div className="text-xs font-bold text-saffron-500 mb-1">Step {step.num}</div>
+                <div className="text-xs font-bold text-saffron-700 mb-1">Step {step.num}</div>
                 <h3 className="text-xl font-bold text-navy-500 mb-2">{step.title}</h3>
                 <p className="text-warmgray-600">{step.description}</p>
               </div>

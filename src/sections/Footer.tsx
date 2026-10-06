@@ -10,14 +10,14 @@ export const Footer: React.FC = () => {
         <div className="grid md:grid-cols-5 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <Logo size="md" />
+            <Logo size="md" textClass="text-white" />
             <p className="text-sm mt-4 max-w-xs">
               Professional India visa assistance. From application to approval — expert help when you need it.
             </p>
           </div>
           {/* Visas */}
           <div>
-            <h4 className="text-white font-bold mb-4">Visas</h4>
+            <h3 className="text-white font-bold mb-4">Visas</h3>
             <ul className="space-y-2 text-sm">
               {VISA_OPTIONS.map((v) => (
                 <li key={v.id}>
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
           </div>
           {/* Company */}
           <div>
-            <h4 className="text-white font-bold mb-4">Company</h4>
+            <h3 className="text-white font-bold mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/about" className="hover:text-white transition-colors">About us</Link></li>
               <li><Link to="/blog" className="hover:text-white transition-colors">India visa guides</Link></li>
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
           </div>
           {/* Contact */}
           <div>
-            <h4 className="text-white font-bold mb-4">Contact</h4>
+            <h3 className="text-white font-bold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href={`mailto:${COMPANY.email}`} className="hover:text-white transition-colors">
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
           </div>
           {/* Legal */}
           <div>
-            <h4 className="text-white font-bold mb-4">Legal</h4>
+            <h3 className="text-white font-bold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/" className="hover:text-white transition-colors">Terms & Conditions</Link></li>

@@ -8,7 +8,7 @@ export const FAQ: React.FC = () => {
     <section id="faq" className="section bg-white">
       <div className="container-custom">
         <div className="section-label">FAQ</div>
-        <div className="section-title">Frequently Asked Questions</div>
+        <h2 className="section-title">Frequently Asked Questions</h2>
         <div className="section-subtitle">
           Quick answers to common questions about our visa services.
         </div>

@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
                 <span className="text-xl">{signal.icon}</span>
                 <div>
                   <p className="text-xs font-semibold text-navy-500">{signal.label}</p>
-                  <p className="text-xs text-warmgray-500">{signal.description}</p>
+                  <p className="text-xs text-warmgray-600">{signal.description}</p>
                 </div>
               </div>
             ))}

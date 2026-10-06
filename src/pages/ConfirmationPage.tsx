@@ -57,7 +57,7 @@ export const ConfirmationPage: React.FC = () => {
           </div>
 
           <h1 className="text-3xl font-bold text-navy-500 mb-2">Application Received</h1>
-          <p className="text-warmgray-500 mb-8">
+          <p className="text-warmgray-600 mb-8">
             Thank you, {name?.split(' ')[0] || 'there'}. Your kickoff payment has been recorded and your application is now in our queue.
           </p>
 
@@ -85,26 +85,26 @@ export const ConfirmationPage: React.FC = () => {
 
           {/* Next Steps */}
           <div className="text-left mb-8">
-            <h3 className="font-bold text-navy-500 mb-3">What Happens Next?</h3>
+            <h2 className="font-bold text-navy-500 mb-3">What Happens Next?</h2>
             <ol className="space-y-2 text-sm text-warmgray-600">
               <li className="flex items-start gap-2">
-                <span className="text-saffron-500 font-bold">1.</span>
+                <span className="text-saffron-700 font-bold">1.</span>
                 We verify your kickoff transfer and review your application.
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-saffron-500 font-bold">2.</span>
+                <span className="text-saffron-700 font-bold">2.</span>
                 Our consultant contacts you via email or WhatsApp within 24 hours with your customized document checklist.
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-saffron-500 font-bold">3.</span>
+                <span className="text-saffron-700 font-bold">3.</span>
                 We prepare and submit your visa application.
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-saffron-500 font-bold">4.</span>
+                <span className="text-saffron-700 font-bold">4.</span>
                 Once your application is successfully processed, you pay the success fee.
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-saffron-500 font-bold">5.</span>
+                <span className="text-saffron-700 font-bold">5.</span>
                 You receive your visa confirmation.
               </li>
             </ol>

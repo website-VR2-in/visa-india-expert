@@ -53,7 +53,7 @@ export const BlogPostPage: React.FC = () => {
         <article className="section bg-ivory">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto">
-              <nav aria-label="Breadcrumb" className="text-warmgray-500 text-sm mb-6">
+              <nav aria-label="Breadcrumb" className="text-warmgray-600 text-sm mb-6">
                 <Link to="/" className="hover:text-saffron-600">Home</Link>
                 <span className="mx-2">/</span>
                 <Link to="/blog" className="hover:text-saffron-600">Blog</Link>
@@ -61,7 +61,7 @@ export const BlogPostPage: React.FC = () => {
                 <span>{post.title}</span>
               </nav>
 
-              <time dateTime={post.date} className="text-xs font-bold text-saffron-600 uppercase tracking-wide">
+              <time dateTime={post.date} className="text-xs font-bold text-saffron-700 uppercase tracking-wide">
                 {published} · {post.readTime}
               </time>
               <h1 className="text-2xl md:text-3xl font-bold text-navy-500 leading-tight mt-3">{post.title}</h1>

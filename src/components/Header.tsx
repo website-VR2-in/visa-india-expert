@@ -42,7 +42,7 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3">
-            <Logo size="md" />
+            <Logo size="md" accentClass="text-saffron-700" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -77,7 +77,7 @@ export const Header: React.FC = () => {
                       <span className="text-lg">{v.icon}</span>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-navy-500 truncate">{v.label}</p>
-                        <p className="text-xs text-warmgray-500">
+                        <p className="text-xs text-warmgray-600">
                           ${v.kickoff} kickoff + ${v.successFee} success
                         </p>
                       </div>
@@ -156,7 +156,7 @@ export const Header: React.FC = () => {
                   >
                     <span>{v.icon}</span>
                     <span className="flex-1">{v.label}</span>
-                    <span className="text-xs text-warmgray-400">${v.kickoff}+${v.successFee}</span>
+                    <span className="text-xs text-warmgray-600">${v.kickoff}+${v.successFee}</span>
                   </Link>
                 ))}
               </div>
