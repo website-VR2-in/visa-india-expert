@@ -2,7 +2,7 @@
 
 Single source of truth for the 9-step ops checklist. Updated after every verification round.
 
-**Last verified: 2026-10-08** (round 14)
+**Last verified: 2026-10-08** (round 15)
 
 | # | Step | Status | Evidence / last verified |
 |---|------|--------|--------------------------|
@@ -25,5 +25,5 @@ Single source of truth for the 9-step ops checklist. Updated after every verific
 
 - Frontend E2E (local, preview :4173): **99/99** — includes 6 GA4 checks (gtag.js load is blocked in-harness so dataLayer stays readable; the inline snippet still defines `gtag()`).
 - Backend E2E (local, :4199): **61/61**.
-- Production E2E (visa-india-expert.vercel.app): **127/127** — includes the 6 GA4 checks (first flow). Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- prefixes) — cleanup can be requested.
+- Production E2E: **127/127** on both `visa-india-expert.vercel.app` and the custom domain `visaindiaexpert.com` (2026-10-08, round 15) — includes the 6 GA4 checks (first flow). Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- prefixes) — cleanup can be requested.
 - Lighthouse reports are gitignored (`lh-*`, `vh-*`).
