@@ -13,7 +13,7 @@ Single source of truth for the 9-step ops checklist. Updated after every verific
 | 6 | Social setup | ✅ Done (code) · ⏳ user: accounts | OG/Twitter cards live (og-image 1200×630), handles + content pillars in [social.md](social.md). Account creation is on the user. |
 | 7 | Daily news digest agent | ✅ Done (spec) | [agents/news-digest.md](agents/news-digest.md). |
 | 8 | Auto-post agent (1 blog/week) | ✅ Done (spec) | [agents/auto-post.md](agents/auto-post.md). Weekly cadence pending a scheduled runner (user infra). |
-| 9 | On-page / technical | ✅ Done | Lighthouse prod (2026-10-08, with live gtag.js): **Perf 99 / A11y 100 / SEO 100 / BP 100**, LCP 1.7s, CLS 0, TBT 100ms. 20/20 unique H1, 20/20 self-canonical, JSON-LD (Organization + WebSite) valid, 29 internal links resolve. Ongoing: 1 blog/week (step 8), 5 backlinks/mo, weekly GSC review. |
+| 9 | On-page / technical | ✅ Done | Lighthouse prod (2026-10-08, with live gtag.js): **Perf 96–99 / A11y 100 / SEO 100 / BP 100** (3 runs; one 86 was lab jitter — raw TTFB 110–140ms), LCP 1.7s, CLS 0. 20/20 unique H1, 20/20 self-canonical, JSON-LD (Organization + WebSite) valid, 29 internal links resolve. Long-term cache headers live: `/assets/*` `max-age=31536000, immutable`, favicon/og-image 7d, HTML + sitemap kept fresh. Ongoing: 1 blog/week (step 8), 5 backlinks/mo, weekly GSC review. |
 | 10 | AI search visibility | ✅ Done (code) · 📈 indexing in progress | `llms.txt` + `llms-full.txt` live (currency-verified), semantic HTML, `/about` + `/press` live (200). **Bing index: 1/20 pages indexed as of 2026-10-08** (homepage appeared in Bing index same day as GSC verification). Target ≥ 10 indexed. |
 
 ## Time-boxed follow-ups
