@@ -2,11 +2,11 @@
 
 Single source of truth for the 9-step ops checklist. Updated after every verification round.
 
-**Last verified: 2026-10-08** (round 12)
+**Last verified: 2026-10-08** (round 14)
 
 | # | Step | Status | Evidence / last verified |
 |---|------|--------|--------------------------|
-| 2 | Email / DNS (Google Workspace) | ⏳ **Waiting on user** | DNS re-checked 2026-10-08: MX / SPF / DKIM / DMARC all still absent (A record only). Records to add: [email-dns-setup.md](email-dns-setup.md). After DNS: verify propagation → send mail-tester test (target ≥ 9/10) → 2 weeks later upgrade DMARC `p=none` → `p=quarantine`. |
+| 2 | Email / DNS (Google Workspace) | ⏳ **Waiting on user** | DNS re-checked 2026-10-08 (rounds 12–14): MX / SPF / DKIM / DMARC all still absent (A record only). Records to add: [email-dns-setup.md](email-dns-setup.md). One-shot verification: `bash scripts/verify-mail-dns.sh` (currently 0/5). After DNS: re-run script (expect 5/5) → send mail-tester test (target ≥ 9/10) → 2 weeks later upgrade DMARC `p=none` → `p=quarantine`. |
 | 3 | GA4 analytics | ✅ **Done** | `G-H2F942Z23H` (stream 16067096332) gtag snippet live in prod head (2× in HTML). Conversions `application_submitted` + `kickoff_payment_confirmed` verified firing in prod E2E (127/127) AND real `google-analytics.com/g/collect?tid=G-H2F942Z23H` hits observed from the live site (2026-10-08). |
 | 4 | SEO: sitemap / robots / GSC / Bing | ✅ Done (code) · ⏳ user: Bing import | `sitemap.xml` (20 URLs — all 200 on prod domain, verified 2026-10-08), `robots.txt` (allows /, disallows /admin /payment /confirmation, sitemap ref). GSC property verified by user. **Bing Webmaster Tools: import from Google + submit sitemap (user).** |
 | 5 | Keyword research + meta | ✅ Done | [seo-keywords.md](seo-keywords.md): every primary keyword mapped to a dedicated page; 4 blog posts ↔ 4 long-tail keywords. 21 indexable pages, titles ≤ 60, descriptions 150–160 (audited). |
