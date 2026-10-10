@@ -146,7 +146,7 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
   {
     slug: 'india-visa-rejection-reapplication',
     title: 'What to Do After an India Visa Rejection: Step-by-Step Guide to Reapply',
-    metaTitle: 'India Visa Rejection: Reapplication Guide',
+    metaTitle: 'India Visa Rejection: How to Reapply (Guide)',
     description:
       'After an India visa rejection reapply the right way: read the stated reason, fix the five most common file problems, and rebuild your file before resubmitting.',
     date: '2026-10-23',
@@ -207,7 +207,7 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
   {
     slug: 'india-spouse-visa-work-rights',
     title: 'Can You Work in India on a Spouse Visa? Dependent Visa Work Rights Explained',
-    metaTitle: 'Work in India on a Spouse Visa: Rules',
+    metaTitle: 'India Spouse Visa Work Rights: Can You Work?',
     description:
       'India spouse visa work rights explained: what dependent visa holders can and cannot do, the compliant routes if you want to work, and the documents you need.',
     date: '2026-10-30',

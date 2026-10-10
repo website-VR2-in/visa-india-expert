@@ -117,28 +117,28 @@ export const APPLY_SEO: PageSeo = {
 };
 
 export const PRIVACY_SEO: PageSeo = {
-  title: 'Privacy Policy | Visa India Expert',
+  title: 'India Visa Service Privacy Policy | Visa India Expert',
   description:
     'How Visa India Expert collects, stores and uses your application data. No cookies, no data sales — your documents are used only to prepare your India visa file.',
   keywords: ['visa india expert privacy policy', 'visa application data privacy'],
 };
 
 export const TERMS_SEO: PageSeo = {
-  title: 'Terms & Conditions | Visa India Expert',
+  title: 'India Visa Service Terms & Conditions | Visa India Expert',
   description:
     'The terms that govern India visa assistance services by Visa India Expert: scope of service, fees, payment, client responsibilities and liability limits.',
   keywords: ['visa india expert terms', 'visa service terms and conditions'],
 };
 
 export const REFUND_SEO: PageSeo = {
-  title: 'Refund Policy | Visa India Expert',
+  title: 'India Visa Service Refund Policy | Visa India Expert',
   description:
     'Clear refund rules for Visa India Expert services: 48-hour kickoff refund before work starts, success fee due only on success, government fees non-refundable.',
   keywords: ['visa india expert refund policy', 'visa service refund'],
 };
 
 export const DISCLAIMER_SEO: PageSeo = {
-  title: 'Visa Disclaimer | Visa India Expert',
+  title: 'India Visa Service Disclaimer | Visa India Expert',
   description:
     'Private assistance service, not a government agency. Visa approval rests solely with Indian missions and immigration authorities. Read the full disclaimer.',
   keywords: ['india visa service disclaimer', 'visa assistance disclaimer'],
