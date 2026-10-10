@@ -23,13 +23,13 @@ export const Hero: React.FC = () => {
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-500 mb-6 leading-tight">
-            Your India Visa,{' '}
+            India Visa Assistance,{' '}
             <span className="text-saffron-500">Made Simple.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-warmgray-600 mb-8 max-w-2xl mx-auto">
-            Professional visa assistance from application to approval. One dedicated consultant guides you through every step — no guesswork, no surprise rejections.
+            Professional India visa services from application to approval. One dedicated India visa consultant per case, transparent kickoff + success fees — so you can apply for your India visa with confidence, with no guesswork and no surprise rejections.
           </p>
 
           {/* CTAs */}

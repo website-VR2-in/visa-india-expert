@@ -37,10 +37,10 @@ export const PressPage: React.FC = () => {
                 <span className="mx-2">/</span>
                 <span>Press</span>
               </nav>
-              <h1 className="section-title text-white mb-4">Press & Media Kit</h1>
+              <h1 className="section-title text-white mb-4">Visa India Expert — Press &amp; Media Kit</h1>
               <p className="text-warmgray-200 text-lg leading-relaxed">
-                Facts, brand assets and contact details for journalists, researchers and partners writing about India visas,
-                immigration services, or cross-border business setup.
+                This Visa India Expert media kit includes verified facts, brand assets and contact details for journalists, researchers and partners
+                writing about India visas, immigration services, or cross-border business setup.
               </p>
             </div>
           </div>

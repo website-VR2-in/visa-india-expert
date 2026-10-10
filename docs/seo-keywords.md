@@ -66,13 +66,20 @@
 - Long-tail: which india visa do i need · india visa after rejection options · complex india visa case review
 - Questions: how do i know which visa to apply for in india · what to do after an india visa rejection · which visa category for business in india
 
-## Blog (post → primary keyword)
-| Post | Primary keyword |
-|---|---|
-| india-tourist-visa-requirements | india tourist visa requirements |
-| india-visa-processing-times-2026 | india visa processing time |
-| e-1-vs-b-1-visa-india | e-1 vs b-1 visa india |
-| india-visa-rejection-reasons | india visa rejection reasons |
+## Blog (post → primary keyword, cluster)
+| Post | Primary keyword | Cluster |
+|---|---|---|
+| india-tourist-visa-requirements | india tourist visa requirements | tourist |
+| india-visa-processing-times-2026 | india visa processing time | general |
+| e-1-vs-b-1-visa-india | e-1 vs b-1 visa india | business |
+| india-visa-rejection-reasons | india visa rejection reasons | rejection |
+| india-e-visa-vs-embassy-visa | india e-visa vs embassy visa | tourist |
+| frro-registration-india-guide | frro registration india | employment |
+| india-visa-rejection-reapplication | india visa rejection reapply | rejection |
+| india-spouse-visa-work-rights | india spouse visa work rights | family |
+
+Hub-and-spoke: posts link to their cluster hub visa page (`/visa/{relatedVisaId}`) and to
+same-cluster posts ("Related guides" block, max 3). Blog index shows cluster tags.
 
 ## Tracking spreadsheet (create in Google Sheets)
 

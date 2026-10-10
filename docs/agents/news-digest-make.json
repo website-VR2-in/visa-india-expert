@@ -1,0 +1,169 @@
+{
+  "name": "news-digest",
+  "flowVersion": 1,
+  "metadata": {
+    "title": "News Digest — Daily 07:00 IST India Visa Briefing",
+    "description": "Daily 07:00 (Asia/Kolkata) news digest for Visa India Expert (visaindiaexpert.com). Flow: Schedule → 5× RSS Read (Google News ×3: India visa policy / India immigration e-visa / India business setup MCA; TechCrunch; E27) → Filter (items from last 24 h whose title/description contains at least one keyword: visa, immigration, e-visa, FRRO, work permit, foreign investment, MCA, embassy, consulate — OR group) → Code aggregator (max 8 items, deduped, newest first, oldest last) → HTTP POST to Anthropic Claude (≈200-word briefing with 'Business implication' lines) → Gmail to info@visaindiaexpert.com. SETUP CHECKLIST: (1) Add an Anthropic HTTP credential named 'anthropic' with a field 'xApiKey' holding your API key (sk-ant-…) — never hard-code the key. (2) Connect the Gmail account that should send the digest (from-address of the scenario). (3) Update the Anthropic model id in the HTTP step (claude-sonnet-4-20250514) to the current Claude model before the first run. (4) 'Run once' and verify the digest email arrives in the Gmail inbox within ~2 minutes; check it is ≤ ~250 words and each development has a 'Business implication:' line. (5) The Gmail body mapping {{anthropic.content.0.text}} is a best-effort field path — inspect the HTTP step output after the first run and adjust if needed. (6) To chain the auto-post agent, add an HTTP POST step at the end of this scenario targeting the auto-post webhook (path 'auto-post-digest', see auto-post-make.json) with body {\"digestText\": \"<briefing text>\"}, or use Make's 'Execute a scenario' action. (7) Note: after import, re-pick any module that shows as broken (best-effort import format); the Filter step's OR group and the Code step's input mapping must be re-wired to the five RSS outputs (merge them first if Make requires it).",
+    "icon": "news"
+  },
+  "flow": [
+    {
+      "id": "sch_daily_0700",
+      "name": "Schedule — daily 07:00 Asia/Kolkata",
+      "module": "schedule:Schedule",
+      "version": "1",
+      "description": "Fires every day at 07:00 in Asia/Kolkata (IST). The build spec says workdays; switch to Mon–Fri in the module settings if weekend briefings are not wanted.",
+      "config": {
+        "time": "07:00",
+        "timezone": "Asia/Kolkata",
+        "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+      }
+    },
+    {
+      "id": "rss_gnews_visa_policy",
+      "name": "RSS — Google News: India visa policy",
+      "module": "rss:Read",
+      "version": "1",
+      "config": {
+        "feed": "https://news.google.com/rss/search?q=India+visa+policy&hl=en-IN&gl=IN&ceid=IN:en",
+        "limit": 50
+      }
+    },
+    {
+      "id": "rss_gnews_immigration_evisa",
+      "name": "RSS — Google News: India immigration / e-visa",
+      "module": "rss:Read",
+      "version": "1",
+      "config": {
+        "feed": "https://news.google.com/rss/search?q=India+immigration+OR+e-visa&hl=en-IN&gl=IN&ceid=IN:en",
+        "limit": 50
+      }
+    },
+    {
+      "id": "rss_gnews_business_mca",
+      "name": "RSS — Google News: India business setup / MCA",
+      "module": "rss:Read",
+      "version": "1",
+      "config": {
+        "feed": "https://news.google.com/rss/search?q=India+business+setup+OR+MCA+OR+foreign+investment&hl=en-IN&gl=IN&ceid=IN:en",
+        "limit": 50
+      }
+    },
+    {
+      "id": "rss_techcrunch",
+      "name": "RSS — TechCrunch",
+      "module": "rss:Read",
+      "version": "1",
+      "config": {
+        "feed": "https://techcrunch.com/feed/",
+        "limit": 50
+      }
+    },
+    {
+      "id": "rss_e27",
+      "name": "RSS — E27 (India business)",
+      "module": "rss:Read",
+      "version": "1",
+      "config": {
+        "feed": "https://www.e27.co/feed/",
+        "limit": 50
+      }
+    },
+    {
+      "id": "flt_24h_keywords",
+      "name": "Filter — last 24 h + visa keywords (OR group)",
+      "module": "filter:Filter",
+      "version": "1",
+      "description": "Keep items published in the last 24 hours (pubDate newer than now−24h) AND whose title or description contains at least one of: visa, immigration, e-visa, FRRO, work permit, foreign investment, MCA, embassy, consulate. Make's Filter supports OR within a condition group: the nine keyword conditions are combined with OR (any one match passes); the freshness condition is combined with that group by AND. Case-insensitive matching. Apply this to the merged output of the five RSS steps (add a Merge module first if Make requires a single input); if the module is lost in import, re-create it with these conditions.",
+      "config": {
+        "input": "merged items from rss_gnews_visa_policy, rss_gnews_immigration_evisa, rss_gnews_business_mca, rss_techcrunch, rss_e27",
+        "combine": "AND",
+        "groups": [
+          {
+            "combine": "AND",
+            "conditions": [
+              {
+                "left": "{{#pubDate}}",
+                "operation": "IS_NEWER_THAN",
+                "right": "{{#now - 86400000}}"
+              }
+            ]
+          },
+          {
+            "combine": "OR",
+            "conditions": [
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "visa" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "immigration" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "e-visa" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "FRRO" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "work permit" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "foreign investment" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "MCA" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "embassy" },
+              { "left": "{{#title}} {{#description}}", "operation": "CONTAINS", "right": "consulate" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "agg_digest",
+      "name": "Code — build digest text (max 8, oldest last)",
+      "module": "util:Code",
+      "version": "1",
+      "description": "JavaScript Code module. Input: the filtered items (map the filter output to the 'items' parameter). Dedupes by link, keeps the 8 most recent, outputs them oldest-last as the 'digest' text field: '— {title} ({source}, {date})\\n{snippet}\\n'.",
+      "config": {
+        "language": "javascript",
+        "input": "items",
+        "code": "export function run({ items }) {\n  const DAY_MS = 24 * 60 * 60 * 1000;\n  const now = Date.now();\n  const seen = new Set();\n  const unique = [];\n  for (const it of items || []) {\n    const ts = Date.parse(it.pubDate || it.date || \"\");\n    if (isNaN(ts) || now - ts > DAY_MS) continue; // freshness guard (filter already applied)\n    const key = it.link || it.url || it.title || \"\";\n    if (!key || seen.has(key)) continue;\n    seen.add(key);\n    unique.push({ it, ts });\n  }\n  // 8 most recent items, newest first so the oldest of the 8 ends up last\n  unique.sort((a, b) => b.ts - a.ts);\n  const top = unique.slice(0, 8);\n  const digest = top\n    .map(({ it, ts }) => {\n      const title = String(it.title || \"\").replace(/\\s+/g, \" \").trim();\n      const source = it.source || it.feed || \"unknown\";\n      const date = new Date(ts).toISOString().slice(0, 16).replace(\"T\", \" \");\n      const snippet = String(it.description || it.summary || \"\").replace(/\\s+/g, \" \").trim().slice(0, 300);\n      return \"\\u2014 \" + title + \" (\" + source + \", \" + date + \")\\n\" + snippet + \"\\n\";\n    })\n    .join(\"\\n\");\n  return { digest };\n}\n"
+      },
+      "mappings": {
+        "items": "{{#items}}"
+      }
+    },
+    {
+      "id": "ai_anthropic_briefing",
+      "name": "HTTP — Anthropic: 200-word daily briefing",
+      "module": "http:Action",
+      "version": "1",
+      "description": "POST to the Anthropic Messages API. NOTE: update the model id (claude-sonnet-4-20250514) to the current Claude model before the first run. The 'x-api-key' header references the Make credential named 'anthropic' (field xApiKey) — add that credential before running. {{digest}} is the Code step output. If the step errors on the credential placeholder, set the header value to the credential's xApiKey field in the Make UI.",
+      "config": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "headers": {
+          "x-api-key": "{{anthropic.xApiKey}}",
+          "anthropic-version": "2023-06-01",
+          "content-type": "application/json"
+        },
+        "body": {
+          "model": "claude-sonnet-4-20250514",
+          "max_tokens": 1024,
+          "messages": [
+            {
+              "role": "user",
+              "content": "You are the news analyst for Visa India Expert (visaindiaexpert.com), a specialist India visa assistance service serving foreign investors, business travellers and employees applying for Indian visas.\n\nBelow is a digest of news items from the last 24 hours.\n\nWrite a daily briefing of about 200 words: a one-line summary of the overall news day, then '3 key developments' — each development as a short paragraph ending with one sentence starting 'Business implication: ' explaining what it means for foreign nationals applying for Indian visas (tourist, business, E-1, B-1, spouse, student). If fewer than 3 items are relevant, say so and give as many as exist. Plain text only, no markdown, no tables.\n\nDIGEST:\n{{digest}}"
+            }
+          ]
+        }
+      },
+      "mappings": {
+        "digest": "{{agg_digest.digest}}"
+      }
+    },
+    {
+      "id": "mail_gmail_digest",
+      "name": "Gmail — send digest to info@visaindiaexpert.com",
+      "module": "gmail:SendEmail",
+      "version": "1",
+      "description": "Sends the briefing from the Make-connected Gmail account. NOTE: the body mapping {{anthropic.content.0.text}} is a best-effort field path for the model's text output (response JSON content[0].text) — after the first run, inspect the HTTP step's output and adjust the field path if Make names it differently (e.g. via an intermediate 'Extract' step). {{date}} should be mapped to today's date (e.g. {{#formatDate(now, \"YYYY-MM-DD\")}}).",
+      "config": {
+        "to": "info@visaindiaexpert.com",
+        "subject": "India visa news digest — {{date}}"
+      },
+      "mappings": {
+        "body": "{{anthropic.content.0.text}}",
+        "date": "{{#formatDate(now(), \"YYYY-MM-DD\")}}"
+      }
+    }
+  ]
+}

@@ -2,20 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS } from '../data/blog';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { SITE_URL } from '../data/seo';
+import { SITE_URL, BLOG_INDEX_SEO } from '../data/seo';
 import { Header } from '../components/Header';
 import { Footer } from '../sections/Footer';
 
-const BLOG_SEO = {
-  title: 'India Visa Guides & Updates | Visa India Expert',
-  description:
-    'Practical India visa guides: processing times by category, rejection causes and fixes, E-1 vs B-1 differences and tourist visa requirements — by practitioners.',
-  h1: 'India Visa Guides',
-} as const;
-
 /** Blog index — list of posts with dates, excerpts and reading time. */
 export const BlogPage: React.FC = () => {
-  usePageMeta(BLOG_SEO, '/blog');
+  usePageMeta(BLOG_INDEX_SEO, '/blog');
 
   return (
     <>
@@ -30,7 +23,7 @@ export const BlogPage: React.FC = () => {
               '@type': 'Blog',
               name: 'Visa India Expert Blog',
               url: `${SITE_URL}/blog`,
-              description: BLOG_SEO.description,
+              description: BLOG_INDEX_SEO.description,
               publisher: { '@type': 'Organization', name: 'Visa India Expert', url: SITE_URL },
               blogPost: BLOG_POSTS.map((p) => ({
                 '@type': 'BlogPosting',
@@ -51,9 +44,9 @@ export const BlogPage: React.FC = () => {
                 <span className="mx-2">/</span>
                 <span>Blog</span>
               </nav>
-              <h1 className="section-title text-white mb-4">{BLOG_SEO.h1}</h1>
+              <h1 className="section-title text-white mb-4">{BLOG_INDEX_SEO.h1}</h1>
               <p className="text-warmgray-200 text-lg leading-relaxed">
-                Practical guides on Indian visas — processing times, rejection causes, category choices and requirements.
+                A practical India visa blog: guides, tips and updates on processing times, rejection causes, category choices and requirements.
                 Written by the consultants who process these applications every week.
               </p>
             </div>
@@ -68,6 +61,9 @@ export const BlogPage: React.FC = () => {
                   <time dateTime={post.date} className="text-xs font-bold text-saffron-700 uppercase tracking-wide">
                     {new Date(post.date + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} · {post.readTime}
                   </time>
+                  <span className="self-start mt-3 text-[11px] font-bold uppercase tracking-wide text-navy-500 bg-navy-100 rounded-full px-2 py-0.5">
+                    {post.cluster.charAt(0).toUpperCase() + post.cluster.slice(1)}
+                  </span>
                   <h2 className="text-lg font-bold text-navy-500 mt-3 leading-snug">
                     <Link to={`/blog/${post.slug}`} className="hover:text-saffron-600">{post.title}</Link>
                   </h2>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { HOME_SEO } from '../data/seo';
+import { FAQ_DATA } from '../data/config';
 import { Hero } from '../sections/Hero';
 import { Benefits } from '../sections/Benefits';
 import { VisaGrid } from '../sections/VisaGrid';
@@ -15,6 +16,21 @@ export const HomePage: React.FC = () => {
 
   return (
     <>
+      {/* JSON-LD: FAQPage (Step 9 structured data — matches the FAQ section below). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: FAQ_DATA.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          }),
+        }}
+      />
       <Hero />
       <Benefits />
       <VisaGrid />

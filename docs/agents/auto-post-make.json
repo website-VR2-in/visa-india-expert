@@ -1,0 +1,139 @@
+{
+  "name": "auto-post",
+  "flowVersion": 1,
+  "metadata": {
+    "title": "Auto-Post — draft, score, store pending, queue approved to Buffer",
+    "description": "Second agent of Visa India Expert (visaindiaexpert.com). Invoked when the news-digest scenario (Step 7) finishes: it turns the daily briefing into 3 drafts (LinkedIn, X thread, blog intro), scores each 1–10, stores all three as rows with status=Pending in the Google Sheet 'Auto-Post Drafts', watches that sheet, and — only when a human sets a row's status to 'Approved' — queues it to Buffer at the next scheduled slot and sends a Gmail confirmation. HUMAN APPROVAL REQUIRED: nothing publishes until a human sets status=Approved in the sheet. Flow: Webhook (path 'auto-post-digest') → HTTP POST Anthropic (3 drafts + scores, JSON-only response) → Code (parse JSON, emit 3 rows) → Google Sheets AppendRow → Google Sheets WatchRows (status=Approved) → HTTP POST Buffer update/create → Gmail notification. SETUP CHECKLIST: (1) Buffer: connect LinkedIn, X and a blog channel in Buffer; create an app at Buffer → Settings → Apps to get the API key; add a Make credential named 'buffer' with field 'apiKey'; after connecting, record each channel_id (Buffer → channels) and put the three values into the Make credential/fields or the Buffer step's channel_id mapping (LinkedIn=…, X=…, Blog=…). (2) Create the Google Sheet 'Auto-Post Drafts' with columns date, platform, draft, score, status — see docs/agents/sheets-setup.md and docs/agents/sheets-template.csv. (3) Connect Google (Drive/Sheets) and Gmail in Make. (4) After import, re-pick the 'Append row' (gdrive:AppendRow) and 'Watch rows' (gdrive:WatchRows) actions on the 'Auto-Post Drafts' sheet if the import shows them broken — best-effort module ids. (5) Wire the trigger: at the end of the news-digest scenario add an HTTP POST step targeting this scenario's webhook URL (https://hook.<region>.make.com/<path>), body {\"digestText\": \"<full briefing text>\"} — or use Make's 'Execute a scenario' action instead of an HTTP call. (6) Buffer schedule (CET): LinkedIn 08:00 Tue/Thu/Fri; X 08:00/12:00/17:00 (Mon–Fri); Blog Friday 08:00 — extend the Code step (or add a small mapping) to compute schedule_at as the next slot matching the row's platform. (7) Test with a manual webhook call (see docs/agents/news-digest-test.md) before leaving it unattended.",
+    "icon": "megaphone"
+  },
+  "flow": [
+    {
+      "id": "wh_digest_in",
+      "name": "Webhook — auto-post-digest",
+      "module": "webhook:Trigger",
+      "version": "1",
+      "description": "Triggered when the news-digest scenario finishes. HOW TO WIRE: add an HTTP POST step at the end of the news-digest scenario targeting this webhook's URL (https://hook.<region>.make.com/<scenario-path>/auto-post-digest) with a JSON body {\"digestText\": \"<the full briefing text>\"}; alternatively use Make's 'Execute a scenario' action pointing at this scenario. {{digestText}} below is read from the webhook payload field 'digestText'.",
+      "config": {
+        "path": "auto-post-digest",
+        "expectedPayload": {
+          "digestText": "Full text of the daily news briefing produced by the news-digest scenario"
+        }
+      }
+    },
+    {
+      "id": "ai_anthropic_writer",
+      "name": "HTTP — Anthropic: 3 drafts + scores (JSON only)",
+      "module": "http:Action",
+      "version": "1",
+      "description": "POST to the Anthropic Messages API with the same endpoint/headers as the news-digest scenario (Make credential 'anthropic', field xApiKey). NOTE: update the model id (claude-sonnet-4-20250514) to the current Claude model before the first run. {{digestText}} is the webhook payload field. The model must reply with ONLY valid JSON; the next Code step extracts the first {...} block tolerantly.",
+      "config": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "headers": {
+          "x-api-key": "{{anthropic.xApiKey}}",
+          "anthropic-version": "2023-06-01",
+          "content-type": "application/json"
+        },
+        "body": {
+          "model": "claude-sonnet-4-20250514",
+          "max_tokens": 2048,
+          "messages": [
+            {
+              "role": "user",
+              "content": "You are the content writer for Visa India Expert (visaindiaexpert.com). From the daily news briefing below, create exactly 3 drafts: (1) LINKEDIN: a post of about 150 words — hook line, 3-5 short value paragraphs, MUST end with a question, max 2-3 hashtags from #IndiaVisa #VisaGuides #IndiaBusiness; (2) X_THREAD: exactly 3 tweets, each max 280 characters — tweet 1 hook/claim, tweet 2 substance, tweet 3 CTA linking to the most relevant page on visaindiaexpert.com; (3) BLOG_INTRO: a 250-word fact-dense intro paragraph block plus an SEO title under 60 characters containing the primary keyword. Also score each draft 1-10 for expected engagement with one-line reasoning. Respond with ONLY valid JSON: {\"linkedin\": {\"text\": \"...\"}, \"x\": {\"tweets\": [\"...\",\"...\",\"...\"]}, \"blog\": {\"seoTitle\": \"...\", \"intro\": \"...\"}, \"scores\": {\"linkedin\": {\"score\": N, \"reason\": \"...\"}, \"x\": {\"score\": N, \"reason\": \"...\"}, \"blog\": {\"score\": N, \"reason\": \"...\"}}.\n\nBRIEFING:\n{{digestText}}"
+            }
+          ]
+        }
+      },
+      "mappings": {
+        "digestText": "{{wh_digest_in.digestText}}"
+      }
+    },
+    {
+      "id": "code_three_rows",
+      "name": "Code — parse response into 3 draft rows",
+      "module": "util:Code",
+      "version": "1",
+      "description": "JavaScript Code module. Input: the Anthropic HTTP response (map content.0.text to 'anthropic'). Extracts the first JSON object from the model text (tolerant of stray prose), then emits 3 rows: {date, platform:'LinkedIn', draft, score, status:'Pending'}, {date, platform:'X', draft (tweets joined with '\\n\\n— '), score, status:'Pending'}, {date, platform:'Blog', draft (seoTitle + '\\n\\n' + intro), score, status:'Pending'}. Returning an array of objects makes Make emit one row per object.",
+      "config": {
+        "language": "javascript",
+        "input": "anthropic",
+        "code": "export function run({ anthropic }) {\n  let raw = \"\";\n  try {\n    raw = anthropic.content[0].text;\n  } catch (e) {\n    raw = typeof anthropic === \"string\" ? anthropic : JSON.stringify(anthropic, null, 2);\n  }\n  const match = raw.match(/\\{[\\s\\S]*\\}/);\n  if (!match) throw new Error(\"No JSON object found in model response\");\n  const data = JSON.parse(match[0]);\n  const date = new Date().toISOString().slice(0, 10);\n  const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : 0);\n  const rows = [\n    {\n      date,\n      platform: \"LinkedIn\",\n      draft: (data.linkedin && data.linkedin.text) || \"\",\n      score: num(data.scores && data.scores.linkedin && data.scores.linkedin.score),\n      status: \"Pending\"\n    },\n    {\n      date,\n      platform: \"X\",\n      draft: Array.isArray(data.x && data.x.tweets) ? data.x.tweets.join(\"\\n\\n\\u2014 \") : \"\",\n      score: num(data.scores && data.scores.x && data.scores.x.score),\n      status: \"Pending\"\n    },\n    {\n      date,\n      platform: \"Blog\",\n      draft:\n        ((data.blog && data.blog.seoTitle) || \"\") + \"\\n\\n\" + ((data.blog && data.blog.intro) || \"\"),\n      score: num(data.scores && data.scores.blog && data.scores.blog.score),\n      status: \"Pending\"\n    }\n  ];\n  return rows;\n}\n"
+      },
+      "mappings": {
+        "anthropic": "{{ai_anthropic_writer.content.0.text}}"
+      }
+    },
+    {
+      "id": "sh_append_rows",
+      "name": "Google Sheets — append 3 rows (Pending)",
+      "module": "gdrive:AppendRow",
+      "version": "1",
+      "description": "Appends the 3 rows to the 'Auto-Post Drafts' sheet, columns: date, platform, draft, score, status. NOTE: if import shows this module broken, re-pick the Google Sheets 'Append row' action on the 'Auto-Post Drafts' sheet and map the row fields date/platform/draft/score/status from the Code step output. Each code row becomes one appended row (iterate over rows).",
+      "config": {
+        "spreadsheet": "Auto-Post Drafts",
+        "sheet": "Auto-Post Drafts",
+        "columns": ["date", "platform", "draft", "score", "status"],
+        "values": ["{{#date}}", "{{#platform}}", "{{#draft}}", "{{#score}}", "{{#status}}"]
+      }
+    },
+    {
+      "id": "sh_watch_approved",
+      "name": "Google Sheets — watch for status=Approved",
+      "module": "gdrive:WatchRows",
+      "version": "1",
+      "description": "Watches the 'Auto-Post Drafts' sheet and passes through rows whose status column changes to 'Approved' (filter on the status column; value 'Approved', exact match). Runs on the scenario's watch interval (default ~15 min), so approved drafts are queued within ~15 minutes. NOTE: if import shows this module broken, re-pick 'Watch rows' on the 'Auto-Post Drafts' sheet with the same status filter.",
+      "config": {
+        "spreadsheet": "Auto-Post Drafts",
+        "sheet": "Auto-Post Drafts",
+        "columns": ["date", "platform", "draft", "score", "status"],
+        "filter": {
+          "column": "status",
+          "operation": "EQUALS",
+          "value": "Approved"
+        }
+      }
+    },
+    {
+      "id": "buffer_queue",
+      "name": "HTTP — Buffer: queue approved update",
+      "module": "http:Action",
+      "version": "1",
+      "description": "Queues the approved draft to Buffer. SCHEDULE (CET): LinkedIn — 08:00 on Tue/Thu/Fri; X — 08:00, 12:00, 17:00 (Mon–Fri); Blog — Friday 08:00. The Code step (or a small mapping step before this one) must compute 'schedule_at' as the NEXT slot matching the row's platform (e.g. a LinkedIn row approved Wednesday queues for Thursday 08:00 CET; an X row approved Tuesday 14:00 CET queues for Wednesday 08:00 CET). 'channel_id' is the Buffer channel id for the row's platform: fill the platform→channel_id mapping (LinkedIn=…, X=…, Blog=…) into the Make credential/fields after the Buffer channels are connected. {{draft}} and {{score}} come from the watched row.",
+      "config": {
+        "method": "POST",
+        "url": "https://api.bufferapp.com/1.0/update/create/",
+        "headers": {
+          "Authorization": "Bearer {{buffer.apiKey}}",
+          "content-type": "application/json"
+        },
+        "body": {
+          "text": "{{draft}}",
+          "channel_id": "{{channelIdByPlatform}}",
+          "schedule_at": "next scheduled slot"
+        }
+      },
+      "mappings": {
+        "draft": "{{#draft}}",
+        "channelIdByPlatform": "{{#channel_id_by_platform}}",
+        "schedule_at": "{{#next_slot_for_platform}}"
+      }
+    },
+    {
+      "id": "mail_buffer_confirm",
+      "name": "Gmail — confirm queued to Buffer",
+      "module": "gmail:SendEmail",
+      "version": "1",
+      "description": "Sends the operator a confirmation that a draft was queued. Sends from the Make-connected Gmail account to info@visaindiaexpert.com. {{platform}} and {{score}} come from the watched row.",
+      "config": {
+        "to": "info@visaindiaexpert.com",
+        "subject": "Auto-post: {{platform}} draft queued to Buffer (score {{score}})"
+      },
+      "mappings": {
+        "body": "Draft for {{platform}} (score {{score}}, date {{#date}}) has been queued to Buffer at the next scheduled slot for that platform. Verify it in Buffer → scheduled posts.",
+        "platform": "{{#platform}}",
+        "score": "{{#score}}"
+      }
+    }
+  ]
+}

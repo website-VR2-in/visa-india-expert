@@ -30,7 +30,7 @@ const LEGAL: Record<
     seo: PRIVACY_SEO,
     title: 'Privacy Policy',
     intro:
-      'This policy explains what data Visa India Expert collects when you use this website and our India visa assistance services, how it is stored, and your rights. We keep it deliberately simple: we collect only what is needed to prepare your visa file, we never sell data, and we never use tracking cookies.',
+      'This visa application data privacy policy explains what data Visa India Expert collects when you use this website and our India visa assistance services, how it is stored, and your rights. We keep it deliberately simple: we collect only what is needed to prepare your visa file, we never sell data, and we never use tracking cookies.',
     sections: [
       {
         heading: 'What we collect',
@@ -82,7 +82,7 @@ const LEGAL: Record<
     seo: TERMS_SEO,
     title: 'Terms & Conditions',
     intro:
-      'These terms govern the use of this website and the India visa assistance services provided by Visa India Expert ("we", "us"). By submitting an application or paying a kickoff fee you agree to these terms. Please read them — especially the sections on fees, your responsibilities, and what we do not guarantee.',
+      'These terms and conditions govern our visa service — the use of this website and the India visa assistance services provided by Visa India Expert ("we", "us"). By submitting an application or paying a kickoff fee you agree to these terms. Please read them — especially the sections on fees, your responsibilities, and what we do not guarantee.',
     sections: [
       {
         heading: 'Scope of service',
@@ -140,7 +140,7 @@ const LEGAL: Record<
     seo: REFUND_SEO,
     title: 'Refund Policy',
     intro:
-      'Our pricing is kickoff fee + success fee, and our refund rules are built around that split. The short version: you can get the kickoff fee back within 48 hours if nothing has started; once work begins it is earned; and the success fee is only ever charged when your application succeeds.',
+      'Our pricing is kickoff fee + success fee, and this visa service refund policy is built around that split. The short version: you can get the kickoff fee back within 48 hours if nothing has started; once work begins it is earned; and the success fee is only ever charged when your application succeeds.',
     sections: [
       {
         heading: 'Kickoff fee',
@@ -178,9 +178,9 @@ const LEGAL: Record<
   disclaimer: {
     path: '/disclaimer',
     seo: DISCLAIMER_SEO,
-    title: 'Visa Disclaimer',
+    title: 'India Visa Service Disclaimer',
     intro:
-      'Read this before you apply. It states plainly what Visa India Expert is, what it is not, and where responsibility for a visa decision sits — with the Government of India, always.',
+      'Read this visa assistance disclaimer before you apply. It states plainly what Visa India Expert is, what it is not, and where responsibility for a visa decision sits — with the Government of India, always.',
     sections: [
       {
         heading: 'We are not a government agency',
@@ -255,7 +255,7 @@ export const LegalPage: React.FC<{ kind: LegalKind }> = ({ kind }) => {
                 <span className="mx-2">/</span>
                 <span>{doc.title}</span>
               </nav>
-              <h1 className="section-title text-white mb-4">{doc.title}</h1>
+              <h1 className="section-title text-white mb-4">Visa India Expert — {doc.title}</h1>
               <p className="text-warmgray-200 text-lg leading-relaxed">{doc.intro}</p>
               <p className="text-warmgray-300 text-sm mt-4">Last updated: 6 October 2026</p>
             </div>

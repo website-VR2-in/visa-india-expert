@@ -10,7 +10,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'tourist',
     label: 'Tourist Visa',
-    description: 'Short-term visit for tourism and leisure travel to India.',
+    description: 'Short-term visit for tourism and leisure travel to India. We manage your India e-Tourist Visa end to end — from tourist visa to India requirements and photo checks to final approval.',
     icon: '🏛️',
     category: 'Travel',
     kickoff: 199,
@@ -45,7 +45,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'business',
     label: 'Business Visa',
-    description: 'For business meetings, conferences, and commercial activities.',
+    description: 'For business meetings, conferences, and commercial activities. We prepare your business visa to India end to end — India business visa requirements, documentation and follow-up included; India conference visa files welcome.',
     icon: '💼',
     category: 'Business',
     kickoff: 349,
@@ -80,7 +80,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'medical',
     label: 'Medical Visa',
-    description: 'For medical treatment and healthcare in India.',
+    description: 'For medical treatment and healthcare in India. Your medical visa to India handled end to end — this India medical treatment visa service covers hospital letters, appointments and every India visa for medical treatment document.',
     icon: '🏥',
     category: 'Health',
     kickoff: 199,
@@ -114,7 +114,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'e-1',
     label: 'E-1 Business Visa',
-    description: 'For entrepreneurs, directors & company owners establishing business in India.',
+    description: 'For entrepreneurs, directors & company owners establishing business in India. We prepare your India e-1 visa file end to end — India entrepreneur visa documentation, FRRO registration and follow-up. (India\'s E-1 entrepreneur category — not the US E-1 treaty investor visa.)',
     icon: '🏢',
     category: 'Residency',
     kickoff: 499,
@@ -149,7 +149,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'b-1',
     label: 'B-1 Employment Visa',
-    description: 'For foreign nationals employed by an Indian company.',
+    description: 'For foreign nationals employed by an Indian company. We prepare your India B-1 work visa file end to end — India employment visa documentation, FRRO registration and support through the foreign worker visa India process.',
     icon: '👔',
     category: 'Residency',
     kickoff: 499,
@@ -183,7 +183,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'spouse',
     label: 'Spouse / Dependent Visa',
-    description: 'For spouses and dependent children of visa holders.',
+    description: 'For spouses and dependent children of visa holders. We prepare your spouse visa for India and India dependent visa files end to end — including the India fiancé visa route before marriage.',
     icon: '👨‍👩‍👧',
     category: 'Family',
     kickoff: 349,
@@ -217,7 +217,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'student',
     label: 'Student Visa',
-    description: 'For enrollment in Indian educational institutions.',
+    description: 'For enrollment in Indian educational institutions. Your study in India visa prepared end to end — India university visa approvals, admission letters and a full check of the student visa requirements for India.',
     icon: '🎓',
     category: 'Education',
     kickoff: 349,
@@ -251,7 +251,7 @@ export const VISA_OPTIONS: VisaOption[] = [
   {
     id: 'other',
     label: 'Other Visa Type',
-    description: 'Not sure which visa you need? We will help determine the right category.',
+    description: 'Not sure which India visa category fits? Get a free India visa consultation — we map the right path, including the right India visa after rejection.',
     icon: '📋',
     category: 'Other',
     kickoff: 199,

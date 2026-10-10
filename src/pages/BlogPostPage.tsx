@@ -56,6 +56,12 @@ export const BlogPostPage: React.FC = () => {
 
   const published = new Date(post.date + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
+  // Hub-and-spoke: related guides — same cluster first, then others (max 3).
+  const related = [
+    ...BLOG_POSTS.filter((p) => p.slug !== post.slug && p.cluster === post.cluster),
+    ...BLOG_POSTS.filter((p) => p.slug !== post.slug && p.cluster !== post.cluster),
+  ].slice(0, 3);
+
   return (
     <>
       <Header />
@@ -106,6 +112,27 @@ export const BlogPostPage: React.FC = () => {
                   </section>
                 ))}
               </div>
+
+              {/* Hub-and-spoke: related guides (same cluster first) */}
+              {related.length > 0 && (
+                <div className="mt-10">
+                  <h2 className="text-xl font-bold text-navy-500 mb-4">Related guides</h2>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {related.map((r) => (
+                      <Link
+                        key={r.slug}
+                        to={`/blog/${r.slug}`}
+                        className="bg-white rounded-xl border border-navy-100 p-4 hover:border-saffron-400 transition-colors block"
+                      >
+                        <time dateTime={r.date} className="text-xs font-bold text-saffron-700 uppercase tracking-wide">
+                          {new Date(r.date + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </time>
+                        <p className="text-sm font-bold text-navy-500 mt-2 leading-snug">{r.title}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* CTA to the related visa page (internal linking) */}
               <div className="mt-10 bg-navy-500 rounded-xl p-6 md:p-8 text-white">

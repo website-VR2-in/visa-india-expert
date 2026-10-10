@@ -53,8 +53,8 @@ export const AboutPage: React.FC = () => {
               </nav>
               <h1 className="section-title text-white mb-4">About Visa India Expert</h1>
               <p className="text-warmgray-200 text-lg leading-relaxed">
-                Visa India Expert is a specialist <a href="https://visaindiaexpert.com" className="underline decoration-saffron-500">India visa assistance service</a>. We prepare, review and manage
-                India visa applications from start to approval — with one dedicated consultant per case and pricing you can verify before you commit.
+                Visa India Expert is a specialist <a href="https://visaindiaexpert.com" className="underline decoration-saffron-500">India visa assistance service</a> — an India visa service company focused on one thing: preparing, reviewing and managing
+                India visa applications from start to approval, with one dedicated consultant per case and pricing you can verify before you commit.
               </p>
             </div>
           </div>

@@ -82,7 +82,7 @@ export const VISAS_SEO: Record<string, PageSeo> = {
     title: 'Right India Visa? Free Case Review | Visa India Expert',
     description:
       'Unsure which India visa category fits your situation? Get a free 15-minute case review. Re-applicants, journalism, research and complex histories welcome.',
-    h1: 'India Visa — Not Sure Which Category?',
+    h1: 'Which India Visa Do I Need? Free Case Review',
     keywords: ['which india visa do i need', 'india visa category', 'india visa consultation', 'india visa after rejection'],
   },
 };
@@ -99,6 +99,14 @@ export const PRESS_SEO: PageSeo = {
   description:
     'Facts, brand assets and contact details for journalists. Visa India Expert: specialist India visa assistance with transparent kickoff + success pricing.',
   keywords: ['visa india expert press', 'visa india expert media kit'],
+};
+
+export const BLOG_INDEX_SEO: PageSeo = {
+  title: 'India Visa Guides & Updates | Visa India Expert',
+  description:
+    'Practical India visa guides: processing times by category, rejection causes and fixes, E-1 vs B-1 differences and tourist visa requirements — by practitioners.',
+  h1: 'India Visa Guides',
+  keywords: ['india visa guides', 'india visa blog', 'india visa tips', 'india visa updates'],
 };
 
 export const APPLY_SEO: PageSeo = {

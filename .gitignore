@@ -12,3 +12,6 @@ lh-r4-home
 lh-*.html
 *.lighthouse.json
 vh-*
+dist-server/
+lh-headers-*
+lh-r4-*
