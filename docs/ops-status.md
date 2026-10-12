@@ -29,3 +29,5 @@ Single source of truth for the 9-step ops checklist. Updated after every verific
 - Production E2E: **152 checks** (was 127 + 25 no-JS prerender) — **151/152 both domains 2026-10-10**; the 1 "failure" was a test-script artifact (React `<!-- -->`/`&#x27;` splitting a marker phrase), fixed in the shared `e2e/prerender-check.mjs`, then **prerender 25/25 both domains**. Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- / INV-20261010- prefixes) — cleanup can be requested.
 - Local E2E re-verified **99/99** on 2026-10-10 (round 17, after the title/meta fixes).
 - Lighthouse reports are gitignored (`lh-*`, `vh-*`); mobile sweep reports in `lh-mobile/` (22 pages, 2026-10-10).
+
+<!-- nudge: re-trigger Vercel build 2026-10-12 -->
