@@ -2,7 +2,7 @@
 
 Single source of truth for the 9-step ops checklist. Updated after every verification round.
 
-**Last verified: 2026-10-10** (round 17)
+**Last verified: 2026-10-12** (round 18)
 
 | # | Step | Status | Evidence / last verified |
 |---|------|--------|--------------------------|
@@ -26,8 +26,16 @@ Single source of truth for the 9-step ops checklist. Updated after every verific
 
 - Frontend E2E (local, preview :4173): **99/99** — includes 6 GA4 checks (gtag.js load is blocked in-harness so dataLayer stays readable; the inline snippet still defines `gtag()`).
 - Backend E2E (local, :4199): **61/61**.
-- Production E2E: **152 checks** (was 127 + 25 no-JS prerender) — **151/152 both domains 2026-10-10**; the 1 "failure" was a test-script artifact (React `<!-- -->`/`&#x27;` splitting a marker phrase), fixed in the shared `e2e/prerender-check.mjs`, then **prerender 25/25 both domains**. Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- / INV-20261010- prefixes) — cleanup can be requested.
+- Production E2E: **152 checks** (was 127 + 25 no-JS prerender) — **151/152 both domains 2026-10-10** (the 1 "failure" was a test-script artifact — React `<!-- -->`/`&#x27;` splitting a marker phrase — fixed in the shared `e2e/prerender-check.mjs`); **152/152 both domains 2026-10-12 (round 18)**. Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- / INV-20261010- / INV-20261012- prefixes) — cleanup can be requested.
 - Local E2E re-verified **99/99** on 2026-10-10 (round 17, after the title/meta fixes).
 - Lighthouse reports are gitignored (`lh-*`, `vh-*`); mobile sweep reports in `lh-mobile/` (22 pages, 2026-10-10).
 
-<!-- nudge: re-trigger Vercel build 2026-10-12 -->
+## Change log
+
+### Round 18 — 2026-10-12: stray `/>` glyphs fixed (user-reported)
+
+User reported `/> /> /> /> /> /> />` rendered at the top of the homepage. Root cause: `scripts/prerender.mjs` patched 7 head tags (description, canonical, og:title, og:description, og:url, twitter:title, twitter:description) with regexes that matched only up to the closing content-quote, so the original self-closing ` />` survived the replacement → `<meta …="…"> />` on all 24 prerendered pages (invalid HTML; stray glyphs in some clients).
+
+Fix: all 7 patch regexes now consume the **entire** original tag (`<meta …[^>]*>`), replacement emits a clean self-closing tag, and the script **throws** if `"> />` appears in any output (regression guard). Rebuilt locally (audit 24/24, no-JS 25/25), deployed (`ecd34f0` — the first push did not trigger a Vercel build; nudge commit `eca7b05` did, live <45s). Verified on prod: **0 dangling `/>` on both domains**, head tags well-formed (spot-check /visa/business), full prod E2E **152/152 both domains**.
+
+Ops note: the Vercel API token in `~/.vercel/auth.json` is expired (invalid 2026-10-12) — build status is invisible from the CLI until the user re-runs `vercel login`.
