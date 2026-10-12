@@ -53,37 +53,46 @@ for (const route of getRoutes()) {
   const desc = esc(route.description);
   const url = route.canonical ?? `${SITE}${route.path === '/' ? '/' : route.path}`;
 
+  // Each patch must consume the ENTIRE original tag (including its closing
+  // `>` / ` />`) — matching only to the content quote leaves a dangling
+  // ` />` fragment after the replacement (invalid HTML, rendered as stray
+  // glyphs by some clients). Attribute values are esc()'d, so none
+  // contains `>`.
   let html = template
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
     .replace(
-      /<meta name="description" content="[^"]*"/,
-      `<meta name="description" content="${desc}">`
+      /<meta name="description"[^>]*>/,
+      `<meta name="description" content="${desc}" />`
     )
     .replace(
-      /<link rel="canonical" href="[^"]*"/,
-      `<link rel="canonical" href="${url}">`
+      /<link rel="canonical"[^>]*>/,
+      `<link rel="canonical" href="${url}" />`
     )
     .replace(
-      /<meta property="og:title" content="[^"]*"/,
-      `<meta property="og:title" content="${title}">`
+      /<meta property="og:title"[^>]*>/,
+      `<meta property="og:title" content="${title}" />`
     )
     .replace(
-      /<meta property="og:description" content="[^"]*"/,
-      `<meta property="og:description" content="${desc}">`
+      /<meta property="og:description"[^>]*>/,
+      `<meta property="og:description" content="${desc}" />`
     )
     .replace(
-      /<meta property="og:url" content="[^"]*"/,
-      `<meta property="og:url" content="${url}">`
+      /<meta property="og:url"[^>]*>/,
+      `<meta property="og:url" content="${url}" />`
     )
     .replace(
-      /<meta name="twitter:title" content="[^"]*"/,
-      `<meta name="twitter:title" content="${title}">`
+      /<meta name="twitter:title"[^>]*>/,
+      `<meta name="twitter:title" content="${title}" />`
     )
     .replace(
-      /<meta name="twitter:description" content="[^"]*"/,
-      `<meta name="twitter:description" content="${desc}">`
+      /<meta name="twitter:description"[^>]*>/,
+      `<meta name="twitter:description" content="${desc}" />`
     )
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+
+  if (html.includes('"> />')) {
+    throw new Error(`Prerender ${route.path}: dangling self-closer left in head (tag-patch regex)`)
+  }
 
   if (!html.includes(`<div id="root">${body.slice(0, 40)}`)) {
     throw new Error(`Prerender failed for ${route.path}: body not injected`);
