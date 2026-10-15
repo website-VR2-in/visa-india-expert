@@ -2,7 +2,7 @@
 
 Single source of truth for the 9-step ops checklist. Updated after every verification round.
 
-**Last verified: 2026-10-12** (round 18)
+**Last verified: 2026-10-12** (round 19)
 
 | # | Step | Status | Evidence / last verified |
 |---|------|--------|--------------------------|
@@ -18,6 +18,7 @@ Single source of truth for the 9-step ops checklist. Updated after every verific
 
 ## Time-boxed follow-ups
 
+- **Re-submit `sitemap.xml` in GSC + Bing** (round 19, 2026-10-12): 4 URLs renamed (`/visa/e-business-visa`, `/visa/employment-visa`, `/visa/business-visa`, `/blog/employment-vs-business-visa-india`) — old URLs 301 at the edge, but the submitted sitemap must carry the new ones.
 - ~~**2026-10-10 (~48h after GSC verification): re-run index check**~~ — **done 2026-10-10**: 1 result (homepage; stale title cache). Next re-check 2026-10-17.
 - **2 weeks after first DMARC (p=none) record goes live:** check DMARC aggregate reports, then upgrade to `p=quarantine`.
 - ~~**After SSG deploy (2026-10-10):** no-JS prod curl on all 24 routes (body text + per-route title), Lighthouse **mobile** sweep of the previously unaudited pages, cache-header matrix re-verify~~ — **done 2026-10-10 (round 17)**: no-JS 25/25 both domains (`e2e/prerender-check.mjs`), mobile Lighthouse 22/22 (A11y/SEO/BP 100; Perf 91–100, one jitter re-run 99), cache matrix re-verified. Remaining (user): Rich Results Test in GSC for FAQPage/Service/Article + Bing sitemap re-submit (now 24 URLs).
@@ -26,7 +27,7 @@ Single source of truth for the 9-step ops checklist. Updated after every verific
 
 - Frontend E2E (local, preview :4173): **99/99** — includes 6 GA4 checks (gtag.js load is blocked in-harness so dataLayer stays readable; the inline snippet still defines `gtag()`).
 - Backend E2E (local, :4199): **61/61**.
-- Production E2E: **152 checks** (was 127 + 25 no-JS prerender) — **151/152 both domains 2026-10-10** (the 1 "failure" was a test-script artifact — React `<!-- -->`/`&#x27;` splitting a marker phrase — fixed in the shared `e2e/prerender-check.mjs`); **152/152 both domains 2026-10-12 (round 18)**. Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- / INV-20261010- / INV-20261012- prefixes) — cleanup can be requested.
+- Production E2E: **152 checks** (was 127 + 25 no-JS prerender) — **151/152 both domains 2026-10-10** (the 1 "failure" was a test-script artifact — React `<!-- -->`/`&#x27;` splitting a marker phrase — fixed in the shared `e2e/prerender-check.mjs`); **152/152 both domains 2026-10-12 (rounds 18 and 19)**. Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- / INV-20261010- / INV-20261012- / INV-20261015- prefixes) — cleanup can be requested.
 - Local E2E re-verified **99/99** on 2026-10-10 (round 17, after the title/meta fixes).
 - Lighthouse reports are gitignored (`lh-*`, `vh-*`); mobile sweep reports in `lh-mobile/` (22 pages, 2026-10-10).
 
@@ -39,3 +40,15 @@ User reported `/> /> /> /> /> /> />` rendered at the top of the homepage. Root c
 Fix: all 7 patch regexes now consume the **entire** original tag (`<meta …[^>]*>`), replacement emits a clean self-closing tag, and the script **throws** if `"> />` appears in any output (regression guard). Rebuilt locally (audit 24/24, no-JS 25/25), deployed (`ecd34f0` — the first push did not trigger a Vercel build; nudge commit `eca7b05` did, live <45s). Verified on prod: **0 dangling `/>` on both domains**, head tags well-formed (spot-check /visa/business), full prod E2E **152/152 both domains**.
 
 Ops note: the Vercel API token in `~/.vercel/auth.json` is expired (invalid 2026-10-12) — build status is invisible from the CLI until the user re-runs `vercel login`.
+
+### Round 19 — 2026-10-12: visa category rename (E-1 → Employment Visa, B-1 → Business Visa, Business → E-Business Visa)
+
+User requested the category names be corrected: the old E-1 page should be **Employment Visa**, the old B-1 page **Business Visa**, and the old business-visitor page **E-Business Visa** (semantic inversion of the old labels, page content kept as-is — user-confirmed via question). URLs renamed too, with 301s.
+
+Architecture: internal `id`s stay stable (`tourist, business, medical, e-1, b-1, spouse, student, other` — Upstash history, `lib/server/prices.js`, GA4 `visa_type` all unchanged); explicit `slug` added to `VisaOption`. New slugs: `/visa/e-business-visa` (id `business`), `/visa/employment-visa` (id `e-1`), `/visa/business-visa` (id `b-1`); 5 other slugs unchanged. Blog: `e-1-vs-b-1-visa-india → employment-vs-business-visa-india` (title: "Employment vs Business Visa in India: Which Do You Need?").
+
+Redirects: `vercel.json` 4× 301 (`/visa/e-1`, `/visa/b-1`, `/visa/business`, `/blog/e-1-vs-b-1-visa-india`) — Vercel evaluates redirects before the filesystem, so old URLs 301 while prerendered files serve the new ones. Client-side: `VisaPage` resolves id OR slug (old URLs render with the new self-canonical), `BlogPostPage` `<Navigate>` for the old blog slug. All 8 internal link sites + copy pages + sitemap (4 URL renames, lastmod 2026-10-12) + `llms.txt`/`llms-full.txt` + `index.html` meta updated. Docs sweep: seo-keywords, keyword-tracking (4 rows annotated "Renamed … (301 in place); re-verify ranks"), ai-search, content-calendar, backlink-plan, social.md, social-content-30d, social-handles-checklist, social-tracking-template, content-ops, agents/news-digest* (Make.com prompt now mirrors `test-news-digest.mjs`).
+
+Verification: local build 24/24 prerendered + keyword audit 24/24 + no-JS 25/25 + local E2E 99/99 + 0 dangling `/>` in dist. Deployed `3ae3be6` (pushed deve + main, live <2 min — no nudge needed). Prod: **4× 301 verified on both domains** (domain-preserving), all 4 new URLs 200 with correct self-canonical + new titles, no-JS prerender **25/25**, full prod E2E **152/152 both domains**, 0 stray `/>` glyphs (round-18 guard holds).
+
+User follow-ups: **re-submit `sitemap.xml` in GSC and Bing Webmaster Tools** (4 URLs changed); re-verify keyword ranks after 301s settle (keyword-tracking.csv rows annotated).
