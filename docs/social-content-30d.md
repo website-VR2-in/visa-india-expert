@@ -26,8 +26,8 @@
 - **LinkedIn format (~150 words):** hook line → 3–5 short value paragraphs → closing question → 2–3 hashtags from the fixed set `#IndiaVisa #VisaGuides #IndiaBusiness`.
 - **X format (3-tweet thread):** tweet 1 = hook (≤280 chars), tweets 2–3 = substance (≤280 chars each), final line of tweet 3 = CTA to a specific site URL.
 - **B posts** use anonymised case-note framing ("A client's … file was refused because … we fixed it by …") or process transparency (pre-filing checks, kickoff+success mechanics, WhatsApp support in action). Case notes state the refusal and the fix; they do **not** assert an approval outcome.
-- **C posts** use the founder's 8-month E-1 lesson, pricing transparency ("you'll never be quoted privately"), about/press links, and "ask a consultant" AMA prompts.
-- **Factual safety:** every claim stays within the brand facts (specialist India visa assistance; one dedicated consultant per case; fixed USD pricing = kickoff + success fee; success fee only on success; free 15-min case review; WhatsApp +63 949 649 1061; team in the Philippines serving foreign nationals worldwide; tourist processing **typically** 3–7 business days once a complete file is submitted; founder learned E-1 the hard way over 8 months; private assistance service — **not** a government agency, **not** a law firm). Processing times are always hedged with "typically"; no invented statistics.
+- **C posts** use the founder's 8-month Employment Visa lesson, pricing transparency ("you'll never be quoted privately"), about/press links, and "ask a consultant" AMA prompts.
+- **Factual safety:** every claim stays within the brand facts (specialist India visa assistance; one dedicated consultant per case; fixed USD pricing = kickoff + success fee; success fee only on success; free 15-min case review; WhatsApp +63 949 649 1061; team in the Philippines serving foreign nationals worldwide; tourist processing **typically** 3–7 business days once a complete file is submitted; founder learned the Employment Visa the hard way over 8 months; private assistance service — **not** a government agency, **not** a law firm). Processing times are always hedged with "typically"; no invented statistics.
 - **No repeated core claims:** each post carries a distinct core claim. (The Friday X + LinkedIn blog promos are the same topic by design — one per platform.)
 - **Note on counts:** the brief's "X 20 total" counts the four full weeks; the 30-day window ends on Tue 2026-11-03, so Week 5 partial adds Mon 11/02 + Tue 11/03 → 22 X posts in-window.
 
@@ -36,9 +36,9 @@
 ### Mon 2026-10-05
 **X — 8:00** · Pillar A · → https://visaindiaexpert.com/visa/other
 
-> 1/ Need a visa for India? Start with the category question. Tourist, business, medical, spouse, student, E-1 — the wrong one is the most expensive mistake you can make in a file. 60-second map below. 🧵
+> 1/ Need a visa for India? Start with the category question. Tourist, E-business, medical, spouse, student, Employment, Business — the wrong one is the most expensive mistake you can make in a file. 60-second map below. 🧵
 >
-> 2/ Tourist: visiting and holidays. Business: short meetings, negotiations. Medical: treatment in India. Spouse: dependants of a foreign national. Student: study. E-1: qualifying investment. Torn between two? That's the first question to settle.
+> 2/ Tourist: holidays. E-Business: short meetings. Medical: treatment. Spouse: dependants. Student: study. Employment: setting up or running a business. Business: working for an Indian company. Torn between two? That's the first question to settle.
 >
 > 3/ We've mapped each category to who it's actually for — and the mistakes we see when people pick wrong. Full guide: https://visaindiaexpert.com/visa/other
 
@@ -81,7 +81,7 @@
 
 > 1/ How our pricing works, in one thread. Fixed total fee in USD, paid as kickoff + success fee. Here's the logic. 🧵
 >
-> 2/ The kickoff covers preparing and filing your file. The success fee is charged only on success — if the visa isn't approved, it doesn't apply. Totals are quoted up front: tourist $299, business $499, E-1 $699, and the rest on the site.
+> 2/ The kickoff covers preparing and filing your file. The success fee is charged only on success — if the visa isn't approved, it doesn't apply. Totals are quoted up front: tourist $299, E-business $499, Employment $699, and the rest on the site.
 >
 > 3/ You'll never be quoted privately by us — the price list is public and fixed. See it and start your case: https://visaindiaexpert.com/apply
 
@@ -93,7 +93,7 @@
 >
 > Two — consistency across the file. The name, dates, and addresses must match between the passport, the application, and the supporting documents. Many refusals we see are consistency problems, not missing papers.
 >
-> Three — the visa category itself. The wrong category is the most expensive mistake an applicant can make: a B-1 where an E-1 is needed, a tourist visa where the plan is to work.
+> Three — the visa category itself. The wrong category is the most expensive mistake an applicant can make: a Business visa where an Employment visa is needed, a tourist visa where the plan is to work.
 >
 > Only when all three pass does the file go in. That's the whole method, and it's the same for every case — whichever category you're applying under.
 >
@@ -158,28 +158,28 @@ No posts (weekend — no cadence).
 
 **LinkedIn — 8:00 CET** · Pillar C (founder story — pillar anchor) · → https://visaindiaexpert.com/about
 
-> Our founder spent 8 months learning E-1 visa lessons the hard way. That's why this company exists.
+> Our founder spent 8 months learning Employment Visa lessons the hard way. That's why this company exists.
 >
-> Eight months of applications, refusals, and re-reading the regulations — learning what a strong E-1 file actually needs before you can call one strong.
+> Eight months of applications, refusals, and re-reading the regulations — learning what a strong Employment Visa file actually needs before you can call one strong.
 >
 > That experience shaped everything we do: one dedicated consultant per case, the same careful pre-filing checklist on every file, and a category-by-category focus instead of a generalist visa shop.
 >
 > We're a private assistance service — not a government agency, not a law firm. What we do is make sure your file is right the first time, for a fixed, public price.
 >
-> If you're applying for an E-1, that 8-month head start is exactly what you're getting.
+> If you're applying for an Employment Visa, that 8-month head start is exactly what you're getting.
 >
 > What was the first thing you learned the hard way about your own visa process?
 >
 > #IndiaVisa #IndiaBusiness
 
 ### Wed 2026-10-14
-**X — 8:00** · Pillar B · → https://visaindiaexpert.com/visa/business
+**X — 8:00** · Pillar B · → https://visaindiaexpert.com/visa/e-business-visa
 
-> 1/ A client's business visa file was refused. The reason: an employer letter that said "business purpose" and nothing else. Anonymised case note. 🧵
+> 1/ A client's e-business visa file was refused. The reason: an employer letter that said "business purpose" and nothing else. Anonymised case note. 🧵
 >
 > 2/ We fixed it by rebuilding the letter — who's paying, the specific meetings and dates, why the client personally must attend — then re-checking the file for consistency before refiling.
 >
-> 3/ One well-written letter can be the whole difference. Business visa: https://visaindiaexpert.com/visa/business
+> 3/ One well-written letter can be the whole difference. E-Business visa: https://visaindiaexpert.com/visa/e-business-visa
 
 ### Thu 2026-10-15
 **X — 8:00** · Pillar A · → https://visaindiaexpert.com/visa/spouse
@@ -242,13 +242,13 @@ No posts (weekend — no cadence).
 ## Week 3 (Mon 2026-10-19 – Sun 2026-10-25)
 
 ### Mon 2026-10-19
-**X — 8:00** · Pillar A · → https://visaindiaexpert.com/visa/b-1
+**X — 8:00** · Pillar A · → https://visaindiaexpert.com/visa/e-business-visa
 
-> 1/ Short trip to India for meetings or a signing? The B-1 is built for exactly that. What it covers — and what it doesn't. 🧵
+> 1/ Short trip to India for meetings or a signing? The E-Business visa is built for exactly that. What it covers — and what it doesn't. 🧵
 >
-> 2/ B-1: specific, time-boxed business activity — meetings, negotiations, a contract signing. What it isn't: a work permit. And it isn't the right fit for a qualifying investor — that's the E-1.
+> 2/ E-Business: specific, time-boxed business activity — meetings, negotiations, a contract signing. What it isn't: a work permit. And it isn't the right fit for a qualifying investor — that's the Employment visa.
 >
-> 3/ B-1 visa: https://visaindiaexpert.com/visa/b-1
+> 3/ E-Business visa: https://visaindiaexpert.com/visa/e-business-visa
 
 ### Tue 2026-10-20
 **X — 8:00** · Pillar B · → https://visaindiaexpert.com/visa/medical
@@ -259,9 +259,9 @@ No posts (weekend — no cadence).
 >
 > 3/ One letter, in the right format, made the difference. Medical visa: https://visaindiaexpert.com/visa/medical
 
-**LinkedIn — 8:00 CET** · Pillar B (case note) · → https://visaindiaexpert.com/visa/e-1
+**LinkedIn — 8:00 CET** · Pillar B (case note) · → https://visaindiaexpert.com/visa/employment-visa
 
-> A client's E-1 file was refused. Here's what we found — and what we fixed. (Anonymised case note.)
+> A client's Employment Visa file was refused. Here's what we found — and what we fixed. (Anonymised case note.)
 >
 > The first application was refused over the investment structure: the documents didn't make the qualifying investment clear enough for the reviewing officer.
 >
@@ -269,22 +269,22 @@ No posts (weekend — no cadence).
 >
 > We restructured the filing: cleaner evidence of the qualifying shareholding, a consistent story between the application and the supporting documents, and a cover letter that answers the obvious questions before they're asked.
 >
-> The pattern we see most in E-1 rejections: the file isn't weak, it's unclear.
+> The pattern we see most in Employment Visa rejections: the file isn't weak, it's unclear.
 >
-> If your E-1 has been refused, the fix is usually specific — and findable, if someone actually reads the refusal. This is a case note, not a promise about your file — but it shows the shape of the fix.
+> If your Employment Visa has been refused, the fix is usually specific — and findable, if someone actually reads the refusal. This is a case note, not a promise about your file — but it shows the shape of the fix.
 >
 > Have you had a visa refused and not understood why?
 >
 > #IndiaVisa #IndiaBusiness
 
 ### Wed 2026-10-21
-**X — 8:00** · Pillar A · → https://visaindiaexpert.com/visa/e-1
+**X — 8:00** · Pillar A · → https://visaindiaexpert.com/visa/employment-visa
 
-> 1/ The E-1 visa: what it is, who it's for, and why it's the category our founder spent 8 months learning the hard way. 🧵
+> 1/ The Employment visa: what it is, who it's for, and why it's the category our founder spent 8 months learning the hard way. 🧵
 >
-> 2/ The E-1 is for qualifying investors. The file has to make the qualifying investment clear — structure, shareholding, evidence. "We have a business there" is not enough; the documents have to show it.
+> 2/ The Employment visa is for qualifying investors. The file has to make the qualifying investment clear — structure, shareholding, evidence. "We have a business there" is not enough; the documents have to show it.
 >
-> 3/ E-1 visa: https://visaindiaexpert.com/visa/e-1
+> 3/ Employment visa: https://visaindiaexpert.com/visa/employment-visa
 
 ### Thu 2026-10-22
 **X — 8:00** · Pillar C · → https://visaindiaexpert.com/about
@@ -299,7 +299,7 @@ No posts (weekend — no cadence).
 
 > You will never be quoted privately by us. Our pricing is public, fixed, and in USD.
 >
-> Here it is: tourist $299, business $499, medical $299, E-1 $699, B-1 $699, spouse $499, student $499. Those are total fees — kickoff plus success fee.
+> Here it is: tourist $299, E-business $499, medical $299, Employment $699, Business $699, spouse $499, student $499. Those are total fees — kickoff plus success fee.
 >
 > The success fee is charged only on success. If the visa isn't approved, the success portion doesn't apply. No upsells, no "it depends" quotes.
 >
@@ -364,11 +364,11 @@ No posts (weekend — no cadence).
 >
 > 3/ Consistency is a checklist, not a hope. Student visa: https://visaindiaexpert.com/visa/student
 
-**LinkedIn — 8:00 CET** · Pillar A · → https://visaindiaexpert.com/blog/e-1-vs-b-1-visa-india
+**LinkedIn — 8:00 CET** · Pillar A · → https://visaindiaexpert.com/blog/employment-vs-business-visa-india
 
-> E-1 or B-1 for business in India? Choosing wrong means a refused visa and a lost quarter.
+> Employment or Business visa for India? Choosing wrong means a refused visa and a lost quarter.
 >
-> The B-1 is for short, specific business visits: meetings, negotiations, a contract signing. The E-1 is for investors who meet the qualifying investment requirement.
+> The Business visa is for working for an Indian company on a specific contract or project. The Employment visa is for investors who meet the qualifying investment requirement.
 >
 > The two look similar on an application form. They are not similar in what you must prove — and the evidence each one demands is completely different.
 >
@@ -491,7 +491,7 @@ No posts (weekend — no cadence).
 
 | # | Date | Channel | Pillar | Core claim (unique per post) |
 |---|---|---|---|---|
-| 1 | 10/05 | X | A | Which category map (tourist/business/medical/spouse/student/E-1) |
+| 1 | 10/05 | X | A | Which category map (tourist/E-business/medical/spouse/student/Employment/Business) |
 | 2 | 10/06 | X | A | Passport validity + photo spec failures |
 | 3 | 10/06 | LI | A | Tourist checklist before filing (existing blog) |
 | 4 | 10/07 | X | B | Case note: tourist photo refusal, fixed |
@@ -501,23 +501,23 @@ No posts (weekend — no cadence).
 | 8 | 10/09 | LI | A | Blog promo: E-Visa vs Embassy (LinkedIn) |
 | 9 | 10/12 | X | A | 7 rejection reasons (existing blog) |
 | 10 | 10/13 | X | C | AMA prompt |
-| 11 | 10/13 | LI | C | Founder 8-month E-1 lesson (anchor) |
+| 11 | 10/13 | LI | C | Founder 8-month Employment Visa lesson (anchor) |
 | 12 | 10/14 | X | B | Case note: business employer letter, fixed |
 | 13 | 10/15 | X | A | Spouse/dependent route basics |
 | 14 | 10/15 | LI | A | Processing times 2026 (existing blog) |
 | 15 | 10/16 | X | A | Blog promo: FRRO guide |
 | 16 | 10/16 | LI | A | Blog promo: FRRO guide (LinkedIn) |
-| 17 | 10/19 | X | A | B-1 scope (what it covers / doesn't) |
+| 17 | 10/19 | X | A | E-Business scope (what it covers / doesn't) |
 | 18 | 10/20 | X | B | Case note: medical appointment letter, fixed |
-| 19 | 10/20 | LI | B | Case note: E-1 investment structure, fixed |
-| 20 | 10/21 | X | A | E-1 essentials (qualifying investment) |
+| 19 | 10/20 | LI | B | Case note: Employment Visa investment structure, fixed |
+| 20 | 10/21 | X | A | Employment essentials (qualifying investment) |
 | 21 | 10/22 | X | C | Who we are (not gov't, not law firm) |
 | 22 | 10/22 | LI | C | Pricing transparency + full price list |
 | 23 | 10/23 | X | A | Blog promo: reapplication |
 | 24 | 10/23 | LI | A | Blog promo: reapplication (LinkedIn) |
 | 25 | 10/26 | X | C | One dedicated consultant per case |
 | 26 | 10/27 | X | B | Case note: student file consistency, fixed |
-| 27 | 10/27 | LI | A | E-1 vs B-1 decision framework (existing blog) |
+| 27 | 10/27 | LI | A | Employment vs Business decision framework (existing blog) |
 | 28 | 10/28 | X | A | Student visa file essentials |
 | 29 | 10/29 | X | B | Case note: spouse relationship proof, fixed |
 | 30 | 10/29 | LI | B | WhatsApp support in action |

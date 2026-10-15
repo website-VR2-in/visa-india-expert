@@ -69,7 +69,7 @@ export const AboutPage: React.FC = () => {
                 <p className="text-warmgray-600 leading-relaxed">
                   Visa India Expert is a private visa assistance service specialising exclusively in Indian visas. We are not a government agency,
                   not an embassy, and not a travel agency — we are the people who prepare your file, know what the mission checks, and keep it
-                  moving until it is resolved. Our lead consultant has personally processed an E-1 visa case in India — including the
+                  moving until it is resolved. Our lead consultant has personally processed an Employment Visa case in India — including the
                   rejection, the FRRO exit order, and the successful restart — and built this service around the lessons of that experience.
                 </p>
               </div>
@@ -86,7 +86,7 @@ export const AboutPage: React.FC = () => {
                     'Sponsor & invitation letters — with the detail set that avoids clarification rounds',
                     'Application filing — completed, checked and submitted, with consistency verified across every document',
                     'Status tracking — we follow the file after submission and respond to any clarification requests',
-                    'Post-arrival steps where applicable — FRRO registration guidance for E-1 and B-1 holders',
+                    'Post-arrival steps where applicable — FRRO registration guidance for Employment and Business Visa holders',
                     'WhatsApp support throughout — a real consultant answers, not a ticket queue',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-warmgray-600">
@@ -104,7 +104,7 @@ export const AboutPage: React.FC = () => {
                 </p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {VISA_OPTIONS.map((v) => (
-                    <Link key={v.id} to={`/visa/${v.id}`} className="flex items-center gap-2 border border-navy-100 rounded-lg px-4 py-3 hover:border-saffron-400 transition-colors text-warmgray-700">
+                    <Link key={v.id} to={`/visa/${v.slug}`} className="flex items-center gap-2 border border-navy-100 rounded-lg px-4 py-3 hover:border-saffron-400 transition-colors text-warmgray-700">
                       <span>{v.icon}</span>
                       <span className="font-semibold text-sm">{v.label}</span>
                     </Link>

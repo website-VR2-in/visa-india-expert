@@ -33,7 +33,7 @@ export const ApplyPage: React.FC = () => {
               {visa && (
                 <>
                   <span>/</span>
-                  <Link to={`/visa/${visa.id}`} className="hover:text-saffron-500 font-medium">{visa.label}</Link>
+                  <Link to={`/visa/${visa.slug}`} className="hover:text-saffron-500 font-medium">{visa.label}</Link>
                   <span>/</span>
                   <span className="text-navy-500 font-semibold">Apply</span>
                 </>

@@ -9,6 +9,8 @@ export interface VisaFact {
 
 export interface VisaOption {
   id: VisaType;
+  /** URL slug (stable across display-name changes, e.g. /visa/employment-visa). */
+  slug: string;
   label: string;
   description: string;
   icon: string;

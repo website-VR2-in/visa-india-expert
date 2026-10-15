@@ -31,7 +31,7 @@ One row per platform per month. Fill it **on the last Monday of each month** (da
 | Followers (start/end) | **LinkedIn page analytics** (Admin → Analytics → Follower count) / **X profile** (your follower count at the two timestamps) | Record the number at the exact timestamps; screenshot both for the archive. |
 | Impressions, engagements | LinkedIn analytics (impressions, interactions) / X analytics (impressions, engagements per post) | Sum or average across the month as noted per column. |
 | Avg engagement rate | Computed from the above | `engagements ÷ impressions × 100` |
-| Site clicks (utm) | **GA4 → Reports → Acquisition → Traffic acquisition** (Sessions by source/medium) | Filter `session_source` = `li` (LinkedIn) or `x` (X). All social links must carry the utm param: `?src=li` for LinkedIn posts, `?src=x` for X posts (e.g. `https://visaindiaexpert.com/visa/e-1?src=x`). Sum the month's sessions. |
+| Site clicks (utm) | **GA4 → Reports → Acquisition → Traffic acquisition** (Sessions by source/medium) | Filter `session_source` = `li` (LinkedIn) or `x` (X). All social links must carry the utm param: `?src=li` for LinkedIn posts, `?src=x` for X posts (e.g. `https://visaindiaexpert.com/visa/employment-visa?src=x`). Sum the month's sessions. |
 | Best post | LinkedIn analytics top posts / X analytics per-post engagement rate | Pick the highest engagement-rate post of the month; note hook + topic. |
 | Posts published | Our content calendar / publishing tool | Count posts actually published (not planned). |
 

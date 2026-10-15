@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
                   {VISA_OPTIONS.map((v) => (
                     <Link
                       key={v.id}
-                      to={`/visa/${v.id}`}
+                      to={`/visa/${v.slug}`}
                       onClick={() => setVisasOpen(false)}
                       className="flex items-center gap-3 px-4 py-2.5 hover:bg-saffron-50 transition-colors"
                     >
@@ -150,7 +150,7 @@ export const Header: React.FC = () => {
                 {VISA_OPTIONS.map((v) => (
                   <Link
                     key={v.id}
-                    to={`/visa/${v.id}`}
+                    to={`/visa/${v.slug}`}
                     onClick={toggleMobileMenu}
                     className="flex items-center gap-2 text-sm text-slate-600 hover:text-navy py-2"
                   >

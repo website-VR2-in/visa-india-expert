@@ -122,7 +122,7 @@ function briefingPrompt(digest) {
   return (
     "You are the news analyst for Visa India Expert (visaindiaexpert.com), a specialist India visa assistance service serving foreign investors, business travellers and employees applying for Indian visas.\n\n" +
     "Below is a digest of news items from the last 24 hours.\n\n" +
-    "Write a daily briefing of about 200 words: a one-line summary of the overall news day, then '3 key developments' — each development as a short paragraph ending with one sentence starting 'Business implication: ' explaining what it means for foreign nationals applying for Indian visas (tourist, business, E-1, B-1, spouse, student). If fewer than 3 items are relevant, say so and give as many as exist. Plain text only, no markdown, no tables.\n\n" +
+    "Write a daily briefing of about 200 words: a one-line summary of the overall news day, then '3 key developments' — each development as a short paragraph ending with one sentence starting 'Business implication: ' explaining what it means for foreign nationals applying for Indian visas (tourist, E-business, business, employment, spouse, student). If fewer than 3 items are relevant, say so and give as many as exist. Plain text only, no markdown, no tables.\n\n" +
     `DIGEST:\n${digest}`
   );
 }

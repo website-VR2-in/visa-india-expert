@@ -14,8 +14,9 @@ LinkedIn post.
 | Cluster | Hub |
 |---|---|
 | tourist | /visa/tourist |
-| business | /visa/business |
-| employment | /visa/b-1 |
+| e-business | /visa/e-business-visa |
+| employment | /visa/employment-visa |
+| business | /visa/business-visa |
 | family | /visa/spouse |
 | rejection | /visa/other |
 | medical | /visa/medical |
@@ -26,22 +27,22 @@ LinkedIn post.
 | Wk | Publish (Fri) | Slug | Title | Primary KW | Cluster | Status |
 |----|---------------|------|-------|------------|---------|--------|
 | 1 | 2026-10-09 | /blog/india-e-visa-vs-embassy-visa | India E-Visa vs Embassy Visa: Which Should You Apply For? | india e-visa vs embassy visa | tourist | drafted |
-| 2 | 2026-10-16 | /blog/frro-registration-india-guide | FRRO Registration India: The Complete 2026 Guide | frro registration india | employment | drafted |
+| 2 | 2026-10-16 | /blog/frro-registration-india-guide | FRRO Registration India: The Complete 2026 Guide | frro registration india | business | drafted |
 | 3 | 2026-10-23 | /blog/india-visa-rejection-reapplication | India Visa Rejection: How to Reapply Successfully in 2026 | india visa rejection reapply | rejection | drafted |
 | 4 | 2026-10-30 | /blog/india-spouse-visa-work-rights | India Spouse Visa Work Rights: What's Allowed in 2026 | india spouse visa work rights | family | drafted |
 | 5 | 2026-11-06 | /blog/india-medical-visa-checklist | India Medical Visa Checklist 2026: The Complete List | india medical visa checklist | medical | planned |
-| 6 | 2026-11-13 | /blog/india-business-visa-multiple-entry | India Business Visa Multiple Entry: 2026 Strategy Guide | india business visa multiple entry | business | planned |
+| 6 | 2026-11-13 | /blog/india-business-visa-multiple-entry | India Business Visa Multiple Entry: 2026 Strategy Guide | india business visa multiple entry | e-business | planned |
 | 7 | 2026-11-20 | /blog/india-visa-photo-requirements | India Visa Photo Requirements: Exact Specs (2026) | india visa photo requirements | general | planned |
 | 8 | 2026-11-27 | /blog/india-e-visa-processing-time | India E-Visa Processing Time vs Embassy (2026) | india e-visa processing time | tourist | planned |
-| 9 | 2026-12-04 | /blog/india-visa-short-business-trip | India Visa for Short Business Trips: Under 14 Days | india visa for short business trip | business | planned |
+| 9 | 2026-12-04 | /blog/india-visa-short-business-trip | India Visa for Short Business Trips: Under 14 Days | india visa for short business trip | e-business | planned |
 | 10 | 2026-12-11 | /blog/india-dependent-visa-children | India Dependent Visa for Children: 2026 Document Guide | india dependent visa for children | family | planned |
-| 11 | 2026-12-18 | /blog/india-visa-extension-frro | India Visa Extension via FRRO: 2026 Guide | india visa extension frro | employment | planned |
-| 12 | **2026-12-24 (Thu)** | /blog/e-1-visa-india-eligibility | E-1 Visa India Eligibility: Nationalities in 2026 | e-1 visa india eligibility | business | planned |
+| 11 | 2026-12-18 | /blog/india-visa-extension-frro | India Visa Extension via FRRO: 2026 Guide | india visa extension frro | business | planned |
+| 12 | **2026-12-24 (Thu)** | /blog/employment-visa-india-eligibility | Employment Visa India Eligibility: Nationalities in 2026 | employment visa india eligibility | employment | planned |
 
-Cluster balance (weeks 5–12): medical 1 · business 3 · general 1 · tourist 1 ·
-family 1 · employment 1 — all six required clusters covered. Business-weighted
-on purpose: investors and business travellers are the paying audience
-(USD kickoff+success pricing).
+Cluster balance (weeks 5–12): medical 1 · e-business 2 · general 1 · tourist 1 ·
+family 1 · business 1 · employment 1 — all clusters covered. Business-travel
+weighted on purpose: investors, founders and business travellers are the
+paying audience (USD kickoff+success pricing).
 
 ## Post details
 
@@ -54,10 +55,10 @@ Promo: LinkedIn — "Two ways to get an India visa; picking the wrong one costs
 you two weeks"; X — 3-tweet comparison thread, CTA to /visa/tourist.
 
 **W2 · 2026-10-16 · /blog/frro-registration-india-guide** — KW "frro
-registration india" · cluster employment (hub /visa/b-1).
-Internal links: /visa/b-1, /apply, /visa/other.
+registration india" · cluster business (hub /visa/business-visa).
+Internal links: /visa/business-visa, /apply, /visa/other.
 Promo: LinkedIn — "The 14-day FRRO step most new arrivals to India miss";
-X — thread on the 5 FRRO deadlines, CTA to /visa/b-1.
+X — thread on the 5 FRRO deadlines, CTA to /visa/business-visa.
 
 **W3 · 2026-10-23 · /blog/india-visa-rejection-reapplication** — KW "india
 visa rejection reapply" · cluster rejection (hub /visa/other).
@@ -82,10 +83,10 @@ allowed"; X — myth-vs-fact thread, CTA to /visa/spouse.
 ### Week 6 · 2026-11-13 · /blog/india-business-visa-multiple-entry
 
 - **Title:** India Business Visa Multiple Entry: 2026 Strategy Guide
-- **KW:** india business visa multiple entry · **Cluster:** business (hub /visa/business)
+- **KW:** india business visa multiple entry · **Cluster:** e-business (hub /visa/e-business-visa)
 - **Audience:** repeat business travellers deciding between single- and multiple-entry.
-- **Internal links:** /visa/business, /blog/e-1-vs-b-1-visa-india, /apply
-- **Promo:** LinkedIn — "How many times will you cross into India this year? Multiple-entry strategy for repeat travellers"; X — single vs multiple entry math, CTA to /visa/business.
+- **Internal links:** /visa/e-business-visa, /blog/employment-vs-business-visa-india, /apply
+- **Promo:** LinkedIn — "How many times will you cross into India this year? Multiple-entry strategy for repeat travellers"; X — single vs multiple entry math, CTA to /visa/e-business-visa.
 
 ### Week 7 · 2026-11-20 · /blog/india-visa-photo-requirements
 
@@ -106,9 +107,9 @@ allowed"; X — myth-vs-fact thread, CTA to /visa/spouse.
 ### Week 9 · 2026-12-04 · /blog/india-visa-short-business-trip
 
 - **Title:** India Visa for Short Business Trips: Under 14 Days
-- **KW:** india visa for short business trip · **Cluster:** business (hub /visa/business)
+- **KW:** india visa for short business trip · **Cluster:** e-business (hub /visa/e-business-visa)
 - **Audience:** short-notice meeting/board-mission travellers who don't know the fastest path.
-- **Internal links:** /visa/business, /blog/india-e-visa-vs-embassy-visa, /apply
+- **Internal links:** /visa/e-business-visa, /blog/india-e-visa-vs-embassy-visa, /apply
 - **Promo:** LinkedIn — "Flying into India for a 48-hour board meeting? The fastest visa path"; X — "minimum viable visa" thread, CTA to /apply.
 
 ### Week 10 · 2026-12-11 · /blog/india-dependent-visa-children
@@ -122,18 +123,18 @@ allowed"; X — myth-vs-fact thread, CTA to /visa/spouse.
 ### Week 11 · 2026-12-18 · /blog/india-visa-extension-frro
 
 - **Title:** India Visa Extension via FRRO: 2026 Guide
-- **KW:** india visa extension frro · **Cluster:** employment (spoke to hub /visa/b-1; follow-up to W2)
-- **Audience:** B-1/E-1/tourist holders who overstay or need a longer stay.
-- **Internal links:** /visa/b-1, /blog/frro-registration-india-guide, /apply
+- **KW:** india visa extension frro · **Cluster:** business (spoke to hub /visa/business-visa; follow-up to W2)
+- **Audience:** Business/Employment/tourist holders who overstay or need a longer stay.
+- **Internal links:** /visa/business-visa, /blog/frro-registration-india-guide, /apply
 - **Promo:** LinkedIn — "Stay overran? How to legally extend your stay in India — and the deadline you can't miss"; X — FRRO extension steps thread, CTA to the FRRO guide.
 
-### Week 12 · 2026-12-24 (Thu, moved from 12-25 holiday) · /blog/e-1-visa-india-eligibility
+### Week 12 · 2026-12-24 (Thu, moved from 12-25 holiday) · /blog/employment-visa-india-eligibility
 
-- **Title:** E-1 Visa India Eligibility: Nationalities in 2026
-- **KW:** e-1 visa india eligibility · **Cluster:** business (spoke to /visa/e-1; follow-up to /blog/e-1-vs-b-1-visa-india)
+- **Title:** Employment Visa India Eligibility: Nationalities in 2026
+- **KW:** employment visa india eligibility · **Cluster:** employment (spoke to /visa/employment-visa; follow-up to /blog/employment-vs-business-visa-india)
 - **Audience:** foreign investors/founders checking whether their nationality qualifies.
-- **Internal links:** /visa/e-1, /blog/e-1-vs-b-1-visa-india, /apply
-- **Promo:** LinkedIn — "Which nationalities can run their India operations on an E-1? Country-by-country"; X — eligibility table thread, CTA to /visa/e-1.
+- **Internal links:** /visa/employment-visa, /blog/employment-vs-business-visa-india, /apply
+- **Promo:** LinkedIn — "Which nationalities can run their India operations on an Employment Visa? Country-by-country"; X — eligibility table thread, CTA to /visa/employment-visa.
 
 ## How to use this calendar
 

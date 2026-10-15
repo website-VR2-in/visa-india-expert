@@ -75,7 +75,7 @@ Expected output checklist — all of these must appear:
    curl -sS -X POST "https://hook.eu1.make.com/YOUR_WEBHOOK_PATH/auto-post-digest" \
      -H "Content-Type: application/json" \
      -d '{
-       "digestText": "India visa news digest — 2025-01-15\n\nSummary: e-Visa processing times shortened and photo rules relaxed.\n\n1) India e-Visa processing time cut from 4 to 3 business days for most nationalities (PTI, 2025-01-14). Business implication: quote shorter turnaround in client promises this week.\n2) New e-Visa photo rules: white background, 35x45 mm, no headwear (MoHA advisory, 2025-01-14). Business implication: update the client checklist and offer a free photo pre-check.\n3) RBI eases FDI reporting for foreign founders (E27, 2025-01-13). Business implication: easier company setup for investors holding B-1/E-1 visas — cross-sell the setup desk."
+       "digestText": "India visa news digest — 2025-01-15\n\nSummary: e-Visa processing times shortened and photo rules relaxed.\n\n1) India e-Visa processing time cut from 4 to 3 business days for most nationalities (PTI, 2025-01-14). Business implication: quote shorter turnaround in client promises this week.\n2) New e-Visa photo rules: white background, 35x45 mm, no headwear (MoHA advisory, 2025-01-14). Business implication: update the client checklist and offer a free photo pre-check.\n3) RBI eases FDI reporting for foreign founders (E27, 2025-01-13). Business implication: easier company setup for investors holding Employment/Business visas — cross-sell the setup desk."
      }'
    ```
 

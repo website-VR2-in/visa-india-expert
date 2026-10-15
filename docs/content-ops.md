@@ -13,7 +13,7 @@ published before 6 months prior to that date.
 
 **First batch:** the four posts published **2026-10-05**
 (/blog/india-tourist-visa-requirements, /blog/india-visa-processing-times-2026,
-/blog/e-1-vs-b-1-visa-india, /blog/india-visa-rejection-reasons) come due for
+/blog/employment-vs-business-visa-india, /blog/india-visa-rejection-reasons) come due for
 their first refresh review at the **2027-04** sweep. The four posts
 published 2026-10-09 → 2026-10-30 (per the
 [content calendar](content-calendar.md)) also come due at the 2027-04 sweep;

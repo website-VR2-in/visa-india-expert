@@ -56,7 +56,7 @@ export const PressPage: React.FC = () => {
                     ['Company', 'Visa India Expert'],
                     ['Founded', '2026'],
                     ['Focus', 'Indian visas only — specialist service, not a generalist agency'],
-                    ['Categories served', `${VISA_OPTIONS.length} visa categories: tourist, business, medical, E-1, B-1, spouse/dependent, student, and complex case review`],
+                    ['Categories served', `${VISA_OPTIONS.length} visa categories: tourist, E-business, business, employment, medical, spouse/dependent, student, and complex case review`],
                     ['Pricing model', 'Published kickoff + success fees, quoted before any work begins'],
                     ['Support', 'Dedicated consultant per case, WhatsApp-first communication'],
                     ['Website', 'visaindiaexpert.com'],
@@ -75,7 +75,7 @@ export const PressPage: React.FC = () => {
                 <p className="text-warmgray-600 leading-relaxed mb-4">
                   Visa India Expert assists applicants worldwide with Indian visa applications across eight categories, from preparation and
                   document verification through filing and post-submission tracking. The service is built on the founder\'s direct experience
-                  processing an E-1 visa case in India — including a rejection, an FRRO exit order, and the successful restart on the correct
+                  processing an Employment Visa case in India — including a rejection, an FRRO exit order, and the successful restart on the correct
                   category — and is structured so that applicants know the total cost before committing.
                 </p>
                 <p className="text-warmgray-600 leading-relaxed">
@@ -101,7 +101,7 @@ export const PressPage: React.FC = () => {
               <div>
                 <h2 className="section-title text-navy-500 mb-4">Speaking & interviews</h2>
                 <p className="text-warmgray-600 leading-relaxed">
-                  For interviews, fact-checking or expert commentary on India visa topics (processing times, rejection causes, E-1/B-1
+                  For interviews, fact-checking or expert commentary on India visa topics (processing times, rejection causes, employment vs business visa
                   differences, business setup for foreign nationals), contact{' '}
                   <a href={`mailto:${COMPANY.email}`} className="text-navy-500 font-semibold hover:text-saffron-600">{COMPANY.email}</a> —
                   responses within one business day.

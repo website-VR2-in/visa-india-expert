@@ -27,6 +27,7 @@ const compile = (file) => {
 
 const seo = await compile('src/data/seo.ts');
 const blog = await compile('src/data/blog.ts');
+const config = await compile('src/data/config.ts');
 
 const strip = (html) =>
   html
@@ -57,7 +58,7 @@ const count = (haystack, kw) => haystack.toLowerCase().split(kw.toLowerCase()).l
 const routes = [
   { file: 'index.html', primary: seo.HOME_SEO.keywords[0], secondary: seo.HOME_SEO.keywords.slice(1) },
   ...Object.entries(seo.VISAS_SEO).map(([id, s]) => ({
-    file: `visa/${id}/index.html`,
+    file: `visa/${config.VISA_OPTIONS.find((v) => v.id === id).slug}/index.html`,
     primary: s.keywords[0],
     secondary: s.keywords.slice(1),
   })),

@@ -39,9 +39,9 @@ detailed in section c). "When" = first action month/week.
 |---|--------|--------|-------------|----------------------|--------|------|
 | 1 | Clutch | Clutch.co profile | Build agency profile (immigration / business consulting category): services, kickoff+success pricing model, Philippines-based team, case examples | Profile page → / | branded "Visa India Expert" | med | Wk 1 (Oct) |
 | 2 | Clutch | 2–3 client reviews on the Clutch profile | Ask happy clients for a review (template d.1); reviews unlock the category listing | Review on profile → / | branded "Visa India Expert" | med | Wks 2–4, ongoing |
-| 3 | Product Hunt | Launch "Visa India Expert" as a visa concierge | Maker story: founder's 8-month E-1 lesson; what the concierge does; link to / | Launch page → / | generic "visa assistance" | med | Wk 2 (Oct) |
-| 4 | Industry blogs | IndiaFilings blog (indiafilings.com/blog) | Guest post: "The visa checklist foreign founders should complete before incorporating in India" (E-1 vs B-1 decision, documents, processing reality) | Article → /visa/e-1 | generic "visa assistance" | med | Wks 3–4 (Oct) |
-| 5 | Industry blogs | Crest Asia (creastasia.com) | Company-formation consultancy serving foreigners; propose guest post or co-branded visa guide for their foreign-client audience | Article → /visa/business | keyword "india visa assistance" | med | Wk 4 (Oct) |
+| 3 | Product Hunt | Launch "Visa India Expert" as a visa concierge | Maker story: founder's 8-month Employment Visa lesson; what the concierge does; link to / | Launch page → / | generic "visa assistance" | med | Wk 2 (Oct) |
+| 4 | Industry blogs | IndiaFilings blog (indiafilings.com/blog) | Guest post: "The visa checklist foreign founders should complete before incorporating in India" (Employment vs Business Visa decision, documents, processing reality) | Article → /visa/employment-visa | generic "visa assistance" | med | Wks 3–4 (Oct) |
+| 5 | Industry blogs | Crest Asia (creastasia.com) | Company-formation consultancy serving foreigners; propose guest post or co-branded visa guide for their foreign-client audience | Article → /visa/e-business-visa | keyword "india visa assistance" | med | Wk 4 (Oct) |
 | 6 | Industry blogs | Ayaan Advates (Indian immigration law firm, blog) | Practitioner guest post: common tourist/medical file errors from 100+ applications (complementary — they advise, we file) | Article → /blog/india-visa-rejection-reasons | generic "visa assistance" | high (law-firm sign-off) | Nov |
 | 7 | Industry blogs | The Migrant (themigrant.in) | Diaspora magazine; pitch data piece: "What 100 visa rejections taught us about re-applying" (anonymised, with their review) | Article → /blog/india-visa-rejection-reapplication | branded "Visa India Expert" | med | Nov |
 | 8 | Community | InterNations (internations.org) | Value posts in "Living in India" group threads; pitch a contributor piece for their blog | Thread / blog post → relevant /blog/* | generic | low | Wks 2–3 (Oct), monthly |
@@ -79,8 +79,8 @@ becomes the bottleneck.
 1. Sign up on all three with the site's email (one inbox for all).
 2. Set category to Immigration / Travel / Business.
 3. Bio (used by all three): *"India visa specialist — 100+ applications
-   filed across tourist, business, medical, E-1, spouse and employment
-   categories. Founder of Visa India Expert (visaindiaexpert.com), a
+   filed across tourist, E-business, medical, Employment, Business, spouse
+   and student categories. Founder of Visa India Expert (visaindiaexpert.com), a
    specialist India visa assistance service with transparent
    kickoff+success pricing."*
 4. **Daily, 10 min:** scan that morning's queries; respond to matching ones
@@ -103,8 +103,9 @@ A bit more context: [2–3 sentences — the nuance, the common mistake, or the
 
 Happy to expand with more detail or jump on a quick call. I'm the founder of
 Visa India Expert (visaindiaexpert.com), a specialist India visa assistance
-service; I've filed 100+ applications across tourist, business, medical,
-E-1 and spouse categories, and I write weekly about the process at
+service; I've filed 100+ applications across tourist, E-business, medical,
+Employment, Business and spouse categories, and I write weekly about the
+process at
 visaindiaexpert.com/blog.
 
 Best,
@@ -152,15 +153,16 @@ it doesn't convert.
 > is the clearest I've seen on [topic].
 >
 > I run Visa India Expert (visaindiaexpert.com), a specialist India visa
-> assistance service. We file tourist, business, medical, E-1, spouse and
-> employment visas for foreign nationals — and the visa step is where most
+> assistance service. We file tourist, E-business, medical, Employment,
+> Business, spouse and student visas for foreign nationals — and the visa
+> step is where most
 > foreign-founder and relocation projects stall: applications that should
 > take 3–7 business days get rejected for avoidable file errors.
 >
 > Three ideas that fit your readers:
 >
 > 1. **The visa checklist foreign founders should complete before
->    incorporating in India** — E-1 vs B-1 decision, document list,
+>    incorporating in India** — Employment vs Business Visa decision, document list,
 >    processing-time reality.
 > 2. **Why India business visas get rejected (and how to reapply)** — the
 >    top 5 file errors from 100+ applications, plus the re-application
@@ -246,7 +248,7 @@ unanswered HARO queries or un-followed-up pitches, not the target list.
 |-------|---------------|--------------------|-------|
 | Month 1 (Oct 2026) | 5 | 1 high (Clutch DR 70+ or Product Hunt DR 90+), 2 mid (guest posts, DR 30–50), 2 low (community/profile, DR < 30) | Product Hunt launch wk 2; Clutch profile + first review |
 | Month 2 (Nov 2026) | 5 | 1–2 high (HARO citations DR 50+, law-firm guest post if accepted), 2 mid (guest posts from Oct pitches), 1–2 low (communities) | Indie Hackers + Show HN maker story; The Migrant pitch |
-| Month 3 (Dec 2026) | 5 | 1–2 high (repeat HARO/press), 2 mid (guest posts publishing), 1–2 low (communities) | E-1 nationality post (wk 12) feeds investor-angle pitches |
+| Month 3 (Dec 2026) | 5 | 1–2 high (repeat HARO/press), 2 mid (guest posts publishing), 1–2 low (communities) | Employment Visa nationality post (wk 12) feeds investor-angle pitches |
 | **Total** | **15** | ~30–40% DR 40+, ~40% DR 20–39, ~20–30% DR < 20 | Planning target — actuals depend on responses |
 
 **Link log** (one row per link, added in the weekly GSC review):

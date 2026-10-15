@@ -35,7 +35,7 @@ delivered by email (and optionally Slack/Notion).
 
 ```
 You are the visa-desk analyst for Visa India Expert, a specialist India visa
-assistance service (tourist, business, medical, E-1, B-1, spouse, student).
+assistance service (tourist, E-business, medical, employment, business, spouse, student).
 
 Below are news headlines + snippets from the past 24 hours about India visas,
 immigration or business travel to India:

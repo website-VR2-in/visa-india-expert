@@ -35,7 +35,7 @@ const LEGAL: Record<
       {
         heading: 'What we collect',
         body: [
-          'When you complete the application form we collect: your full name, email address, phone number (WhatsApp), country of residence, passport details (full name as printed, number, nationality, date of birth, expiry date), your visa category, and the case-specific details for that category — for example travel dates and destination for tourist visas, employer and company details for business and employment visas, or the sponsoring company and its registration details for E-1 cases.',
+          'When you complete the application form we collect: your full name, email address, phone number (WhatsApp), country of residence, passport details (full name as printed, number, nationality, date of birth, expiry date), your visa category, and the case-specific details for that category — for example travel dates and destination for tourist visas, employer and company details for Business Visa cases, or the sponsoring company and its registration details for Employment Visa cases.',
           'We also store the payment reference of your kickoff transfer (the Wise invoice number) so we can match your payment to your application.',
         ],
       },
@@ -87,7 +87,7 @@ const LEGAL: Record<
       {
         heading: 'Scope of service',
         body: [
-          'We are a private visa assistance service. For a fixed, published fee we prepare, review and file your India visa application and manage it through to a decision: category selection, document preparation (including apostilles and translations where required), sponsor and invitation letters, application filing, status tracking, and responses to clarification requests from the mission. Post-arrival FRRO registration guidance is included for E-1 and B-1 cases.',
+          'We are a private visa assistance service. For a fixed, published fee we prepare, review and file your India visa application and manage it through to a decision: category selection, document preparation (including apostilles and translations where required), sponsor and invitation letters, application filing, status tracking, and responses to clarification requests from the mission. Post-arrival FRRO registration guidance is included for Employment and Business Visa cases.',
           'We do not provide immigration legal representation in court or before tribunals, and we do not act as a power of attorney for any purpose other than your visa application.',
         ],
       },

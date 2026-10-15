@@ -15,7 +15,7 @@ export const VisaGrid: React.FC = () => {
           {VISA_OPTIONS.map((visa) => (
             <Link
               key={visa.id}
-              to={`/visa/${visa.id}`}
+              to={`/visa/${visa.slug}`}
               className="card text-left group transition-all duration-200 hover:scale-[1.03] hover:shadow-lg block"
             >
               <div className="flex items-start justify-between mb-3">

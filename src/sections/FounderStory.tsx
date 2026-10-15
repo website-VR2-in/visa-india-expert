@@ -1,8 +1,8 @@
 import React from 'react';
 
 const lessons = [
-  'E-1 Visa: 8 months wait — agent\'s advice, not the right category',
-  'FRRO: Exit India — told the E-1 was wrong, restart with B-1',
+  'Employment Visa: 8 months wait — agent\'s advice, not the right category',
+  'FRRO: Exit India — told the Employment Visa was wrong, restart with Business Visa',
   'Family dependent visas — a separate parallel process nobody explained',
   'Police verification visits with no warning about requirements',
   'Agents who confidently gave instructions — and were wrong',

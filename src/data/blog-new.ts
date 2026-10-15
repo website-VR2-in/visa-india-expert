@@ -51,7 +51,7 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
         heading: 'What the Embassy or Consulate Route Involves',
         paragraphs: [
           'An embassy or consulate visa is applied for in person, or through the visa application centre designated by the relevant Indian mission. You book an appointment, submit your passport with a physical or scanned document set, provide biometrics where required, and wait for a decision that is often longer than the e-Visa window. Timelines vary by mission and by season, so it is worth checking current [India visa processing times](/blog/india-visa-processing-times-2026) before you commit to a travel date.',
-          'This route is the standard path for categories the e-Visa does not cover, and for cases where an officer\'s individual review is the safer option. That includes employment and entrepreneur categories such as the E-1 and B-1, long-stay visas, and business visas with multi-year validity — the Indian business visa typically runs from 1 to 5 years with multiple entry. It is also the route most re-applicants take after a rejection, because a complex file benefits from being presented to a human reviewer as a corrected, complete submission.',
+          'This route is the standard path for categories the e-Visa does not cover, and for cases where an officer\'s individual review is the safer option. That includes the Employment and Business Visa categories, long-stay visas, and the E-Business visa with multi-year validity — the Indian E-Business visa typically runs from 1 to 5 years with multiple entry. It is also the route most re-applicants take after a rejection, because a complex file benefits from being presented to a human reviewer as a corrected, complete submission.',
         ],
       },
       {
@@ -91,11 +91,11 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
     primaryKeyword: 'frro registration india',
     cluster: 'employment',
     relatedVisaId: 'b-1',
-    relatedVisaLabel: 'B-1 Employment Visa',
+    relatedVisaLabel: 'Business Visa',
     sections: [
       {
         paragraphs: [
-          'Every foreign professional who arrives in India on an employment or long-stay visa eventually hits the same step: FRRO registration in India. For categories such as the E-1 and B-1, the Foreigners Regional Registration Office does not merely record your stay — completing the registration is what keeps your presence in the country lawful beyond the initial visa window.',
+          'Every foreign professional who arrives in India on an employment or long-stay visa eventually hits the same step: FRRO registration in India. For categories such as the Employment and Business Visas, the Foreigners Regional Registration Office does not merely record your stay — completing the registration is what keeps your presence in the country lawful beyond the initial visa window.',
           'This guide explains what the FRRO is, who must register and when, the documents you will typically need, how the online portal process works, how to extend your stay, and the mistakes that most often cause delays. It is written for the person arriving on an employment visa, and for the employer sponsoring them.',
         ],
       },
@@ -109,7 +109,7 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
       {
         heading: 'Who Must Register — and When',
         paragraphs: [
-          'The registration requirement applies to foreign nationals holding categories that contemplate a long or work-related stay. The E-1 and B-1 employment and entrepreneur categories are the typical examples, along with other long-stay categories that the FRRO\'s guidance lists. If you hold a short tourist e-Visa, you generally do not register — you simply stay within the terms of the visa.',
+          'The registration requirement applies to foreign nationals holding categories that contemplate a long or work-related stay. The Employment and Business Visa categories — the entrepreneur and the worker track respectively — are the typical examples, along with other long-stay categories that the FRRO\'s guidance lists. If you hold a short tourist e-Visa, you generally do not register — you simply stay within the terms of the visa.',
           'On timing: for the eligible long-stay categories, registration is typically required within 14 days of arrival, per the FRRO\'s published guidance. The exact window depends on your visa type, so confirm it against the terms on your visa and the FRRO portal before you plan anything else. Registering late is one of the most common compliance problems we see, and it is almost always avoidable.',
         ],
       },
@@ -138,7 +138,7 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
         heading: 'Common Mistakes That Delay Registration',
         paragraphs: [
           'The failures that slow FRRO registration down follow a short list: registering after the 14-day window has passed; a photo that fails the specification; an address that does not match your actual residence; a passport with less than 6 months of validity left; and an employer letter that is vague about the role, the company, or the duration of the assignment. Each of these is fixable — but the fix happens on a slower timeline than the original registration.',
-          'If you are arriving on an E-1 or B-1 visa, the cleanest sequence is to have the registration packet ready before you land, submit it within the first week, and keep the certificate and reference number in one place. For the differences between the two categories themselves, see our [E-1 vs B-1 comparison](/blog/e-1-vs-b-1-visa-india); and if you are still in the pre-arrival stage, the [B-1 employment visa page](/visa/b-1) and [E-1 entrepreneur visa page](/visa/e-1) cover what the visa stage requires before FRRO registration even begins.',
+          'If you are arriving on an Employment or Business Visa, the cleanest sequence is to have the registration packet ready before you land, submit it within the first week, and keep the certificate and reference number in one place. For the differences between the two categories themselves, see our [Employment vs Business Visa comparison](/blog/employment-vs-business-visa-india); and if you are still in the pre-arrival stage, the [Business Visa page](/visa/business-visa) and [Employment Visa page](/visa/employment-visa) cover what the visa stage requires before FRRO registration even begins.',
         ],
       },
     ],
@@ -243,8 +243,8 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
       {
         heading: 'The Two Compliant Routes if Your Spouse Wants to Work',
         paragraphs: [
-          'Route one is an employer-sponsored employment visa. If an Indian employer is willing to sponsor, the spouse applies for the B-1 employment visa in their own right — a fresh application in the spouse\'s name, with the employer\'s sponsorship, and with FRRO registration after arrival, like any other employment-category applicant. The [B-1 employment visa page](/visa/b-1) covers the category and its typical document set.',
-          'Route two is the business or entrepreneur route. If the spouse is setting up or running a business in India, the E-1 category is the relevant one — again a fresh application in the spouse\'s name, again with FRRO registration after arrival. The [E-1 entrepreneur visa page](/visa/e-1) covers what the business case needs to show.',
+          'Route one is an employer-sponsored Business Visa. If an Indian employer is willing to sponsor, the spouse applies for the Business Visa in their own right — a fresh application in the spouse\'s name, with the employer\'s sponsorship, and with FRRO registration after arrival, like any other work-category applicant. The [Business Visa page](/visa/business-visa) covers the category and its typical document set.',
+          'Route two is the entrepreneur route. If the spouse is setting up or running a business in India, the Employment Visa category is the relevant one — again a fresh application in the spouse\'s name, again with FRRO registration after arrival. The [Employment Visa page](/visa/employment-visa) covers what the business case needs to show.',
           'A third possibility is a change of status from the dependent category while in India — for example, switching from a spouse visa to an employment category once a job offer materialises. That route is available in eligible cases and depends on the FRRO\'s assessment of the specific file; it is not automatic. Treat it as a possibility to verify with the FRRO, not a default to assume.',
         ],
       },
@@ -258,7 +258,7 @@ export const NEW_BLOG_POSTS: NewBlogPost[] = [
       {
         heading: 'The Practical Sequence',
         paragraphs: [
-          'If your spouse wants to work, the sequence that avoids the worst version of this problem is: do not start the local engagement on the dependent visa; decide between the B-1 route, the E-1 route, or a change of status; start the new application (the [spouse visa application process](/apply/spouse) page covers the family-side paperwork that stays relevant while the new category is in play); complete FRRO registration after arrival or after the status change; and keep the work relationship, the visa category, and the FRRO registration all pointing in the same direction.',
+          'If your spouse wants to work, the sequence that avoids the worst version of this problem is: do not start the local engagement on the dependent visa; decide between the Business Visa route, the Employment Visa route, or a change of status; start the new application (the [spouse visa application process](/apply/spouse) page covers the family-side paperwork that stays relevant while the new category is in play); complete FRRO registration after arrival or after the status change; and keep the work relationship, the visa category, and the FRRO registration all pointing in the same direction.',
           'The underlying principle is that the dependent visa is a stay visa, not a work visa, and every compliant route starts from accepting that. Once you accept it, the options are clear — and the FRRO is the one office whose confirmation you should have before any real commitment.',
         ],
       },

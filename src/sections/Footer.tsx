@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               {VISA_OPTIONS.map((v) => (
                 <li key={v.id}>
-                  <Link to={`/visa/${v.id}`} className="hover:text-white transition-colors">
+                  <Link to={`/visa/${v.slug}`} className="hover:text-white transition-colors">
                     {v.label}
                   </Link>
                 </li>

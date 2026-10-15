@@ -71,7 +71,7 @@ export const PaymentModel: React.FC = () => {
                     </td>
                     <td className="px-5 py-3 text-right">
                       <Link
-                        to={`/visa/${visa.id}`}
+                        to={`/visa/${visa.slug}`}
                         className="text-xs font-bold text-saffron-700 hover:text-saffron-600 whitespace-nowrap"
                       >
                         Details →

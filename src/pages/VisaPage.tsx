@@ -14,8 +14,10 @@ const FALLBACK_SEO: PageSeo = {
 
 export const VisaPage: React.FC = () => {
   const { visaId } = useParams<{ visaId: string }>();
-  const visa = VISA_OPTIONS.find((v) => v.id === visaId);
-  const seo = visaId ? VISAS_SEO[visaId] : undefined;
+  // URL param is the option slug (e.g. /visa/employment-visa); legacy ids are
+  // still accepted so in-app navigation and old bookmarks keep resolving.
+  const visa = VISA_OPTIONS.find((v) => v.id === visaId || v.slug === visaId);
+  const seo = visa ? VISAS_SEO[visa.id] : undefined;
 
   // Scroll to top on visa change
   useEffect(() => {
@@ -23,7 +25,9 @@ export const VisaPage: React.FC = () => {
   }, [visaId]);
 
   // SEO meta — called unconditionally (Rules of Hooks), before any early return.
-  usePageMeta(seo ?? FALLBACK_SEO, `/visa/${visaId ?? ''}`);
+  // Canonical always points at the current slug URL, even when reached via a
+  // legacy id (e.g. /visa/e-1) — old URLs are 301-redirected at the edge.
+  usePageMeta(seo ?? FALLBACK_SEO, visa ? `/visa/${visa.slug}` : `/visa/${visaId ?? ''}`);
 
   if (!visa) return <Navigate to="/" replace />;
 
@@ -81,7 +85,7 @@ export const VisaPage: React.FC = () => {
                 itemListElement: [
                   { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
                   { '@type': 'ListItem', position: 2, name: 'Visas', item: `${SITE_URL}/#services` },
-                  { '@type': 'ListItem', position: 3, name: visa.label, item: `${SITE_URL}/visa/${visa.id}` },
+                  { '@type': 'ListItem', position: 3, name: visa.label, item: `${SITE_URL}/visa/${visa.slug}` },
                 ],
               },
             ],
@@ -234,7 +238,7 @@ export const VisaPage: React.FC = () => {
             {otherVisas.map((v) => (
               <Link
                 key={v.id}
-                to={`/visa/${v.id}`}
+                to={`/visa/${v.slug}`}
                 className="card text-left group !p-4 hover:shadow-md transition-all"
               >
                 <div className="flex items-center gap-3">

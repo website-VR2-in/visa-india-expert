@@ -19,7 +19,7 @@ export const OG_IMAGE = `${SITE_URL}/og-image.png`;
 export const HOME_SEO: PageSeo = {
   title: 'India Visa Assistance & Services | Visa India Expert',
   description:
-    'Expert India visa assistance from application to approval. Tourist, business, E-1, B-1, spouse & student visas with transparent kickoff + success fees.',
+    'Expert India visa assistance from application to approval. Tourist, E-business, business, employment, spouse & student — transparent kickoff + success fees.',
   keywords: [
     'india visa assistance',
     'india visa consultant',
@@ -37,11 +37,11 @@ export const VISAS_SEO: Record<string, PageSeo> = {
     keywords: ['india tourist visa', 'india e-tourist visa', 'india visa for tourism', 'tourist visa to india requirements'],
   },
   business: {
-    title: 'India Business Visa — Expert Help | Visa India Expert',
+    title: 'India E-Business Visa — Expert Help | Visa India Expert',
     description:
-      'Get an India business visa with expert help. Meetings, conferences and investment trips covered. $349 kickoff + $150 success fee, 1–5 year multiple-entry visas.',
-    h1: 'India Business Visa',
-    keywords: ['india business visa', 'india business visa requirements', 'business visa to india', 'india conference visa'],
+      'Get an India e-business visa with expert help. Meetings, conferences and investment trips covered. $349 kickoff + $150 success fee, 1–5 year multiple-entry visas.',
+    h1: 'India E-Business Visa',
+    keywords: ['india e-business visa', 'india business visa requirements', 'business visa to india', 'india conference visa'],
   },
   medical: {
     title: 'India Medical Visa — Treatment Help | Visa India Expert',
@@ -51,18 +51,18 @@ export const VISAS_SEO: Record<string, PageSeo> = {
     keywords: ['india medical visa', 'medical visa to india', 'india medical treatment visa', 'india visa for medical treatment'],
   },
   'e-1': {
-    title: 'E-1 Visa India — Entrepreneur Visa | Visa India Expert',
+    title: 'Employment Visa India — Expert Help | Visa India Expert',
     description:
-      'Set up or run a business in India on the E-1 visa. MCA documents, apostilled resolutions, sponsor letters and FRRO registration handled by specialists.',
-    h1: 'E-1 Visa for India',
-    keywords: ['e-1 visa india', 'india e-1 visa', 'india entrepreneur visa', 'e-1 treaty investor visa india'],
+      'Set up or run a business in India on an employment visa. MCA documents, apostilled resolutions, sponsor letters and FRRO registration handled by specialists.',
+    h1: 'Employment Visa for India',
+    keywords: ['employment visa india', 'india employment visa', 'india entrepreneur visa', 'india employment visa requirements'],
   },
   'b-1': {
-    title: 'B-1 Visa India — Employment Visa | Visa India Expert',
+    title: 'India Business Visa — Expert Help | Visa India Expert',
     description:
-      'Work in India on a B-1 employment visa. Signed contracts, employer letters, salary thresholds and FRRO registration prepared by specialists. $499 kickoff.',
-    h1: 'B-1 Employment Visa for India',
-    keywords: ['b-1 visa india', 'india employment visa', 'india b-1 work visa', 'foreign worker visa india'],
+      'Work in India on a business visa. Signed contracts, employer letters, salary thresholds and FRRO registration prepared by specialists. $499 kickoff.',
+    h1: 'India Business Visa',
+    keywords: ['india business visa', 'business visa to india', 'india work visa', 'foreign worker visa india'],
   },
   spouse: {
     title: 'India Spouse Visa — Family Help | Visa India Expert',
@@ -90,7 +90,7 @@ export const VISAS_SEO: Record<string, PageSeo> = {
 export const ABOUT_SEO: PageSeo = {
   title: 'About Visa India Expert — Who We Are',
   description:
-    'Specialist India visa assistance service with one dedicated consultant per case, transparent kickoff + success pricing, and deep E-1 and B-1 case experience.',
+    'Specialist India visa assistance service with one dedicated consultant per case, transparent kickoff + success pricing, and deep employment & business visa case experience.',
   keywords: ['about visa india expert', 'india visa service company'],
 };
 
@@ -104,7 +104,7 @@ export const PRESS_SEO: PageSeo = {
 export const BLOG_INDEX_SEO: PageSeo = {
   title: 'India Visa Guides & Updates | Visa India Expert',
   description:
-    'Practical India visa guides: processing times by category, rejection causes and fixes, E-1 vs B-1 differences and tourist visa requirements — by practitioners.',
+    'Practical India visa guides: processing times by category, rejection causes and fixes, employment vs business visa differences and tourist visa requirements — by practitioners.',
   h1: 'India Visa Guides',
   keywords: ['india visa guides', 'india visa blog', 'india visa tips', 'india visa updates'],
 };

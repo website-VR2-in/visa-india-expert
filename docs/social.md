@@ -21,9 +21,9 @@
 
 | Pillar | Share | Examples |
 |---|---|---|
-| **A. Practical visa knowledge** | 50% | "7 reasons India visas get rejected", processing-time threads, E-1 vs B-1 explained, document checklists, photo/passport rules |
-| **B. Proof & process** | 30% | Case notes (anonymised): "Client's E-1 was refused because…", how the kickoff+success fee works, what a consultant checks before filing, WhatsApp support in action |
-| **C. Authority & company** | 20% | Founder story (the 8-month E-1 lesson), pricing transparency ("you'll never be quoted privately"), press/About links, "ask a consultant" AMA posts |
+| **A. Practical visa knowledge** | 50% | "7 reasons India visas get rejected", processing-time threads, Employment vs Business Visa explained, document checklists, photo/passport rules |
+| **B. Proof & process** | 30% | Case notes (anonymised): "Client's Employment Visa was refused because…", how the kickoff+success fee works, what a consultant checks before filing, WhatsApp support in action |
+| **C. Authority & company** | 20% | Founder story (the 8-month Employment Visa lesson), pricing transparency ("you'll never be quoted privately"), press/About links, "ask a consultant" AMA posts |
 
 ## 5. Cadence
 

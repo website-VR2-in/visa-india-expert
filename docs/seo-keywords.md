@@ -17,12 +17,12 @@
 - Long-tail: india tourist visa requirements 2026 · 5 year india tourist visa eligibility · india tourist visa for family
 - Questions: how long is an india tourist visa valid · can i extend my india tourist visa · what documents are needed for an india tourist visa
 
-## Business — /visa/business
-- **Primary:** india business visa
+## E-Business — /visa/e-business-visa
+- **Primary:** india e-business visa
 - Secondary: india business visa requirements, india conference visa
-- Head: india business visa · business visa to india · india business visa requirements
+- Head: india e-business visa · business visa to india · india business visa requirements
 - Long-tail: india business visa multiple entry · india business visa for meetings · 1 year india business visa
-- Questions: how long is an india business visa valid · what is a business visa to india · how much is an india business visa
+- Questions: how long is an india e-business visa valid · what is a business visa to india · how much is an india e-business visa
 
 ## Medical — /visa/medical
 - **Primary:** india medical visa
@@ -31,19 +31,19 @@
 - Long-tail: india medical visa for treatment · india medical attendant visa · india medical visa processing time
 - Questions: how long is an india medical visa valid · who can be a medical attendant in india · does a medical visa allow multiple entries
 
-## E-1 — /visa/e-1
-- **Primary:** e-1 visa india
-- Secondary: india e-1 visa, india entrepreneur visa
-- Head: e-1 visa india · india e-1 visa · e-1 treaty investor visa india
-- Long-tail: e-1 visa india requirements · e-1 visa india processing time · e-1 visa for indian business setup
-- Questions: what is an e-1 visa in india · how long does an e-1 visa take · who qualifies for an e-1 visa india
+## Employment — /visa/employment-visa
+- **Primary:** employment visa india
+- Secondary: india entrepreneur visa, india employment visa requirements
+- Head: employment visa india · india employment visa · india entrepreneur visa
+- Long-tail: employment visa india requirements · employment visa india processing time · employment visa for indian business setup
+- Questions: what is an employment visa in india · how long does an employment visa take · who qualifies for an employment visa india
 
-## B-1 — /visa/b-1
-- **Primary:** b-1 visa india
-- Secondary: india employment visa, india b-1 work visa
-- Head: b-1 visa india · india employment visa · b-1 work visa india
-- Long-tail: b-1 visa india requirements · b-1 visa india frro registration · foreign worker visa india process
-- Questions: what is a b-1 visa in india · how long is a b-1 visa valid · do i need frro registration for a b-1 visa
+## Business — /visa/business-visa
+- **Primary:** india business visa
+- Secondary: business visa to india, india work visa
+- Head: india business visa · business visa to india · india work visa
+- Long-tail: business visa india requirements · business visa india frro registration · foreign worker visa india process
+- Questions: what is a business visa in india · how long is an india business visa valid · do i need frro registration for an india business visa
 
 ## Spouse — /visa/spouse
 - **Primary:** india spouse visa
@@ -71,7 +71,7 @@
 |---|---|---|
 | india-tourist-visa-requirements | india tourist visa requirements | tourist |
 | india-visa-processing-times-2026 | india visa processing time | general |
-| e-1-vs-b-1-visa-india | e-1 vs b-1 visa india | business |
+| employment-vs-business-visa-india | employment vs business visa india | business |
 | india-visa-rejection-reasons | india visa rejection reasons | rejection |
 | india-e-visa-vs-embassy-visa | india e-visa vs embassy visa | tourist |
 | frro-registration-india-guide | frro registration india | employment |

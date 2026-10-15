@@ -116,7 +116,7 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
     title: 'How Long Does an India Visa Take in 2026? Processing Times by Category',
     metaTitle: 'India Visa Processing Times 2026: How Long It Takes',
     description:
-      'Realistic 2026 processing times for every India visa category — tourist, business, medical, E-1, B-1, spouse, student — and exactly what slows each one down.',
+      'Realistic 2026 processing times for every India visa category — tourist, E-business, medical, employment, business, spouse, student — and exactly what slows each one down.',
     date: '2026-10-05',
     readTime: '7 min read',
     excerpt:
@@ -128,15 +128,15 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
     sections: [
       {
         paragraphs: [
-          '"How long does an India visa take?" is the most common question we receive — and the honest answer depends entirely on the visa category. A [tourist visa](/visa/tourist) and an [E-1 treaty business visa](/visa/e-1) go through completely different review paths, and their timelines differ by months, not days.',
+          '"How long does an India visa take?" is the most common question we receive — and the honest answer depends entirely on the visa category. A [tourist visa](/visa/tourist) and an [Employment Visa](/visa/employment-visa) go through completely different review paths, and their timelines differ by months, not days.',
           'Below are the realistic 2026 processing ranges based on current mission workloads and the document chains each category requires. "Processing time" here means from a complete, correct submission to visa issuance.',
         ],
       },
       {
         heading: 'What "processing time" does and does not include',
         paragraphs: [
-          'The ranges in this guide start at one moment only: the day a complete, correct file sits with the mission. They do not include the time you spend gathering documents, waiting for an apostille or a certified translation, or drafting a sponsor letter with the right details. A B-1 applicant who underestimates employer-side document preparation will look, from the outside, as if the visa took three months — when the mission itself may have moved within four weeks. Always separate your preparation timeline from the mission\'s processing timeline before you set expectations.',
-          'The published ranges also exclude what happens after the visa is issued. For the long-stay categories — the E-1 and the B-1 — FRRO registration in India is a separate step that happens after arrival, typically completed within 14 days of arrival for long-stay categories per FRRO guidelines. Plan for it as its own task with its own document list, and treat it as part of your overall India timeline rather than as part of the visa timeline.',
+          'The ranges in this guide start at one moment only: the day a complete, correct file sits with the mission. They do not include the time you spend gathering documents, waiting for an apostille or a certified translation, or drafting a sponsor letter with the right details. A Business Visa applicant who underestimates employer-side document preparation will look, from the outside, as if the visa took three months — when the mission itself may have moved within four weeks. Always separate your preparation timeline from the mission\'s processing timeline before you set expectations.',
+          'The published ranges also exclude what happens after the visa is issued. For the long-stay categories — the Employment Visa and the Business Visa — FRRO registration in India is a separate step that happens after arrival, typically completed within 14 days of arrival for long-stay categories per FRRO guidelines. Plan for it as its own task with its own document list, and treat it as part of your overall India timeline rather than as part of the visa timeline.',
         ],
       },
       {
@@ -146,9 +146,9 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
         ],
       },
       {
-        heading: 'Business visa: 1–3 weeks',
+        heading: 'E-Business visa: 1–3 weeks',
         paragraphs: [
-          'Business visas (1–5 year multiple entry, up to 180 days per visit) take longer because the mission verifies the commercial relationship: the invitation letter from the Indian company, your employer letter, and proof of the relationship (contracts, invoices). Incomplete sponsor letters are the #1 cause of delays — the mission requests clarification and the clock resets.',
+          'E-Business visas (1–5 year multiple entry, up to 180 days per visit) take longer because the mission verifies the commercial relationship: the invitation letter from the Indian company, your employer letter, and proof of the relationship (contracts, invoices). Incomplete sponsor letters are the #1 cause of delays — the mission requests clarification and the clock resets.',
         ],
       },
       {
@@ -158,15 +158,15 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
         ],
       },
       {
-        heading: 'E-1 (treaty/investor) visa: 4–12 weeks',
+        heading: 'Employment Visa: 4–12 weeks',
         paragraphs: [
-          'The E-1 is not processed like a tourist visa. Before the visa application, the business side must be ready: the Indian entity or treaty-eligible structure, MCA (Ministry of Corporate Affairs) registrations, and often apostilled board resolutions and sponsor letters. Once the business documentation is complete, the visa itself typically processes within a few weeks. The 8-month delay our founder experienced was not the visa — it was the missing business documents.',
+          'The Employment Visa is not processed like a tourist visa. Before the visa application, the business side must be ready: the Indian entity or treaty-eligible structure, MCA (Ministry of Corporate Affairs) registrations, and often apostilled board resolutions and sponsor letters. Once the business documentation is complete, the visa itself typically processes within a few weeks. The 8-month delay our founder experienced was not the visa — it was the missing business documents.',
         ],
       },
       {
-        heading: 'B-1 (employment) visa: 6–12 weeks',
+        heading: 'Business Visa: 6–12 weeks',
         paragraphs: [
-          'Employment visas require a signed contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. After the visa is issued, FRRO registration in India (usually within 14 days of arrival) is a separate step with its own document list — missing it is a common post-arrival problem. B-1 timelines are dominated by employer-side document preparation, not mission speed.',
+          'Business visas require a signed contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. After the visa is issued, FRRO registration in India (usually within 14 days of arrival) is a separate step with its own document list — missing it is a common post-arrival problem. Business Visa timelines are dominated by employer-side document preparation, not mission speed.',
         ],
       },
       {
@@ -192,79 +192,79 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
         heading: 'Planning your timeline with a consultant',
         paragraphs: [
           'If your dates are fixed — a wedding, a treatment start, an employment start date — work backwards from that date using the category range above, and build in a full buffer week for a possible clarification round. Every case is handled by one dedicated consultant from kickoff to approval, and you can reach your consultant directly on WhatsApp at +63 949 649 1061 for a realistic timeline based on your nationality, your category, and the current state of your documents.',
-          'Two related guides are worth reading before you start: [the complete India tourist visa requirements checklist](/blog/india-tourist-visa-requirements) if you are in the fastest category, and [the E-1 vs B-1 breakdown](/blog/e-1-vs-b-1-visa-india) if you are choosing between the two long-stay business categories — that choice is the biggest timeline variable in Indian business immigration.',
+          'Two related guides are worth reading before you start: [the complete India tourist visa requirements checklist](/blog/india-tourist-visa-requirements) if you are in the fastest category, and [the Employment vs Business visa breakdown](/blog/employment-vs-business-visa-india) if you are choosing between the two long-stay categories — that choice is the biggest timeline variable in Indian business immigration.',
         ],
       },
     ],
   },
   {
-    slug: 'e-1-vs-b-1-visa-india',
-    title: 'E-1 vs B-1 Visa in India: Which One Do You Actually Need?',
-    metaTitle: 'E-1 vs B-1 Visa in India: Which Do You Need?',
+    slug: 'employment-vs-business-visa-india',
+    title: 'Employment Visa vs Business Visa in India: Which One Do You Actually Need?',
+    metaTitle: 'Employment vs Business Visa in India: Which Do You Need?',
     description:
-      'The E-1 and B-1 are the two big business visas for India — picking the wrong one can cost you months. Here is exactly how to tell them apart and choose right.',
+      'The Employment and Business visas are the two big long-stay categories for India — picking the wrong one can cost you months. Here is exactly how to tell them apart and choose right.',
     date: '2026-10-05',
     readTime: '8 min read',
     excerpt:
       'Both let a foreigner do business in India. Only one matches your legal structure. Choosing wrong means a restart — and sometimes a forced exit.',
-    primaryKeyword: 'e-1 vs b-1 visa india',
+    primaryKeyword: 'employment vs business visa india',
     relatedVisaId: 'e-1',
-    relatedVisaLabel: 'E-1 Visa',
+    relatedVisaLabel: 'Employment Visa',
     cluster: 'business',
     sections: [
       {
         paragraphs: [
-          'If you are a foreigner planning to work with, invest in, or run a business in India, you will eventually face the E-1/B-1 question. They look similar from the outside — both are business-related, both are long-term, both require professional preparation. But they are fundamentally different categories with different legal bases, and applying on the wrong one is one of the most expensive mistakes in Indian immigration.',
+          'If you are a foreigner planning to work with, invest in, or run a business in India, you will eventually face the employment-vs-business visa question. They look similar from the outside — both are business-related, both are long-term, both require professional preparation. But they are fundamentally different categories with different legal bases, and applying on the wrong one is one of the most expensive mistakes in Indian immigration.',
           'Here is the difference, in plain terms.',
         ],
       },
       {
-        heading: 'What the E-1 is for',
+        heading: 'What the Employment Visa is for',
         paragraphs: [
-          'The [E-1 visa](/visa/e-1) is for people who will establish or manage a business interest in India as principals — investors, founders, and directors of their own Indian entity (or treaty-eligible structure). The legal anchor is your ownership or management role: board seats, shareholding, MCA (Ministry of Corporate Affairs) registrations, sponsor letters from the Indian entity. If the business is yours, the E-1 is usually the right category.',
-          'The E-1 file is documentation-heavy: apostilled board resolutions, MCA filings, and a sponsor letter that matches your actual role. Getting the business side right before the visa application is what separates a 4-week process from an 8-month one.',
+          'The [Employment Visa](/visa/employment-visa) is for people who will establish or manage a business interest in India as principals — investors, founders, and directors of their own Indian entity (or treaty-eligible structure). The legal anchor is your ownership or management role: board seats, shareholding, MCA (Ministry of Corporate Affairs) registrations, sponsor letters from the Indian entity. If the business is yours, the Employment Visa is usually the right category.',
+          'The Employment Visa file is documentation-heavy: apostilled board resolutions, MCA filings, and a sponsor letter that matches your actual role. Getting the business side right before the visa application is what separates a 4-week process from an 8-month one.',
         ],
       },
       {
-        heading: 'What the B-1 is for',
+        heading: 'What the Business Visa is for',
         paragraphs: [
-          'The [B-1 employment visa](/visa/b-1) is for people working in India under a contract with an Indian employer — the visa follows the employment relationship. The anchor documents are a signed employment contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. If you are being hired (or transferred) by an Indian company, the B-1 is the category.',
-          'A critical B-1 detail: after the visa, FRRO registration in India is required within 14 days of arrival, with its own document list. Employers who skip this step create post-arrival problems that are expensive to fix.',
+          'The [Business Visa](/visa/business-visa) is for people working in India under a contract with an Indian employer — the visa follows the employment relationship. The anchor documents are a signed employment contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. If you are being hired (or transferred) by an Indian company, the Business Visa is the category.',
+          'A critical Business Visa detail: after the visa, FRRO registration in India is required within 14 days of arrival, with its own document list. Employers who skip this step create post-arrival problems that are expensive to fix.',
         ],
       },
       {
         heading: 'FRRO registration: the step both categories share',
         paragraphs: [
-          'Whatever the category, one step is shared and non-negotiable: registration with the FRRO (Foreigners Regional Registration Office) in India after arrival. Both E-1 and B-1 holders must complete FRRO registration once in India, and per FRRO guidelines the registration is typically completed within 14 days of arrival for long-stay categories. It has its own document list — the visa itself, the passport, photographs, and category-specific supporting documents — and a missed or botched registration creates exactly the post-arrival problems that are far more expensive to fix than doing the step properly in the first two weeks.',
+          'Whatever the category, one step is shared and non-negotiable: registration with the FRRO (Foreigners Regional Registration Office) in India after arrival. Both Employment and Business Visa holders must complete FRRO registration once in India, and per FRRO guidelines the registration is typically completed within 14 days of arrival for long-stay categories. It has its own document list — the visa itself, the passport, photographs, and category-specific supporting documents — and a missed or botched registration creates exactly the post-arrival problems that are far more expensive to fix than doing the step properly in the first two weeks.',
           'Treating FRRO registration like a tourist entry is the classic long-stay mistake: the registration form asks about the purpose and duration of your stay, and those answers must match the category you entered on. A mismatch at the FRRO is how a founder ends up in the exit-and-restart scenario described below — which is why the registration step should be planned before you book the flight, not after you land.',
         ],
       },
       {
         heading: 'The failure mode: applying in the wrong category',
         paragraphs: [
-          'The classic scenario: a founder applies on a B-1 (or a business visa) because it looked simpler — then the FRRO determines the category was wrong for an owner/director, and the founder is told to exit India and restart with the correct category. That is exactly what happened to our founder: 8 months of wait, an FRRO exit order, and a forced restart with the correct category.',
-          'The reverse failure is also real: an employee applying on an E-1 without a genuine ownership/management role. The mission checks the substance of the role, not the label.',
+          'The classic scenario: a founder applies on a Business Visa (or an E-Business Visa) because it looked simpler — then the FRRO determines the category was wrong for an owner/director, and the founder is told to exit India and restart with the correct category. That is exactly what happened to our founder: 8 months of wait, an FRRO exit order, and a forced restart with the correct category.',
+          'The reverse failure is also real: an employee applying on an Employment Visa without a genuine ownership/management role. The mission checks the substance of the role, not the label.',
         ],
       },
       {
-        heading: 'Side by side: E-1 and B-1 at a glance',
+        heading: 'Side by side: Employment and Business Visas at a glance',
         paragraphs: [
-          'The E-1 is anchored to ownership and management: your shareholding, your board seat, the MCA registrations, and a sponsor letter from your own Indian entity. The B-1 is anchored to employment: a signed contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. Both are long-term categories — typically 1–5 years for the E-1, and up to five years or the length of the contract for the B-1 — and both require FRRO registration on arrival. The difference in validity matters less than the difference in anchor: the mission tests whether your documents prove the relationship the category claims, not whether the label sounds right.',
-          'On cost, the two services are priced the same at our end: a $499 kickoff with a $200 success fee due only after the application is successfully processed, government fees separate. Where the real cost difference shows up is in preparation — an E-1 file is built around the Indian entity\'s corporate documents, while a B-1 file is built around the employer\'s hiring paperwork. The category that matches your actual structure is the one whose preparation is straightforward, and the mismatched category is the one that restarts.',
+          'The Employment Visa is anchored to ownership and management: your shareholding, your board seat, the MCA registrations, and a sponsor letter from your own Indian entity. The Business Visa is anchored to employment: a signed contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. Both are long-term categories — typically 1–5 years for the Employment Visa, and up to five years or the length of the contract for the Business Visa — and both require FRRO registration on arrival. The difference in validity matters less than the difference in anchor: the mission tests whether your documents prove the relationship the category claims, not whether the label sounds right.',
+          'On cost, the two services are priced the same at our end: a $499 kickoff with a $200 success fee due only after the application is successfully processed, government fees separate. Where the real cost difference shows up is in preparation — an Employment Visa file is built around the Indian entity\'s corporate documents, while a Business Visa file is built around the employer\'s hiring paperwork. The category that matches your actual structure is the one whose preparation is straightforward, and the mismatched category is the one that restarts.',
         ],
       },
       {
         heading: 'How to decide in 5 minutes',
         paragraphs: [
-          'Ask three questions: (1) Who owns the Indian entity? If you do — or you will — E-1. (2) Who is your counterparty — your own company or a third-party employer? Your own company points to E-1; a third-party employer points to B-1. (3) What is your job title inside the entity? Director/founder/investor → E-1; employee → B-1.',
-          'If the answers are mixed — for example, you are both an investor and a salaried director — the structure needs to be built so the visa matches reality, and that design decision should come first. This is the single most valuable conversation to have before spending any money on documents, and it is exactly what the free case review covers. Our E-1 and B-1 services both start at $499 kickoff, with the success fee due only after your application is successfully processed.',
+          'Ask three questions: (1) Who owns the Indian entity? If you do — or you will — the Employment Visa. (2) Who is your counterparty — your own company or a third-party employer? Your own company points to the Employment Visa; a third-party employer points to the Business Visa. (3) What is your job title inside the entity? Director/founder/investor → Employment Visa; employee → Business Visa.',
+          'If the answers are mixed — for example, you are both an investor and a salaried director — the structure needs to be built so the visa matches reality, and that design decision should come first. This is the single most valuable conversation to have before spending any money on documents, and it is exactly what the free case review covers. Our Employment and Business Visa services both start at $499 kickoff, with the success fee due only after your application is successfully processed.',
         ],
       },
       {
         heading: 'Choosing a consultant for this decision',
         paragraphs: [
-          'The category decision should come from a review of your actual documents, not from a comparison table. On our E-1 and B-1 cases you work with one dedicated consultant from kickoff to approval, reachable directly on WhatsApp at +63 949 649 1061 — the same consultant who builds your sponsor letter is the one guiding your FRRO registration after arrival, with no handoffs in between.',
-          'If you want the full picture before you decide, start with the [E-1 visa page](/visa/e-1) and the [B-1 visa page](/visa/b-1) for the document checklists, then read the [FRRO registration guide for India](/blog/frro-registration-india-guide) so you know what the first two weeks in India will require either way.',
+          'The category decision should come from a review of your actual documents, not from a comparison table. On our Employment and Business Visa cases you work with one dedicated consultant from kickoff to approval, reachable directly on WhatsApp at +63 949 649 1061 — the same consultant who builds your sponsor letter is the one guiding your FRRO registration after arrival, with no handoffs in between.',
+          'If you want the full picture before you decide, start with the [Employment Visa page](/visa/employment-visa) and the [Business Visa page](/visa/business-visa) for the document checklists, then read the [FRRO registration guide for India](/blog/frro-registration-india-guide) so you know what the first two weeks in India will require either way.',
         ],
       },
     ],
@@ -299,7 +299,7 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
       {
         heading: '1. Wrong visa category',
         paragraphs: [
-          'The stated purpose does not match the actual purpose of the trip — a business trip on a [tourist visa](/visa/tourist), work on a [business visa](/visa/business), investment on an employment visa. Missions cross-check the purpose field against the itinerary, employer letters, and (for business categories) the Indian counterparty. Fix: re-state the true purpose and apply in the matching category. For mixed situations (investor + employee), design the structure to match reality before applying.',
+          'The stated purpose does not match the actual purpose of the trip — a business trip on a [tourist visa](/visa/tourist), work on a [Business Visa](/visa/business-visa), investment on an [Employment Visa](/visa/employment-visa). Missions cross-check the purpose field against the itinerary, employer letters, and (for business categories) the Indian counterparty. Fix: re-state the true purpose and apply in the matching category. For mixed situations (investor + employee), design the structure to match reality before applying.',
         ],
       },
       {

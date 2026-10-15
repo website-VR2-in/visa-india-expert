@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { BLOG_POSTS } from '../data/blog';
+import { VISA_OPTIONS } from '../data/config';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { SITE_URL, PageSeo } from '../data/seo';
 import { Header } from '../components/Header';
@@ -52,7 +53,13 @@ export const BlogPostPage: React.FC = () => {
   // Meta/OG title uses the short metaTitle (<60 chars); H1 + JSON-LD headline keep the full title.
   usePageMeta(post ? { title: post.metaTitle, description: post.description } : FALLBACK_SEO, `/blog/${slug ?? ''}`);
 
+  // Legacy slug (renamed when the E-1/B-1 pages were renamed) — in-app redirect;
+  // the edge 301 in vercel.json handles direct requests.
+  if (slug === 'e-1-vs-b-1-visa-india') return <Navigate to="/blog/employment-vs-business-visa-india" replace />;
+
   if (!post) return <Navigate to="/blog" replace />;
+
+  const relatedVisa = VISA_OPTIONS.find((v) => v.id === post.relatedVisaId);
 
   const published = new Date(post.date + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -145,7 +152,7 @@ export const BlogPostPage: React.FC = () => {
                     Start your {post.relatedVisaLabel} application
                   </Link>
                   <Link
-                    to={`/visa/${post.relatedVisaId}`}
+                    to={relatedVisa ? `/visa/${relatedVisa.slug}` : `/visa/${post.relatedVisaId}`}
                     className="btn btn-sm border-2 border-white/60 text-white hover:bg-white/10 focus:ring-white/40"
                   >
                     See {post.relatedVisaLabel} details & pricing

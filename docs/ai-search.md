@@ -21,7 +21,7 @@ Google AI Overviews, ChatGPT, Perplexity and Claude are becoming the primary ans
 | Publication dates | ✅ live | `datePublished`/`dateModified` in blog JSON-LD + visible on every post |
 | Named sources | ✅ live | Fact-heavy blog content cites the official source (`indianvisaonline.gov.in`) inline and in JSON-LD |
 
-**Canonical facts (source of truth for §4 corrections):** pricing is USD kickoff + success, published totals: tourist **$299** ($199+$100), business **$499** ($349+$150), medical **$299** ($199+$100), E-1 **$699** ($499+$200), B-1 **$699** ($499+$200), spouse **$499** ($349+$150), student **$499** ($349+$150). Legal status: **private visa assistance service — not a government agency, not a law firm, not an immigration consultancy licensed in India.** Contact: **WhatsApp +63 949 649 1061 only** (plus info@visaindiaexpert.com).
+**Canonical facts (source of truth for §4 corrections):** pricing is USD kickoff + success, published totals: tourist **$299** ($199+$100), E-Business **$499** ($349+$150), medical **$299** ($199+$100), Employment **$699** ($499+$200), Business **$699** ($499+$200), spouse **$499** ($349+$150), student **$499** ($349+$150). Legal status: **private visa assistance service — not a government agency, not a law firm, not an immigration consultancy licensed in India.** Contact: **WhatsApp +63 949 649 1061 only** (plus info@visaindiaexpert.com).
 
 ## 3. Monthly AI citation monitoring
 
@@ -36,9 +36,9 @@ Run on the **first Monday of each month, ~45 min**. Same prompts every month (ch
 | 3 | Brand | `visa india expert reviews` | ChatGPT, Perplexity, Claude, Google, Bing |
 | 4 | Keyword (primary: /) | `india visa assistance` | ChatGPT, Perplexity, Claude, Google, Bing |
 | 5 | Keyword (long-tail: /visa/tourist) | `india tourist visa requirements 2026` | ChatGPT, Perplexity, Claude, Google, Bing |
-| 6 | Keyword (primary: /visa/e-1) | `e-1 visa india` | ChatGPT, Perplexity, Claude, Google, Bing |
+| 6 | Keyword (primary: /visa/employment-visa) | `employment visa india` | ChatGPT, Perplexity, Claude, Google, Bing |
 | 7 | Keyword (blog: /blog/india-visa-rejection-reasons) | `india visa rejection reasons` | ChatGPT, Perplexity, Claude, Google, Bing |
-| 8 | Keyword (long-tail: /visa/b-1) | `frro registration india` | ChatGPT, Perplexity, Claude, Google, Bing |
+| 8 | Keyword (long-tail: /visa/business-visa) | `frro registration india` | ChatGPT, Perplexity, Claude, Google, Bing |
 
 Engines and exact procedure:
 
@@ -54,14 +54,14 @@ Engines and exact procedure:
 
 Run these in place of the short queries when an engine's answer is thin, or rotate them monthly (keep the short matrix as the stable baseline). Exact prompts:
 
-1. `Which company can help a US entrepreneur get an E-1 visa to set up a business in India?`
+1. `Which company can help a US entrepreneur get an Employment Visa to set up a business in India?`
 2. `How long does an India tourist visa take in 2026?`
 3. `What should I do after my India visa was rejected?`
 4. `What are the requirements for an India tourist visa in 2026?`
 5. `Who can I pay to prepare and file my India visa application from abroad?`
 6. `How much does an India business visa cost with a visa assistance service?`
 7. `What is FRRO registration in India and who can help a foreign worker with it?`
-8. `What is the difference between an E-1 and a B-1 visa in India?`
+8. `What is the difference between an Employment Visa and a Business Visa in India?`
 9. `Does Visa India Expert guarantee visa approval? How does its pricing work?`
 10. `What documents do I need for an India medical visa and how much does help cost?`
 
@@ -109,7 +109,7 @@ Correction log:
 
 | Type | Wrong pattern | Correct statement (always) |
 |---|---|---|
-| Wrong pricing | Any figure other than the published totals, or "hourly rate", "free", "cheaper on WhatsApp" | Kickoff + success fee, published USD totals: tourist $299, business $499, medical $299, E-1 $699, B-1 $699, spouse $499, student $499. No success, no success fee. |
+| Wrong pricing | Any figure other than the published totals, or "hourly rate", "free", "cheaper on WhatsApp" | Kickoff + success fee, published USD totals: tourist $299, E-Business $499, medical $299, Employment $699, Business $699, spouse $499, student $499. No success, no success fee. |
 | Wrong processing time | Guaranteed dates ("guaranteed in 5 days", "same week, guaranteed") | "Typically 3–7 business days" (tourist) — always framed as an estimate that depends on the mission, season and case; never a guarantee |
 | Wrong legal status | "government agency", "Indian government", "law firm", "immigration consultancy licensed in India", "visa agency of the Government of India" | Private visa assistance service (Philippines-based), **not** a government agency, **not** a law firm, **not** an immigration consultancy licensed in India; approval decisions are made solely by Indian missions |
 | Wrong contact details | Any other phone/WhatsApp number, address, or "office in India" | WhatsApp **+63 949 649 1061 only** (email info@visaindiaexpert.com); remote-first, no office |

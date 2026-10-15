@@ -36,7 +36,7 @@ Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation an
 - Max stay: 90 days per entry
 - Use cases: holidays, family visits, short stays (30-day to 5-year multiple entry options)
 
-### 2. Business Visa (https://visaindiaexpert.com/visa/business)
+### 2. E-Business Visa (https://visaindiaexpert.com/visa/e-business-visa)
 - Price: $349 kickoff + $150 success fee
 - Typical validity: 1–5 years (multiple entry)
 - Processing time: 1–3 weeks
@@ -50,14 +50,14 @@ Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation an
 - Attendants allowed: up to 2 per patient
 - Use cases: treatment in India, second opinions, long-term care (plus attendant visas)
 
-### 4. E-1 Business Visa (https://visaindiaexpert.com/visa/e-1)
+### 4. Employment Visa (https://visaindiaexpert.com/visa/employment-visa)
 - Price: $499 kickoff + $200 success fee
 - Typical validity: 1–5 years
 - Processing time: 2–6 months (varies greatly)
 - FRRO registration: required on arrival in India
 - Use cases: founders and directors establishing or expanding a business in India; includes MCA documents, apostilled board resolutions, FRRO registration
 
-### 5. B-1 Employment Visa (https://visaindiaexpert.com/visa/b-1)
+### 5. Business Visa (https://visaindiaexpert.com/visa/business-visa)
 - Price: $499 kickoff + $200 success fee
 - Typical validity: up to 5 years / contract length
 - Processing time: 4–12 weeks
@@ -92,7 +92,7 @@ Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation an
 4. Filing: application is submitted to the appropriate Indian mission / online portal.
 5. Tracking: status is tracked and the client is kept informed until a decision.
 6. Success: on approval, the success fee is due; on rejection, no success fee is charged.
-7. Post-approval: FRRO registration guidance where required (E-1, B-1, employment categories).
+7. Post-approval: FRRO registration guidance where required (Employment and Business Visa categories).
 
 ## Payments
 
@@ -120,7 +120,7 @@ Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation an
 
 - India Tourist Visa Requirements 2026: The Complete Checklist — https://visaindiaexpert.com/blog/india-tourist-visa-requirements
 - How Long Does an India Visa Take in 2026? Processing Times by Category — https://visaindiaexpert.com/blog/india-visa-processing-times-2026
-- E-1 vs B-1 Visa in India: Which One Do You Actually Need? — https://visaindiaexpert.com/blog/e-1-vs-b-1-visa-india
+- Employment Visa vs Business Visa in India: Which One Do You Actually Need? — https://visaindiaexpert.com/blog/employment-vs-business-visa-india
 - 7 Reasons India Visas Get Rejected (and How to Fix Each One) — https://visaindiaexpert.com/blog/india-visa-rejection-reasons
 
 ## Common questions
@@ -129,4 +129,4 @@ Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation an
 - "What happens if my visa is rejected?" No success fee is charged. The consultant reviews the rejection and can advise on re-application strategy.
 - "How do I pay?" Wise bank transfer in USD against an invoice generated on the website.
 - "How fast is a tourist visa?" Typically 3–7 business days for processing, subject to the mission.
-- "Do you handle FRRO registration?" Yes, for categories that require it (E-1, B-1/employment), registration guidance and filing are part of the service.
+- "Do you handle FRRO registration?" Yes, for categories that require it (Employment and Business Visas), registration guidance and filing are part of the service.

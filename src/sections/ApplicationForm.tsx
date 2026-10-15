@@ -83,7 +83,8 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
 
   const handleCancel = () => {
     if (alwaysVisible) {
-      navigate(visaId ? `/visa/${visaId}` : '/');
+      const opt = visaId ? VISA_OPTIONS.find((v) => v.id === visaId) : undefined;
+      navigate(opt ? `/visa/${opt.slug}` : '/');
       return;
     }
     hideForm();

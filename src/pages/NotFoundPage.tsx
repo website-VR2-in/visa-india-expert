@@ -14,7 +14,7 @@ export const NotFoundPage: React.FC = () => {
   usePageMeta(
     {
       title: 'Page not found | Visa India Expert',
-      description: 'This page does not exist. Browse our India visa services — tourist, business, E-1, B-1, spouse and student — or get in touch on WhatsApp.',
+      description: 'This page does not exist. Browse our India visa services — tourist, E-business, business, employment, spouse and student — or get in touch on WhatsApp.',
     },
     '/404',
     { noindex: true },
@@ -44,7 +44,7 @@ export const NotFoundPage: React.FC = () => {
               <h2 className="text-sm font-bold text-saffron-700 uppercase tracking-wide mb-4">Popular India visa services</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {VISA_OPTIONS.slice(0, 8).map((v) => (
-                  <Link key={v.id} to={`/visa/${v.id}`} className="border border-navy-100 rounded-lg px-3 py-3 text-sm font-bold text-navy-500 hover:text-saffron-700 hover:border-saffron-400 transition-colors">
+                  <Link key={v.id} to={`/visa/${v.slug}`} className="border border-navy-100 rounded-lg px-3 py-3 text-sm font-bold text-navy-500 hover:text-saffron-700 hover:border-saffron-400 transition-colors">
                     {v.label}
                   </Link>
                 ))}

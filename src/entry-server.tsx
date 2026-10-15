@@ -14,6 +14,7 @@ import {
   DISCLAIMER_SEO,
 } from './data/seo';
 import { BLOG_POSTS } from './data/blog';
+import { VISA_OPTIONS } from './data/config';
 
 /**
  * SSR entry for static generation (Step 10: no-JS crawlers must see full HTML).
@@ -47,8 +48,9 @@ export const getRoutes = (): PrerenderRoute[] => {
   const routes: PrerenderRoute[] = [
     { path: '/', file: 'index.html', title: HOME_SEO.title, description: HOME_SEO.description, canonical: 'https://visaindiaexpert.com/' },
   ];
-  for (const [id, seo] of Object.entries(VISAS_SEO)) {
-    routes.push({ path: `/visa/${id}`, file: `visa/${id}/index.html`, title: seo.title, description: seo.description });
+  for (const v of VISA_OPTIONS) {
+    const seo = VISAS_SEO[v.id];
+    routes.push({ path: `/visa/${v.slug}`, file: `visa/${v.slug}/index.html`, title: seo.title, description: seo.description });
   }
   routes.push(
     { path: '/about', file: 'about/index.html', title: ABOUT_SEO.title, description: ABOUT_SEO.description },

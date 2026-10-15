@@ -47,7 +47,7 @@ Goal: secure `visaindiaexpert` on every platform **before the first post goes ou
 | Field | Value |
 |---|---|
 | Page name | `visaindiaexpert` (fallback `visaindiaexpert_`) |
-| Bio / intro (≤255 chars) | `Specialist India visa assistance, worldwide. One dedicated consultant per case. Fixed USD pricing — success fee only on success. Tourist, business, medical, E-1, B-1, spouse & student visas. Free 15-min case review. visaindiaexpert.com` |
+| Bio / intro (≤255 chars) | `Specialist India visa assistance, worldwide. One dedicated consultant per case. Fixed USD pricing — success fee only on success. Tourist, E-business, medical, Employment, Business, spouse & student visas. Free 15-min case review. visaindiaexpert.com` |
 | Cover photo | 820×312 crop of `/og-image.png` (mobile-safe center) |
 | Profile photo | 400×400 crop of `/og-image.png` |
 | Website field | https://visaindiaexpert.com |

@@ -6,6 +6,12 @@
   "functions": {
     "api/*.js": { "maxDuration": 10 }
   },
+  "redirects": [
+    { "source": "/visa/e-1", "destination": "/visa/employment-visa", "statusCode": 301 },
+    { "source": "/visa/b-1", "destination": "/visa/business-visa", "statusCode": 301 },
+    { "source": "/visa/business", "destination": "/visa/e-business-visa", "statusCode": 301 },
+    { "source": "/blog/e-1-vs-b-1-visa-india", "destination": "/blog/employment-vs-business-visa-india", "statusCode": 301 }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
