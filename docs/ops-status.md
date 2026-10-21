@@ -2,7 +2,7 @@
 
 Single source of truth for the 9-step ops checklist. Updated after every verification round.
 
-**Last verified: 2026-10-12** (round 19)
+**Last verified: 2026-10-21** (round 20)
 
 | # | Step | Status | Evidence / last verified |
 |---|------|--------|--------------------------|
@@ -27,7 +27,7 @@ Single source of truth for the 9-step ops checklist. Updated after every verific
 
 - Frontend E2E (local, preview :4173): **99/99** — includes 6 GA4 checks (gtag.js load is blocked in-harness so dataLayer stays readable; the inline snippet still defines `gtag()`).
 - Backend E2E (local, :4199): **61/61**.
-- Production E2E: **152 checks** (was 127 + 25 no-JS prerender) — **151/152 both domains 2026-10-10** (the 1 "failure" was a test-script artifact — React `<!-- -->`/`&#x27;` splitting a marker phrase — fixed in the shared `e2e/prerender-check.mjs`); **152/152 both domains 2026-10-12 (rounds 18 and 19)**. Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- / INV-20261010- / INV-20261012- / INV-20261015- prefixes) — cleanup can be requested.
+- Production E2E: **152 checks** (was 127 + 25 no-JS prerender) — **151/152 both domains 2026-10-10** (the 1 "failure" was a test-script artifact — React `<!-- -->`/`&#x27;` splitting a marker phrase — fixed in the shared `e2e/prerender-check.mjs`); **152/152 both domains 2026-10-12 (rounds 18 and 19)**; **152/152 both domains 2026-10-21 (round 20, post-pricing-change)**. Each run adds 8 test invoices to Upstash (INV-20261005- / INV-20261008- / INV-20261010- / INV-20261012- / INV-20261015- / INV-20261021- prefixes) — cleanup can be requested.
 - Local E2E re-verified **99/99** on 2026-10-10 (round 17, after the title/meta fixes).
 - Lighthouse reports are gitignored (`lh-*`, `vh-*`); mobile sweep reports in `lh-mobile/` (22 pages, 2026-10-10).
 
@@ -52,3 +52,13 @@ Redirects: `vercel.json` 4× 301 (`/visa/e-1`, `/visa/b-1`, `/visa/business`, `/
 Verification: local build 24/24 prerendered + keyword audit 24/24 + no-JS 25/25 + local E2E 99/99 + 0 dangling `/>` in dist. Deployed `3ae3be6` (pushed deve + main, live <2 min — no nudge needed). Prod: **4× 301 verified on both domains** (domain-preserving), all 4 new URLs 200 with correct self-canonical + new titles, no-JS prerender **25/25**, full prod E2E **152/152 both domains**, 0 stray `/>` glyphs (round-18 guard holds).
 
 User follow-ups: **re-submit `sitemap.xml` in GSC and Bing Webmaster Tools** (4 URLs changed); re-verify keyword ranks after 301s settle (keyword-tracking.csv rows annotated).
+
+### Round 20 — 2026-10-21: revised visa pricing (6 categories)
+
+User-supplied price table (confirmed via question — the duplicated "Employment Visa" row was Business Visa): tourist **199+99=298**, medical **199+99=298**, other **199+99=298**, Employment (e-1) **399+195=594**, Business (b-1) **399+195=594**, student **299+150=449**; E-Business (349+150=499) and spouse (349+150=499) unchanged. Min kickoff stays $199; min success fee is now $99 (computed `MIN_KICKOFF`/`MIN_SUCCESS_FEE` auto-update).
+
+Changes: both sources of truth updated in sync — `src/data/config.ts` (6 fee changes + FAQ copy) and `lib/server/prices.js` (6 lines; `priceFor()` totals auto). All UI reads prices dynamically (visa pages, grid, form, payment, confirmation, admin) — only hardcoded copy needed edits: `seo.ts` (tourist + b-1 meta descriptions), `LegalPage.tsx` (success fee "from $99"; "Last updated: 21 October 2026"), `blog.ts` (2 posts), `public/llms.txt` + `public/llms-full.txt` (6 service lines each), `docs/ai-search.md` (canonical facts + wrong-pricing row), `docs/social-content-30d.md` (2 price lines). Defensive fallbacks aligned: `ApplicationForm.tsx` `?? 99`, `ConfirmationPage.tsx`/`PaymentPage.tsx` `: 298`. E2E assertions updated in `e2e/run.mjs` (18 checks), `e2e/run-production.mjs` (VISAS array), `e2e/run-backend.mjs` (7 checks).
+
+No retroactive repricing: historical Upstash invoices keep their recorded kickoff/success amounts; `prices.js` only prices **new** applications; admin displays resolve old ids to current labels automatically.
+
+Verification: full build 24/24 prerendered + `/>` guard 0 + keyword audit 24/24 PASS + local E2E **99/99** + backend E2E **61/61**. Deployed `0c4c1ee` (deve + main, live ~2 min). Prod: all 8 visa pages spot-checked (new strings present, unchanged pages intact — JSON-LD `price:298`, meta "199 kickoff + 99 success", FAQ "$298 total"), **4× 301 still live**, no-JS/prerender 25/25 inside prod E2E, full prod E2E **152/152 both domains** (vercel.app exit-0 + visaindiaexpert.com explicit), 0 stray `/>` on 7 prod pages sampled.
