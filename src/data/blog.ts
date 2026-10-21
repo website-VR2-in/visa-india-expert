@@ -105,7 +105,7 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
       {
         heading: 'How we help with the tourist visa',
         paragraphs: [
-          'Every tourist case is handled by one dedicated consultant from kickoff to approval — no handoffs, no re-explaining. The service runs on a fixed, transparent price: a $199 kickoff fee plus a $100 success fee that is due only after your application is successfully processed, with government visa fees separate and paid directly to the Indian government. While you prepare your documents, WhatsApp support at +63 949 649 1061 is available for quick checks on your file before you pay the government fee.',
+          'Every tourist case is handled by one dedicated consultant from kickoff to approval — no handoffs, no re-explaining. The service runs on a fixed, transparent price: a $199 kickoff fee plus a $99 success fee that is due only after your application is successfully processed, with government visa fees separate and paid directly to the Indian government. While you prepare your documents, WhatsApp support at +63 949 649 1061 is available for quick checks on your file before you pay the government fee.',
           'Before you apply, two related guides are worth reading: [how long each India visa category takes in 2026](/blog/india-visa-processing-times-2026) so you can plan your travel dates against a realistic timeline, and [the seven most common India visa rejection reasons](/blog/india-visa-rejection-reasons) so you can rule out the usual causes on your first pass.',
         ],
       },
@@ -250,14 +250,14 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
         heading: 'Side by side: Employment and Business Visas at a glance',
         paragraphs: [
           'The Employment Visa is anchored to ownership and management: your shareholding, your board seat, the MCA registrations, and a sponsor letter from your own Indian entity. The Business Visa is anchored to employment: a signed contract, an employer letter, and salary documentation that meets the threshold for your nationality and role. Both are long-term categories — typically 1–5 years for the Employment Visa, and up to five years or the length of the contract for the Business Visa — and both require FRRO registration on arrival. The difference in validity matters less than the difference in anchor: the mission tests whether your documents prove the relationship the category claims, not whether the label sounds right.',
-          'On cost, the two services are priced the same at our end: a $499 kickoff with a $200 success fee due only after the application is successfully processed, government fees separate. Where the real cost difference shows up is in preparation — an Employment Visa file is built around the Indian entity\'s corporate documents, while a Business Visa file is built around the employer\'s hiring paperwork. The category that matches your actual structure is the one whose preparation is straightforward, and the mismatched category is the one that restarts.',
+          'On cost, the two services are priced the same at our end: a $399 kickoff with a $195 success fee due only after the application is successfully processed, government fees separate. Where the real cost difference shows up is in preparation — an Employment Visa file is built around the Indian entity\'s corporate documents, while a Business Visa file is built around the employer\'s hiring paperwork. The category that matches your actual structure is the one whose preparation is straightforward, and the mismatched category is the one that restarts.',
         ],
       },
       {
         heading: 'How to decide in 5 minutes',
         paragraphs: [
           'Ask three questions: (1) Who owns the Indian entity? If you do — or you will — the Employment Visa. (2) Who is your counterparty — your own company or a third-party employer? Your own company points to the Employment Visa; a third-party employer points to the Business Visa. (3) What is your job title inside the entity? Director/founder/investor → Employment Visa; employee → Business Visa.',
-          'If the answers are mixed — for example, you are both an investor and a salaried director — the structure needs to be built so the visa matches reality, and that design decision should come first. This is the single most valuable conversation to have before spending any money on documents, and it is exactly what the free case review covers. Our Employment and Business Visa services both start at $499 kickoff, with the success fee due only after your application is successfully processed.',
+          'If the answers are mixed — for example, you are both an investor and a salaried director — the structure needs to be built so the visa matches reality, and that design decision should come first. This is the single most valuable conversation to have before spending any money on documents, and it is exactly what the free case review covers. Our Employment and Business Visa services both start at $399 kickoff, with the success fee due only after your application is successfully processed.',
         ],
       },
       {

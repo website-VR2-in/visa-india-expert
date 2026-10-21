@@ -81,7 +81,7 @@
 
 > 1/ How our pricing works, in one thread. Fixed total fee in USD, paid as kickoff + success fee. Here's the logic. 🧵
 >
-> 2/ The kickoff covers preparing and filing your file. The success fee is charged only on success — if the visa isn't approved, it doesn't apply. Totals are quoted up front: tourist $299, E-business $499, Employment $699, and the rest on the site.
+> 2/ The kickoff covers preparing and filing your file. The success fee is charged only on success — if the visa isn't approved, it doesn't apply. Totals are quoted up front: tourist $298, E-business $499, Employment $594, and the rest on the site.
 >
 > 3/ You'll never be quoted privately by us — the price list is public and fixed. See it and start your case: https://visaindiaexpert.com/apply
 
@@ -299,7 +299,7 @@ No posts (weekend — no cadence).
 
 > You will never be quoted privately by us. Our pricing is public, fixed, and in USD.
 >
-> Here it is: tourist $299, E-business $499, medical $299, Employment $699, Business $699, spouse $499, student $499. Those are total fees — kickoff plus success fee.
+> Here it is: tourist $298, E-business $499, medical $298, Employment $594, Business $594, spouse $499, student $449. Those are total fees — kickoff plus success fee.
 >
 > The success fee is charged only on success. If the visa isn't approved, the success portion doesn't apply. No upsells, no "it depends" quotes.
 >

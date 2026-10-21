@@ -152,7 +152,7 @@ const LEGAL: Record<
       {
         heading: 'Success fee',
         body: [
-          'The success fee (from $100, depending on category) becomes due only after your application has been successfully processed. If your application is refused, you do not pay the success fee — in that case the only amount you ever paid was the kickoff fee. If you stop working with us after a refusal, before starting a new application, no success fee is owed.',
+          'The success fee (from $99, depending on category) becomes due only after your application has been successfully processed. If your application is refused, you do not pay the success fee — in that case the only amount you ever paid was the kickoff fee. If you stop working with us after a refusal, before starting a new application, no success fee is owed.',
         ],
       },
       {
@@ -257,7 +257,7 @@ export const LegalPage: React.FC<{ kind: LegalKind }> = ({ kind }) => {
               </nav>
               <h1 className="section-title text-white mb-4">Visa India Expert — {doc.title}</h1>
               <p className="text-warmgray-200 text-lg leading-relaxed">{doc.intro}</p>
-              <p className="text-warmgray-300 text-sm mt-4">Last updated: 6 October 2026</p>
+              <p className="text-warmgray-300 text-sm mt-4">Last updated: 21 October 2026</p>
             </div>
           </div>
         </section>

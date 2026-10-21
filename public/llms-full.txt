@@ -30,7 +30,7 @@
 Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation and filing of the application. The success fee is due only after successful processing — no success, no success fee. Government/embassy fees are separate and non-refundable.
 
 ### 1. Tourist Visa (https://visaindiaexpert.com/visa/tourist)
-- Price: $199 kickoff + $100 success fee
+- Price: $199 kickoff + $99 success fee
 - Typical validity: 30–120 days
 - Processing time: 3–7 business days
 - Max stay: 90 days per entry
@@ -44,21 +44,21 @@ Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation an
 - Use cases: meetings, conferences, investment trips, site visits
 
 ### 3. Medical Visa (https://visaindiaexpert.com/visa/medical)
-- Price: $199 kickoff + $100 success fee
+- Price: $199 kickoff + $99 success fee
 - Typical validity: matched to treatment
 - Processing time: 3–10 business days
 - Attendants allowed: up to 2 per patient
 - Use cases: treatment in India, second opinions, long-term care (plus attendant visas)
 
 ### 4. Employment Visa (https://visaindiaexpert.com/visa/employment-visa)
-- Price: $499 kickoff + $200 success fee
+- Price: $399 kickoff + $195 success fee
 - Typical validity: 1–5 years
 - Processing time: 2–6 months (varies greatly)
 - FRRO registration: required on arrival in India
 - Use cases: founders and directors establishing or expanding a business in India; includes MCA documents, apostilled board resolutions, FRRO registration
 
 ### 5. Business Visa (https://visaindiaexpert.com/visa/business-visa)
-- Price: $499 kickoff + $200 success fee
+- Price: $399 kickoff + $195 success fee
 - Typical validity: up to 5 years / contract length
 - Processing time: 4–12 weeks
 - FRRO registration: required on arrival in India
@@ -72,14 +72,14 @@ Pricing is USD, kickoff fee + success fee. The kickoff fee covers preparation an
 - Use cases: spouse and dependent children of visa holders; apostilled marriage certificates, parallel processing
 
 ### 7. Student Visa (https://visaindiaexpert.com/visa/student)
-- Price: $349 kickoff + $150 success fee
+- Price: $299 kickoff + $150 success fee
 - Typical validity: course duration
 - Processing time: 2–6 weeks
 - Key requirement: university admission letter
 - Use cases: study in India; admission letters, proof of funds, statement of purpose
 
 ### 8. Other Visa Type — Free Case Review (https://visaindiaexpert.com/visa/other)
-- Price: $199 kickoff + $100 success fee
+- Price: $199 kickoff + $99 success fee
 - First step: free 15-minute case review
 - Processing time: case by case
 - Use cases: re-applicants, complex visa histories, unclear category; outcome is a clear visa category and plan

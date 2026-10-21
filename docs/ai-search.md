@@ -21,7 +21,7 @@ Google AI Overviews, ChatGPT, Perplexity and Claude are becoming the primary ans
 | Publication dates | ✅ live | `datePublished`/`dateModified` in blog JSON-LD + visible on every post |
 | Named sources | ✅ live | Fact-heavy blog content cites the official source (`indianvisaonline.gov.in`) inline and in JSON-LD |
 
-**Canonical facts (source of truth for §4 corrections):** pricing is USD kickoff + success, published totals: tourist **$299** ($199+$100), E-Business **$499** ($349+$150), medical **$299** ($199+$100), Employment **$699** ($499+$200), Business **$699** ($499+$200), spouse **$499** ($349+$150), student **$499** ($349+$150). Legal status: **private visa assistance service — not a government agency, not a law firm, not an immigration consultancy licensed in India.** Contact: **WhatsApp +63 949 649 1061 only** (plus info@visaindiaexpert.com).
+**Canonical facts (source of truth for §4 corrections):** pricing is USD kickoff + success, published totals: tourist **$298** ($199+$99), E-Business **$499** ($349+$150), medical **$298** ($199+$99), Employment **$594** ($399+$195), Business **$594** ($399+$195), spouse **$499** ($349+$150), student **$449** ($299+$150). Legal status: **private visa assistance service — not a government agency, not a law firm, not an immigration consultancy licensed in India.** Contact: **WhatsApp +63 949 649 1061 only** (plus info@visaindiaexpert.com).
 
 ## 3. Monthly AI citation monitoring
 
@@ -109,7 +109,7 @@ Correction log:
 
 | Type | Wrong pattern | Correct statement (always) |
 |---|---|---|
-| Wrong pricing | Any figure other than the published totals, or "hourly rate", "free", "cheaper on WhatsApp" | Kickoff + success fee, published USD totals: tourist $299, E-Business $499, medical $299, Employment $699, Business $699, spouse $499, student $499. No success, no success fee. |
+| Wrong pricing | Any figure other than the published totals, or "hourly rate", "free", "cheaper on WhatsApp" | Kickoff + success fee, published USD totals: tourist $298, E-Business $499, medical $298, Employment $594, Business $594, spouse $499, student $449. No success, no success fee. |
 | Wrong processing time | Guaranteed dates ("guaranteed in 5 days", "same week, guaranteed") | "Typically 3–7 business days" (tourist) — always framed as an estimate that depends on the mission, season and case; never a guarantee |
 | Wrong legal status | "government agency", "Indian government", "law firm", "immigration consultancy licensed in India", "visa agency of the Government of India" | Private visa assistance service (Philippines-based), **not** a government agency, **not** a law firm, **not** an immigration consultancy licensed in India; approval decisions are made solely by Indian missions |
 | Wrong contact details | Any other phone/WhatsApp number, address, or "office in India" | WhatsApp **+63 949 649 1061 only** (email info@visaindiaexpert.com); remote-first, no office |

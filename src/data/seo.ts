@@ -32,7 +32,7 @@ export const VISAS_SEO: Record<string, PageSeo> = {
   tourist: {
     title: 'India Tourist Visa — Expert Help | Visa India Expert',
     description:
-      'Apply for an India tourist visa with expert end-to-end assistance. $199 kickoff + $100 success fee, 3–7 business day processing, and a dedicated consultant.',
+      'Apply for an India tourist visa with expert end-to-end assistance. $199 kickoff + $99 success fee, 3–7 business day processing, and a dedicated consultant.',
     h1: 'India Tourist Visa',
     keywords: ['india tourist visa', 'india e-tourist visa', 'india visa for tourism', 'tourist visa to india requirements'],
   },
@@ -60,7 +60,7 @@ export const VISAS_SEO: Record<string, PageSeo> = {
   'b-1': {
     title: 'India Business Visa — Expert Help | Visa India Expert',
     description:
-      'Work in India on a business visa. Signed contracts, employer letters, salary thresholds and FRRO registration prepared by specialists. $499 kickoff.',
+      'Work in India on a business visa. Signed contracts, employer letters, salary thresholds and FRRO registration prepared by specialists. $399 kickoff.',
     h1: 'India Business Visa',
     keywords: ['india business visa', 'business visa to india', 'india work visa', 'foreign worker visa india'],
   },

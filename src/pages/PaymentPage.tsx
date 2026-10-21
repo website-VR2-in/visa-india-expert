@@ -100,7 +100,7 @@ export const PaymentPage: React.FC = () => {
   }, [invoiceId, formData.visaType, formData.fullName]);
 
   const visaOption = VISA_OPTIONS.find((v) => v.id === (app?.visaType || formData.visaType));
-  const total = app?.amount || (visaOption ? visaOption.kickoff + visaOption.successFee : 299);
+  const total = app?.amount || (visaOption ? visaOption.kickoff + visaOption.successFee : 298);
   const kickoff = app?.kickoffAmount ?? visaOption?.kickoff ?? Math.round(total * 0.67);
   const successFee = app?.successAmount ?? visaOption?.successFee ?? (total - kickoff);
   const customerName = app?.customerName || formData.fullName || 'Applicant';

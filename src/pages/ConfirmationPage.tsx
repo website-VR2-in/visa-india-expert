@@ -45,7 +45,7 @@ export const ConfirmationPage: React.FC = () => {
   const name = app?.formData?.fullName || formData.fullName;
   const visaType = app?.formData?.visaType || formData.visaType;
   const visaOption = VISA_OPTIONS.find((v) => v.id === visaType);
-  const total = app?.amount || (visaOption ? visaOption.kickoff + visaOption.successFee : 299);
+  const total = app?.amount || (visaOption ? visaOption.kickoff + visaOption.successFee : 298);
   const kickoff = app?.kickoffAmount ?? visaOption?.kickoff ?? 199;
   const successFee = app?.successAmount ?? visaOption?.successFee ?? (total - kickoff);
 

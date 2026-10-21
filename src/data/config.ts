@@ -15,7 +15,7 @@ export const VISA_OPTIONS: VisaOption[] = [
     icon: '🏛️',
     category: 'Travel',
     kickoff: 199,
-    successFee: 100,
+    successFee: 99,
     tagline: 'Explore India with a visa handled end to end.',
     whoFor: [
       'Holiday travelers and leisure visitors',
@@ -87,7 +87,7 @@ export const VISA_OPTIONS: VisaOption[] = [
     icon: '🏥',
     category: 'Health',
     kickoff: 199,
-    successFee: 100,
+    successFee: 99,
     tagline: 'World-class treatment in India — without visa stress.',
     whoFor: [
       'Patients seeking treatment at Indian hospitals',
@@ -121,8 +121,8 @@ export const VISA_OPTIONS: VisaOption[] = [
     description: 'For entrepreneurs, directors & company owners establishing business in India. We prepare your India employment visa file end to end — entrepreneur documentation, FRRO registration and follow-up included.',
     icon: '🏢',
     category: 'Residency',
-    kickoff: 499,
-    successFee: 200,
+    kickoff: 399,
+    successFee: 195,
     tagline: 'Our flagship case — we built this process the hard way.',
     whoFor: [
       'Foreigners who own or establish an Indian company',
@@ -157,8 +157,8 @@ export const VISA_OPTIONS: VisaOption[] = [
     description: 'For foreign nationals employed by an Indian company. We prepare your India business visa file end to end — work documentation, FRRO registration and support through the foreign worker visa process.',
     icon: '👔',
     category: 'Residency',
-    kickoff: 499,
-    successFee: 200,
+    kickoff: 399,
+    successFee: 195,
     tagline: 'Get hired in India with the right visa from day one.',
     whoFor: [
       'Foreign nationals with a formal Indian employment offer',
@@ -227,7 +227,7 @@ export const VISA_OPTIONS: VisaOption[] = [
     description: 'For enrollment in Indian educational institutions. Your study in India visa prepared end to end — India university visa approvals, admission letters and a full check of the student visa requirements for India.',
     icon: '🎓',
     category: 'Education',
-    kickoff: 349,
+    kickoff: 299,
     successFee: 150,
     tagline: 'Study in India with a clean, complete file.',
     whoFor: [
@@ -263,7 +263,7 @@ export const VISA_OPTIONS: VisaOption[] = [
     icon: '📋',
     category: 'Other',
     kickoff: 199,
-    successFee: 100,
+    successFee: 99,
     tagline: 'Tell us your situation — we\'ll find the right category.',
     whoFor: [
       'Applicants unsure of the correct visa category',
@@ -306,7 +306,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: '3',
     question: 'How much does your service cost?',
-    answer: 'Every visa has a fixed, all-inclusive price shown on its own page: a kickoff fee you pay upfront to start, plus a success fee that is due only after your application is successfully processed. For example, a Tourist Visa is $199 kickoff + $100 success fee ($299 total). Government visa fees are separate and paid directly to the Indian government.',
+    answer: 'Every visa has a fixed, all-inclusive price shown on its own page: a kickoff fee you pay upfront to start, plus a success fee that is due only after your application is successfully processed. For example, a Tourist Visa is $199 kickoff + $99 success fee ($298 total). Government visa fees are separate and paid directly to the Indian government.',
   },
   {
     id: '4',

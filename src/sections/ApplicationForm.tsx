@@ -92,7 +92,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ visaId, always
 
   const visaOption = VISA_OPTIONS.find((v) => v.id === formData.visaType);
   const kickoff = visaOption?.kickoff ?? 199;
-  const successFee = visaOption?.successFee ?? 100;
+  const successFee = visaOption?.successFee ?? 99;
   const total = kickoff + successFee;
 
   const handleSubmit = async () => {
